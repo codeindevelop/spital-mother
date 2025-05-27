@@ -5,6 +5,8 @@
   "AUTH.SYSTEM_NAME_LONG_SHORT": "Spital CMS",
   "AUTH.SYSTEM_NAME_LONG_WITH_VERSION": "Spital CMS v1.0.0",
   "AUTH.SYSTEM_NAME_LONG_WITH_VERSION_SHORT": "Spital CMS v1.0",
+  "ERROR.404.TITLE": "We have lost this page",
+  "ERROR.404.MESSAGE": "The requested page is missing. Check the URL or return to the homepage.",
   "USER.MENU.PUBLIC_PROFILE": "Public Profile",
   "USER.MENU.MY_PROFILE": "My Profile",
   "USER.MENU.MY_ACCOUNT": "My Account",

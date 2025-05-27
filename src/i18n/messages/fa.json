@@ -4,6 +4,8 @@
   "AUTH.SYSTEM_NAME_SHORT": "اسپیتال",
   "AUTH.SYSTEM_NAME_LONG": "سامانه مدیریت محتوای اسپیتال",
   "AUTH.SYSTEM_NAME_LONG_SHORT": "اسپیتال CMS",
+  "ERROR.404.TITLE": "صفحه پیدا نشد",
+  "ERROR.404.MESSAGE": "متاسفانه، صفحه‌ای که به دنبال آن هستید پیدا نشد. لطفاً آدرس را بررسی کنید یا به صفحه اصلی بازگردید.",
   "AUTH.SYSTEM_NAME_LONG_WITH_VERSION": "اسپیتال CMS v1.0.0",
   "AUTH.SYSTEM_NAME_LONG_WITH_VERSION_SHORT": "اسپیتال CMS v1.0",
   "USER.MENU.PUBLIC_PROFILE": "پروفایل عمومی",

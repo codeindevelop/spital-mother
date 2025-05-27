@@ -1,5 +1,6 @@
 {
   "AUTH.SYSTEM_NAME": "سامانه مدیریت محتوای اسپیتال",
+  "AUTH.SYSTEM_DESCRIPTION": "اسپیتال یک سامانه مدیریت محتوای حرفه ای که به شما امکان می‌دهد تا به راحتی وب‌سایت خود را مدیریت کنید.",
   "AUTH.SYSTEM_NAME_SHORT": "اسپیتال",
   "AUTH.SYSTEM_NAME_LONG": "سامانه مدیریت محتوای اسپیتال",
   "AUTH.SYSTEM_NAME_LONG_SHORT": "اسپیتال CMS",

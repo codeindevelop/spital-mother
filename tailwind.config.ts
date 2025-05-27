@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint no-use-before-define: 0 */
 
 /** @type {import('tailwindcss').Config} */
@@ -16,6 +17,19 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
+    fontFamily: {
+      // Persian Fonts
+      estedad: ['westedad'],
+      azarmehr: ['Azarmehr'],
+      yekanbakh: ['yekanbakh'],
+
+      // English Fonts
+      pop: ['Poppins Regular'],
+      'pop-light': ['Poppins Light'],
+      'pop-med': ['Poppins Medium'],
+      'pop-bold': ['Poppins Bold'],
+      sf: ['sf-ui']
+    },
     extend: {
       base: {
         colors: {

@@ -26,27 +26,23 @@ const Layout = () => {
           <Outlet />
         </div>
 
-        <div className="lg:rounded-xl lg:border lg:border-gray-200 lg:m-5 order-1 lg:order-2 bg-top xxl:bg-center xl:bg-cover bg-no-repeat branded-bg">
-          <div className="flex flex-col p-8 lg:p-16 gap-4">
+        <div className=" justify-center items-center lg:rounded-xl lg:border lg:border-gray-200 lg:m-5 order-1 lg:order-2 bg-top xxl:bg-center xl:bg-cover bg-no-repeat branded-bg">
+          <div className="flex flex-col p-8 lg:p-16 gap-4 justify-center items-center">
             <Link to="/">
               <img
-                src={toAbsoluteUrl('/media/app/mini-logo.svg')}
-                className="h-[28px] max-w-none"
+                src={toAbsoluteUrl('/media/logo/logo.svg')}
+                className="h-[50px] max-w-none"
                 alt=""
               />
             </Link>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 justify-center items-center text-center">
               <h3 className="text-2xl font-semibold text-gray-900">
                 <FormattedMessage id="AUTH.SYSTEM_NAME" />
               </h3>
-              <div className="text-base font-medium text-gray-600">
-                A robust authentication gateway ensuring
-                <br /> secure&nbsp;
-                <span className="text-gray-900 font-semibold">efficient user access</span>
-                &nbsp;to the Metronic
-                <br /> Dashboard interface.
-              </div>
+              <p className="text-gray-600">
+                <FormattedMessage id="AUTH.SYSTEM_DESCRIPTION" />
+              </p>
             </div>
           </div>
         </div>

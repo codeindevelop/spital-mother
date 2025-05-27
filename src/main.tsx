@@ -1,5 +1,7 @@
 import '@/components/keenicons/assets/styles.css';
-import './styles/globals.css';
+import '@/assets/scss/typography/_english-fonts.scss';
+import '@/assets/scss/typography/_persian-fonts.scss';
+import '@/assets/css/globals.css';
 
 import axios from 'axios';
 import ReactDOM from 'react-dom/client';

@@ -1,4 +1,10 @@
 {
+  "AUTH.SYSTEM_NAME": "Spital CMS System",
+  "AUTH.SYSTEM_NAME_SHORT": "Spital",
+  "AUTH.SYSTEM_NAME_LONG": "Spital Content Management System",
+  "AUTH.SYSTEM_NAME_LONG_SHORT": "Spital CMS",
+  "AUTH.SYSTEM_NAME_LONG_WITH_VERSION": "Spital CMS v1.0.0",
+  "AUTH.SYSTEM_NAME_LONG_WITH_VERSION_SHORT": "Spital CMS v1.0",
   "USER.MENU.PUBLIC_PROFILE": "Public Profile",
   "USER.MENU.MY_PROFILE": "My Profile",
   "USER.MENU.MY_ACCOUNT": "My Account",

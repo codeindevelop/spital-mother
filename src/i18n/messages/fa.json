@@ -1,0 +1,22 @@
+{
+  "AUTH.SYSTEM_NAME": "سامانه مدیریت محتوای اسپیتال",
+  "AUTH.SYSTEM_NAME_SHORT": "اسپیتال",
+  "AUTH.SYSTEM_NAME_LONG": "سامانه مدیریت محتوای اسپیتال",
+  "AUTH.SYSTEM_NAME_LONG_SHORT": "اسپیتال CMS",
+  "AUTH.SYSTEM_NAME_LONG_WITH_VERSION": "اسپیتال CMS v1.0.0",
+  "AUTH.SYSTEM_NAME_LONG_WITH_VERSION_SHORT": "اسپیتال CMS v1.0",
+  "USER.MENU.PUBLIC_PROFILE": "پروفایل عمومی",
+  "USER.MENU.MY_PROFILE": "پروفایل من",
+  "USER.MENU.MY_ACCOUNT": "حساب من",
+  "USER.MENU.GET_STARTED": "شروع کنید",
+  "USER.MENU.BILLING": "صورتحساب",
+  "USER.MENU.SECURITY": "امنیت",
+  "USER.MENU.MEMBERS_&_ROLES": "اعضا و نقش‌ها",
+  "USER.MENU.INTEGRATIONS": "یکپارچه‌سازی‌ها",
+  "USER.MENU.NOTIFICATIONS": "اطلاعیه‌ها",
+  "USER.MENU.DEV_FORUM": "انجمن توسعه‌دهندگان",
+  "USER.MENU.PAYMENT_&_SUBSCRIPTION_INFO": "Payment & subscription info",
+  "USER.MENU.DARK_MODE": "Dark Mode",
+  "USER.MENU.LOGOUT": "Logout",
+  "USER.MENU.LANGUAGE": "زبان"
+}

@@ -1,9 +1,9 @@
 import { Link, Outlet } from 'react-router-dom';
 import { Fragment } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { toAbsoluteUrl } from '@/utils';
 import useBodyClasses from '@/hooks/useBodyClasses';
 import { AuthBrandedLayoutProvider } from './AuthBrandedLayoutProvider';
-
 const Layout = () => {
   // Applying body classes to manage the background color in dark mode
   useBodyClasses('dark:bg-coal-500');
@@ -37,7 +37,9 @@ const Layout = () => {
             </Link>
 
             <div className="flex flex-col gap-3">
-              <h3 className="text-2xl font-semibold text-gray-900">Secure Access Portal</h3>
+              <h3 className="text-2xl font-semibold text-gray-900">
+                <FormattedMessage id="AUTH.SYSTEM_NAME" />
+              </h3>
               <div className="text-base font-medium text-gray-600">
                 A robust authentication gateway ensuring
                 <br /> secure&nbsp;

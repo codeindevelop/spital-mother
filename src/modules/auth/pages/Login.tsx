@@ -47,37 +47,42 @@ const Login = () => {
 
   const reduxStateProps = createSelector(
     (state) => state.auth.login.email,
-    (login: { loginSucc: boolean; loginLoading: boolean; loginErrMsg: string }) => {
+    (login: {
+      isLoginErr: any;
+      loginSucc: boolean;
+      loginLoading: boolean;
+      loginErrMsg: string;
+    }) => {
       return {
         loginSucc: login.loginSucc,
+        isLoginErr: login.isLoginErr,
         loginErrMsg: login.loginErrMsg,
         loginLoading: login.loginLoading
       };
     }
   );
-  const { loginSucc, loginLoading, loginErrMsg } = useAppSelector(reduxStateProps);
+  const { loginSucc, loginLoading, isLoginErr, loginErrMsg } = useAppSelector(reduxStateProps);
 
   useEffect(() => {
     if (loginSucc) {
+      // Redirect to the previous page or home page
+      navigate(from, { replace: true });
+    }
+    if (isLoginErr) {
+      setLoading(false);
+    }
+    if (loginSucc) {
       dispatch(enableAuthAction());
     }
-  }, [dispatch, loginSucc]);
+  }, [dispatch, from, isLoginErr, loginSucc, navigate]);
 
   const formik = useFormik({
     initialValues,
     validationSchema: loginSchema,
-    onSubmit: async (values, { setStatus, setSubmitting }) => {
+    onSubmit: async (values) => {
       setLoading(true);
-
+      // try {
       dispatch(loginWithEmailAction(values));
-
-      // if (values.remember) {
-      //   localStorage.setItem('email', values.email);
-      // } else {
-      //   localStorage.removeItem('email');
-      // }
-
-      navigate(from, { replace: true });
     }
   });
 
@@ -88,11 +93,7 @@ const Login = () => {
 
   return (
     <div className="card max-w-[390px] w-full">
-      <form
-        className="card-body flex flex-col gap-5 p-10"
-        onSubmit={formik.handleSubmit}
-        noValidate
-      >
+      <form className="card-body flex flex-col gap-5 p-10" onSubmit={formik.handleSubmit}>
         <div className="text-center mb-2.5">
           <h3 className="text-lg font-semibold text-gray-900 leading-none mb-2.5">
             <FormattedMessage id="AUTH.SIGNIN" />

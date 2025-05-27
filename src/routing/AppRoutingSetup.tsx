@@ -73,8 +73,6 @@ import {
   NetworkVisitorsPage
 } from '@/pages/network';
 
-import { AuthPage } from '@/auth';
-import { RequireAuth } from '@/auth/RequireAuth';
 import { Demo1Layout } from '@/layouts/demo1';
 import { ErrorsRouting } from '@/errors';
 import {
@@ -82,6 +80,8 @@ import {
   AuthenticationAccountDeactivatedPage,
   AuthenticationGetStartedPage
 } from '@/pages/authentication';
+import { AuthRoutes } from '@/modules/auth/router/AuthRoutes';
+import { RequireAuth } from '@/modules/auth/router/RequireAuth';
 
 const AppRoutingSetup = (): ReactElement => {
   return (
@@ -188,7 +188,7 @@ const AppRoutingSetup = (): ReactElement => {
         </Route>
       </Route>
       <Route path="error/*" element={<ErrorsRouting />} />
-      <Route path="auth/*" element={<AuthPage />} />
+      <Route path="auth/*" element={<AuthRoutes />} />
       <Route path="*" element={<Navigate to="/error/404" />} />
     </Routes>
   );

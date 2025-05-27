@@ -1,7 +1,7 @@
 import { ChangeEvent, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import { useAuthContext } from '@/auth';
+
 import { useLanguage } from '@/i18n';
 import { toAbsoluteUrl } from '@/utils';
 import { DropdownUserLanguages } from './DropdownUserLanguages';
@@ -23,7 +23,7 @@ interface IDropdownUserProps {
 
 const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
   const { settings, storeSettings } = useSettings();
-  const { logout } = useAuthContext();
+
   const { isRTL } = useLanguage();
 
   const handleThemeMode = (event: ChangeEvent<HTMLInputElement>) => {
@@ -239,7 +239,7 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
         </div>
 
         <div className="menu-item px-4 py-1.5">
-          <a onClick={logout} className="btn btn-sm btn-light justify-center">
+          <a href="/auth/logout" className="btn btn-sm btn-light justify-center">
             <FormattedMessage id="USER.MENU.LOGOUT" />
           </a>
         </div>

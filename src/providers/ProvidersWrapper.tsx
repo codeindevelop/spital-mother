@@ -1,7 +1,6 @@
 import { PropsWithChildren } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { Provider } from 'react-redux';
 
-import { AuthProvider } from '@/auth/providers/JWTProvider';
 import {
   LayoutProvider,
   LoadersProvider,
@@ -11,26 +10,23 @@ import {
   TranslationProvider
 } from '@/providers';
 import { HelmetProvider } from 'react-helmet-async';
-
-const queryClient = new QueryClient();
+import rootStore from '@/store/store';
 
 const ProvidersWrapper = ({ children }: PropsWithChildren) => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <SettingsProvider>
-          <TranslationProvider>
-            <HelmetProvider>
-              <LayoutProvider>
-                <LoadersProvider>
-                  <MenusProvider>{children}</MenusProvider>
-                </LoadersProvider>
-              </LayoutProvider>
-            </HelmetProvider>
-          </TranslationProvider>
-        </SettingsProvider>
-      </AuthProvider>
-    </QueryClientProvider>
+    <Provider store={rootStore}>
+      <SettingsProvider>
+        <TranslationProvider>
+          <HelmetProvider>
+            <LayoutProvider>
+              <LoadersProvider>
+                <MenusProvider>{children}</MenusProvider>
+              </LoadersProvider>
+            </LayoutProvider>
+          </HelmetProvider>
+        </TranslationProvider>
+      </SettingsProvider>
+    </Provider>
   );
 };
 

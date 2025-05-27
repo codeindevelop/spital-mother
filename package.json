@@ -1,7 +1,7 @@
 {
-  "name": "metronic-tailwind-react",
+  "name": "spital-mother",
   "private": true,
-  "version": "9.1.2",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -4,6 +4,7 @@ import { useSettings } from '@/providers/SettingsProvider';
 import { AppRouting } from '@/routing';
 import { PathnameProvider } from '@/providers';
 import { Toaster } from '@/components/ui/sonner';
+import { ScreenLoader } from './components';
 
 const { BASE_URL } = import.meta.env;
 

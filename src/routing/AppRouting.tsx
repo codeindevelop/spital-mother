@@ -6,6 +6,8 @@ import { AppRoutingSetup } from '.';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { createSelector } from 'reselect';
 import { loadProfileAction } from '@/modules/auth/actions/profile/profileAction';
+import { disableScreenLoaderAction } from '@/modules/loaders/store/screenLoader/screenLoaderReducer';
+import { get } from 'http';
 
 const AppRouting = (): ReactElement => {
   const { setProgressBarLoader } = useLoaders();
@@ -40,6 +42,7 @@ const AppRouting = (): ReactElement => {
     if (localStorage.getItem('accessToken') != null) {
       // load profile
       dispatch(loadProfileAction());
+      dispatch(disableScreenLoaderAction());
     }
 
     if (logoutSuc) {
@@ -50,19 +53,26 @@ const AppRouting = (): ReactElement => {
 
   useEffect(() => {
     if (firstLoad) {
+      setProgressBarLoader(false);
       if (isAuthenticated) {
-        setLoading(false);
+        dispatch(disableScreenLoaderAction());
         setFirstLoad(false);
       }
     }
-  }, [firstLoad, isAuthenticated]);
+  }, [dispatch, firstLoad, isAuthenticated, setProgressBarLoader]);
 
   useEffect(() => {
     if (!firstLoad) {
-      setProgressBarLoader(true);
+      try {
+        dispatch(loadProfileAction());
+      } catch (error) {
+        console.error('Error loading profile:', error);
+      } finally {
+        dispatch(disableScreenLoaderAction());
+      }
 
       setPreviousLocation(path);
-      setProgressBarLoader(false);
+      dispatch(disableScreenLoaderAction());
       if (path === previousLocation) {
         setPreviousLocation('');
       }

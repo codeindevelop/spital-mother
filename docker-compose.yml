@@ -1,0 +1,28 @@
+name: spital-mother-dockerize
+version: '3.8' #docker-compose version
+
+services:
+  spital-mother-dockerize:
+    # Set the container name
+    container_name: spital-mother-dockerize_container
+
+    # set name for the image
+    image: spital-mother-dockerize_image
+
+    # Build the image using the Dockerfile in the current context
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    environment:
+      NODE_ENV: production
+
+    ports:
+      - '80:80' #<host_port>:<container_port/protocol_port>
+
+    # Mount the current directory to /app in the container
+    volumes:
+      - .:/app
+      - /app/node_modules
+    # Restart policy
+    restart: always

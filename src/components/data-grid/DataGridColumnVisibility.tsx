@@ -8,7 +8,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
-import { KeenIcon } from '@/components/keenicons';
+import { KeenIcon } from '@/assets/keenicons';
 
 interface IDataGridColumnVisibilityProps<TData> {
   table: Table<TData>;

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Link } from 'react-router-dom';
-import { KeenIcon } from '@/components/keenicons';
+import { KeenIcon } from '@/assets/keenicons';
 import { useResponsive, useViewport } from '@/hooks';
 import { useDemo3Layout } from '..';
 import { useEffect } from 'react';

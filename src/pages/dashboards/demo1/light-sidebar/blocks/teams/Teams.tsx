@@ -168,7 +168,7 @@ const Teams = () => {
       };
     } catch (error) {
       toast(`Connection Error`, {
-        description: `An error occurred while fetching data. Please try again later`,
+        description: `مشکل در لود کردن داده‌ها. لطفاً دوباره تلاش کنید.`,
         action: {
           label: 'Ok',
           onClick: () => console.log('Ok')

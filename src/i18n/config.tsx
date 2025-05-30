@@ -2,8 +2,8 @@ import { toAbsoluteUrl } from '@/utils';
 import arMessages from './messages/ar.json';
 import enMessages from './messages/en.json';
 import frMessages from './messages/fr.json';
-import faMessages from './messages/fa.json';
 import zhMessages from './messages/zh.json';
+import faMessages from './messages/fa.json';
 import { type TLanguage } from './types.d';
 
 const I18N_MESSAGES = {
@@ -25,7 +25,7 @@ const I18N_LANGUAGES: readonly TLanguage[] = [
     messages: I18N_MESSAGES.en
   },
   {
-    label: 'Farsi (Persian)',
+    label: 'Persian',
     code: 'fa',
     direction: 'rtl',
     flag: toAbsoluteUrl('/media/flags/iran.svg'),

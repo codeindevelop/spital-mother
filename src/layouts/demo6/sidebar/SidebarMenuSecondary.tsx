@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { Fragment } from 'react';
-import { KeenIcon } from '@/components/keenicons';
+import { KeenIcon } from '@/assets/keenicons';
 import {
   Menu,
   MenuArrow,

@@ -73,21 +73,21 @@ import {
   NetworkVisitorsPage
 } from '@/pages/network';
 
-import { Demo1Layout } from '@/layouts/demo1';
-import { ErrorsRouting } from '@/errors';
+import { AuthPage } from '@/auth';
+import { RequireAuth } from '@/auth/RequireAuth';
+import { ErrorsRouting } from '@/pages/errors';
 import {
   AuthenticationWelcomeMessagePage,
   AuthenticationAccountDeactivatedPage,
   AuthenticationGetStartedPage
 } from '@/pages/authentication';
-import { AuthRoutes } from '@/modules/auth/router/AuthRoutes';
-import { RequireAuth } from '@/modules/auth/router/RequireAuth';
+import { Demo4Layout } from '@/layouts/demo4';
 
 const AppRoutingSetup = (): ReactElement => {
   return (
     <Routes>
       <Route element={<RequireAuth />}>
-        <Route element={<Demo1Layout />}>
+        <Route element={<Demo4Layout />}>
           <Route path="/" element={<DefaultPage />} />
           <Route path="/dark-sidebar" element={<Demo1DarkSidebarPage />} />
           <Route path="/public-profile/profiles/default" element={<ProfileDefaultPage />} />
@@ -188,7 +188,7 @@ const AppRoutingSetup = (): ReactElement => {
         </Route>
       </Route>
       <Route path="error/*" element={<ErrorsRouting />} />
-      <Route path="auth/*" element={<AuthRoutes />} />
+      <Route path="auth/*" element={<AuthPage />} />
       <Route path="*" element={<Navigate to="/error/404" />} />
     </Routes>
   );

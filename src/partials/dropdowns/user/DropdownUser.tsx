@@ -1,7 +1,7 @@
 import { ChangeEvent, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-
+import { useAuthContext } from '@/auth';
 import { useLanguage } from '@/i18n';
 import { toAbsoluteUrl } from '@/utils';
 import { DropdownUserLanguages } from './DropdownUserLanguages';
@@ -23,7 +23,7 @@ interface IDropdownUserProps {
 
 const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
   const { settings, storeSettings } = useSettings();
-
+  const { logout, currentUser } = useAuthContext();
   const { isRTL } = useLanguage();
 
   const handleThemeMode = (event: ChangeEvent<HTMLInputElement>) => {
@@ -33,33 +33,42 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
       themeMode: newThemeMode
     });
   };
+  console.log('currentUser', currentUser?.data.user);
 
   const buildHeader = () => {
     return (
-      <div className="flex items-center justify-between px-5 py-1.5 gap-1.5">
-        <div className="flex items-center gap-2">
-          <img
-            className="size-9 rounded-full border-2 border-success"
-            src={toAbsoluteUrl('/media/avatars/300-2.png')}
-            alt=""
-          />
-          <div className="flex flex-col gap-1.5">
-            <Link
-              to="/account/hoteme/get-stard"
-              className="text-sm text-gray-800 hover:text-primary font-semibold leading-none"
-            >
-              Cody Fisher
-            </Link>
-            <a
-              href="mailto:c.fisher@gmail.com"
-              className="text-xs text-gray-600 hover:text-primary font-medium leading-none"
-            >
-              c.fisher@gmail.com
-            </a>
+      <>
+        <div className="flex items-center justify-between px-5 py-1.5 gap-1.5  w-full">
+          <div className="flex items-center gap-2  ">
+            <img
+              className="size-9 rounded-full border-2 border-success"
+              src={toAbsoluteUrl('/media/avatars/300-2.png')}
+              alt=""
+            />
+            <div className="flex flex-col gap-1.5">
+              <Link
+                to="/account/hoteme/get-stard"
+                className="text-sm text-gray-800 hover:text-primary font-semibold leading-none"
+              >
+                {currentUser?.data?.user?.first_name} {currentUser?.data?.user?.last_name}
+              </Link>
+              <a
+                href="mailto:c.fisher@gmail.com"
+                className="text-xs text-gray-600 hover:text-primary font-medium leading-none"
+              >
+                {currentUser?.data?.user?.email}
+              </a>
+            </div>
           </div>
+          <span className="badge badge-xs badge-primary badge-outline  w-[50px] mr-2 ">
+            {currentUser?.data?.user?.roles[0]?.name == 'super-admin' && (
+              <>
+                <span>مدیر کل</span>
+              </>
+            )}
+          </span>
         </div>
-        <span className="badge badge-xs badge-primary badge-outline">Pro</span>
-      </div>
+      </>
     );
   };
 
@@ -239,7 +248,7 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
         </div>
 
         <div className="menu-item px-4 py-1.5">
-          <a href="/auth/logout" className="btn btn-sm btn-light justify-center">
+          <a onClick={logout} className="btn btn-sm btn-light justify-center">
             <FormattedMessage id="USER.MENU.LOGOUT" />
           </a>
         </div>
@@ -249,7 +258,7 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
 
   return (
     <MenuSub
-      className="menu-default light:border-gray-300 w-[200px] md:w-[250px]"
+      className="menu-default light:border-gray-300 w-[350px] md:w-[280px]"
       rootClassName="p-0"
     >
       {buildHeader()}

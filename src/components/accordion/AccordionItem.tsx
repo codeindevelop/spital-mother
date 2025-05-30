@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { memo, ReactNode } from 'react';
 import { Collapse } from '@mui/material';
-import { KeenIcon } from '../keenicons';
+import { KeenIcon } from '../../assets/keenicons';
 
 interface IAccordionItemProps {
   title: string; // Title of the accordion item

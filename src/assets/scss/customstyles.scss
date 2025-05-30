@@ -1,0 +1,164 @@
+.ltr {
+  direction: ltr !important;
+}
+.rtl {
+  direction: rtl !important;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 10px;
+  background: conic-gradient(
+    from 198deg at 50% 50%,
+    #844ffc 31.34959191083908deg,
+    #e1467c 249.08761024475098deg
+  );
+  -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(360deg, #637bff 0%, #21c8f6 100%);
+  -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-corner {
+  background: #fff3;
+}
+
+.search_grad_anim {
+  --main-bg: conic-gradient(
+    from var(--border-angle),
+    #e3545c 14.76%,
+    #c84d9d 34.32%,
+    #885dd1 51.03%,
+    #2f86bc 67.39%,
+    #01a89e 85.88%
+  );
+
+  border: solid 2px transparent;
+  border-radius: 19px;
+  --gradient-border: conic-gradient(
+    from var(--border-angle),
+    transparent 25%,
+    #08f,
+    #f03 99%,
+    transparent
+  );
+
+  background: 
+    // padding-box clip this background in to the overall element except the border.
+    var(--main-bg) padding-box,
+    // border-box extends this background to the border space
+    var(--gradient-border) border-box,
+    // Duplicate main background to fill in behind the gradient border. You can remove this if you want the border to extend "outside" the box background.
+    var(--main-bg) border-box;
+
+  background-position: center center;
+
+  animation: bg-spin 7s linear infinite;
+  @keyframes bg-spin {
+    to {
+      --border-angle: 1turn;
+    }
+  }
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0turn;
+}
+
+.card_grad_anim {
+  --main-bg: conic-gradient(
+    from var(--border-angle),
+    #ffffff 14.76%,
+    #b2b2b2 34.32%,
+    #e0d1f9 51.03%,
+    #383838 67.39%,
+    #cecece 85.88%
+  );
+
+  border: solid 2px transparent;
+  border-radius: 19px;
+  --gradient-border: conic-gradient(
+    from var(--border-angle),
+    transparent 25%,
+    rgb(240, 162, 84),
+    rgb(167, 155, 48) 99%,
+    transparent
+  );
+
+  background: 
+    // padding-box clip this background in to the overall element except the border.
+    var(--main-bg) padding-box,
+    // border-box extends this background to the border space
+    var(--gradient-border) border-box,
+    // Duplicate main background to fill in behind the gradient border. You can remove this if you want the border to extend "outside" the box background.
+    var(--main-bg) border-box;
+
+  background-position: center center;
+
+  animation: bg-spin 7s linear infinite;
+  @keyframes bg-spin {
+    to {
+      --border-angle: 1turn;
+    }
+  }
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0turn;
+}
+
+.tr_bg_light {
+  border-radius: 722px;
+  width: 722px;
+  height: 722px;
+  flex-shrink: 0;
+
+  opacity: 0.48;
+  background: var(--grad-grad-primary, linear-gradient(0deg, #637bff 0%, #21c8f6 100%));
+  filter: blur(152.39999389648438px);
+}
+
+.tr_bg_light_red {
+  border-radius: 722px;
+  width: 722px;
+  height: 722px;
+  flex-shrink: 0;
+  opacity: 0.3;
+  background: var(
+    --angular,
+    conic-gradient(
+      from 198deg at 50% 50%,
+      #844ffc 31.34959191083908deg,
+      #e1467c 249.08761024475098deg
+    )
+  );
+  filter: blur(152.39999389648438px);
+}
+
+.main_menu {
+  background: rgba(255, 255, 255, 0.2);
+
+  backdrop-filter: blur(50px);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(14.2px);
+  -webkit-backdrop-filter: blur(14.2px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  //box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { KeenIcon } from '@/components/keenicons';
+import { KeenIcon } from '@/assets/keenicons';
 import { toAbsoluteUrl } from '@/utils';
 import { MegaMenu } from '../mega-menu';
 import { useDemo7Layout } from '@/layouts/demo7/Demo7LayoutProvider';

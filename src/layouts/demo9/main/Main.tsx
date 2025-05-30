@@ -12,7 +12,7 @@ import { Calendar } from '@/components/ui/calendar';
 import { DateRange } from 'react-day-picker';
 import { addDays, format } from 'date-fns';
 import { cn } from '@/lib/utils';
-import { KeenIcon } from '@/components/keenicons';
+import { KeenIcon } from '@/assets/keenicons';
 
 const Main = () => {
   const { pathname } = useLocation();

@@ -21,16 +21,17 @@ const Error404Page = () => {
         />
       </div>
 
-      <span className="badge badge-primary badge-outline mb-3">404 Error</span>
+      <span className="badge badge-primary badge-outline mb-3 font-sf">404 Error</span>
 
       <h3 className="text-2.5xl font-semibold text-gray-900 text-center mb-2">
-        We have lost this page
+        صفحه مورد نظر پیدا نشد
       </h3>
 
-      <div className="text-md text-center text-gray-700 mb-10">
-        The requested page is missing. Check the URL or&nbsp;
+      <div className="text-md text-center text-gray-700 mb-10 flex gap-3 flex-col">
+        صفحه درخواست شده موجود نیست. URL را بررسی کنید یا&nbsp;
+        <br />
         <Link to="/" className="text-primary font-medium hover:text-primary-active">
-          Return Home
+          به صفحه اصلی پرتال برگردید
         </Link>
         .
       </div>

@@ -44,8 +44,8 @@ const menuItems: IMenuItem[] = [
   {
     icon: 'users',
     tooltip: 'کاربران',
-    path: '/public-profile/profiles/default',
-    rootPath: '/public-profile/'
+    path: '/user/default',
+    rootPath: '/user/'
   },
   {
     icon: 'dollar',

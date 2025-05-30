@@ -33,7 +33,6 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
       themeMode: newThemeMode
     });
   };
-  console.log('currentUser', currentUser?.data.user);
 
   const buildHeader = () => {
     return (

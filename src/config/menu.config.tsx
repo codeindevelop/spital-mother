@@ -2,11 +2,11 @@ import { type TMenuConfig } from '@/components/menu';
 
 export const MENU_SIDEBAR: TMenuConfig = [
   {
-    title: 'Dashboards',
+    title: 'خانه',
     icon: 'element-11',
     children: [
       {
-        title: 'Light Sidebar',
+        title: 'پیشخان',
         path: '/'
       },
       {
@@ -16,7 +16,7 @@ export const MENU_SIDEBAR: TMenuConfig = [
     ]
   },
   {
-    heading: 'User'
+    heading: 'Users'
   },
   {
     title: 'Public Profile',
@@ -140,7 +140,7 @@ export const MENU_SIDEBAR: TMenuConfig = [
         title: 'Account',
         children: [
           {
-            title: 'Get Started',
+            title: 'Get  ',
             path: '/account/home/get-started'
           },
           {

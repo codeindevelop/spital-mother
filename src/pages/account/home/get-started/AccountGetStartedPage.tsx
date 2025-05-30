@@ -19,7 +19,7 @@ const AccountGetStartedPage = () => {
     <Fragment>
       <PageNavbar />
 
-      {currentLayout?.name === 'demo1-layout' && (
+      {currentLayout?.name === 'demo4-layout' && (
         <Container>
           <Toolbar>
             <ToolbarHeading>

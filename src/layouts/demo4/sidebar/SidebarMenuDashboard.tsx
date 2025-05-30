@@ -60,13 +60,18 @@ const SidebarMenuDashboard = () => {
       title: 'پیشخان',
       children: [
         {
+          title: 'داشبورد',
+          path: '/',
+          active: true
+        },
+        {
           title: 'ایجاد مقاله جدید',
           path: '/account/api-keys'
         },
         {
           title: 'ایجاد کاربر',
-          path: '',
-          active: true
+          path: ''
+          // active: true
         },
         {
           title: 'ایجاد Lead',
@@ -150,15 +155,13 @@ const SidebarMenuDashboard = () => {
           return (
             <div className="flex flex-col gap-px" key={index}>
               <MenuItem>
-                <div className="px-2.5 text-md font-bold text-gray-600 mb-1 uppercase">
-                  {heading.title}
-                </div>
+                <div className="px-2.5 text-xs font-black text-gray-600 mb-1 ">{heading.title}</div>
               </MenuItem>
               {heading.children?.map((item, index) => {
                 return (
                   <MenuItem key={index} className={item.active ? 'active' : ''}>
                     <MenuLink
-                      path={item.title}
+                      path={item.path}
                       className="py-2 px-2.5 rounded-md transition-all duration-300 border border-transparent menu-item-active:border-gray-200 menu-item-active:bg-light menu-link-hover:bg-light menu-link-hover:border-gray-200 "
                     >
                       <MenuIcon>

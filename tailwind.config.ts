@@ -19,8 +19,8 @@ module.exports = {
   theme: {
     fontFamily: {
       // Persian Fonts
-      estedad: ['westedad'],
       azarmehr: ['Azarmehr'],
+      estedad: ['westedad'],
       yekanbakh: ['yekanbakh'],
 
       // English Fonts

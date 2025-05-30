@@ -2,6 +2,8 @@ import { useViewport } from '@/hooks';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import { SidebarMenuDashboard, SidebarMenuDefault } from '.';
+import { PageMenu } from '@/pages/users';
+import { SidebarMenuUsers } from './SidebarMenuUsers';
 
 const SidebarSecondary = () => {
   const { pathname } = useLocation();
@@ -23,6 +25,7 @@ const SidebarSecondary = () => {
         }}
       >
         {pathname === '/' ? <SidebarMenuDashboard /> : <SidebarMenuDefault />}
+        {pathname.startsWith('/user') && <SidebarMenuUsers />}
       </div>
     </div>
   );

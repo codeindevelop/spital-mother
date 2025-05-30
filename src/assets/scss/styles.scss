@@ -1,17 +1,7 @@
-/* Implement FontFaces */
-@use "./typography/persian-fonts";
-@use "./typography/english-fonts";
-
-@use "./ـvariables.scss";
+@use './ـvariables.scss';
 
 /* Implement Custom Gradiant Colors with Color pattern */
-@use "./colors";
- 
+@use './colors';
 
-/* Implement Custom Syles */
-@use "./customstyles";
-
- 
- 
- 
-
+/* Implement Custom Styles */
+@use './customstyles';

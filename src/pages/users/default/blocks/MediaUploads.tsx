@@ -10,18 +10,18 @@ const MediaUploads = () => {
   const { isRTL } = useLanguage();
   const data: number[] = [85, 65, 50, 70, 40, 45, 100, 55, 85, 60, 70, 90];
   const categories: string[] = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec'
+    'فروردین',
+    'اردیبهشت',
+    'خرداد',
+    'تیر',
+    'مرداد',
+    'شهریور',
+    'مهر',
+    'آبان',
+    'آذر',
+    'دی',
+    'بهمن',
+    'اسفند'
   ];
 
   const options: ApexOptions = {
@@ -103,9 +103,9 @@ const MediaUploads = () => {
         const month = w.globals.seriesX[seriesIndex][dataPointIndex];
         const monthName = categories[month];
 
-        const formatter = new Intl.NumberFormat('en-US', {
+        const formatter = new Intl.NumberFormat('fa', {
           style: 'currency',
-          currency: 'USD'
+          currency: 'IRR'
         });
 
         const formattedNumber = formatter.format(number);
@@ -165,7 +165,7 @@ const MediaUploads = () => {
     <Fragment>
       <div className="card">
         <div className="card-header">
-          <h3 className="card-title">Media Uploads</h3>
+          <h3 className="card-title">وضعیت ثبت نام های جدید</h3>
 
           <Menu>
             <MenuItem

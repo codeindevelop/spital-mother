@@ -14,7 +14,7 @@ import { PageNavbar } from '../PageNavbar';
 const UserDefaultPage = () => {
   const image = (
     <img
-      src={toAbsoluteUrl('/media/avatars/300-1.png')}
+      src={toAbsoluteUrl('/media/avatars/blank.png')}
       className="rounded-full border-3 border-success size-[100px] shrink-0"
     />
   );
@@ -23,12 +23,12 @@ const UserDefaultPage = () => {
     <Fragment>
       {/* <PageNavbar /> */}
       <UserProfileHero
-        name="Jenny Klabber"
+        name="گزارش احراز هویت"
         image={image}
         info={[
-          { label: 'KeenThemes', icon: 'abstract-41' },
-          { label: 'SF, Bay Area', icon: 'geolocation' },
-          { email: 'jenny@kteam.com', icon: 'sms' }
+          { label: 'نام شرکت یا سایت', icon: 'abstract-41' },
+          { label: 'لوکیشن', icon: 'geolocation' },
+          { email: 'test@test.com', icon: 'sms' }
         ]}
       />
 
@@ -37,13 +37,16 @@ const UserDefaultPage = () => {
           <PageMenu />
 
           <NavbarActions>
-            <button type="button" className="btn btn-sm btn-primary">
-              <KeenIcon icon="users" /> Connect
+            <button type="button" className="btn btn-sm btn-light">
+              <KeenIcon icon="users" /> مشاهده کاربران
             </button>
-            <button className="btn btn-sm btn-icon btn-light">
+            <button type="button" className="btn btn-sm btn-primary">
+              <KeenIcon icon="users" /> ایجاد کاربر جدید
+            </button>
+            {/* <button className="btn btn-sm btn-icon btn-light">
               <KeenIcon icon="messages" />
             </button>
-            <NavbarDropdown />
+            <NavbarDropdown /> */}
           </NavbarActions>
         </Navbar>
       </Container>

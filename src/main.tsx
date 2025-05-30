@@ -1,5 +1,8 @@
 import '@/assets/keenicons/assets/styles.css';
 import './assets/css/globals.css';
+
+import './assets/scss/typography/_persian-fonts.scss';
+import './assets/scss/typography/_english-fonts.scss';
 import './assets/scss/styles.scss';
 
 import axios from 'axios';

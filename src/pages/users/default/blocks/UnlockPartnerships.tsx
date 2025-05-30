@@ -8,15 +8,15 @@ const UnlockPartnerships = () => {
       <div className="card-body px-10 py-7.5 lg:pe-12.5">
         <div className="flex flex-wrap md:flex-nowrap items-center gap-6 md:gap-10">
           <div className="flex flex-col gap-3">
-            <h2 className="text-1.5xl font-semibold text-gray-900">
-              Unlock Creative <br />
-              Partnerships on Our Blog
+            <h2 className="text-[1.2rem] leading-8 font-semibold text-gray-900">
+              بررسی احراز هویت <br />
+              User Authentication Review
             </h2>
 
             <p className="text-sm text-gray-700 leading-5.5">
-              Explore exciting collaboration opportunities with our blog. We&apos;re open to
-              partnerships, guest posts, and more. Join us to share your insights and grow your
-              audience.
+              کاربران می‌توانند با احراز هویت خود، به صورت امن و مطمئن به پرتال متصل شوند و از خدمات
+              آن بهره‌مند شوند. این فرآیند شامل بررسی هویت کاربر و تأیید اعتبار آن است که به افزایش
+              امنیت و اعتماد در پرتال کمک می‌کند.
             </p>
           </div>
 
@@ -34,8 +34,8 @@ const UnlockPartnerships = () => {
       </div>
 
       <div className="card-footer justify-center">
-        <Link to="/network/get-started" className="btn btn-link">
-          Get Started
+        <Link to="/user/verification/get-started" className="btn btn-primary flex justify-center">
+          شروع بررسی احراز هویت
         </Link>
       </div>
     </div>

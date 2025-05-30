@@ -8,7 +8,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
-import { KeenIcon } from '@/components/keenicons';
+import { KeenIcon } from '@/assets/keenicons';
 
 interface IDataGridColumnVisibilityProps<TData> {
   table: Table<TData>;
@@ -24,11 +24,11 @@ export function DataGridColumnVisibility<TData>({
       <DropdownMenuTrigger asChild>
         <Button variant="light" size="sm">
           <KeenIcon icon="setting-4" />
-          {!hideTitle && 'Columns'}
+          {!hideTitle && 'فیلتر ستون‌ها'}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[150px]">
-        <DropdownMenuLabel className="font-medium">Toggle Columns</DropdownMenuLabel>
+        <DropdownMenuLabel className="font-medium">فیلتر ستون ها</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {table
           .getAllColumns()

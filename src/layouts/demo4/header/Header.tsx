@@ -15,14 +15,8 @@ const Header = () => {
     <header className="flex lg:hidden items-center fixed z-10 top-0 start-0 end-0 shrink-0 bg-[--tw-page-bg] dark:bg-[--tw-page-bg-dark] h-[--tw-header-height]">
       <Container className="flex items-center justify-between flex-wrap gap-3">
         <Link to="/">
-          <img
-            src={toAbsoluteUrl('/media/app/mini-logo-gray.svg')}
-            className="dark:hidden min-h-[30px]"
-          />
-          <img
-            src={toAbsoluteUrl('/media/app/mini-logo-gray-dark.svg')}
-            className="hidden dark:block min-h-[30px]"
-          />
+          <img src={toAbsoluteUrl('/media/logo/logo.svg')} className="dark:hidden w-[33px]" />
+          <img src={toAbsoluteUrl('/media/logo/logo.svg')} className="hidden dark:block w-[33px]" />
         </Link>
 
         <button

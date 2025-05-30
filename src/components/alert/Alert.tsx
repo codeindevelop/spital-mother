@@ -1,5 +1,5 @@
 import React from 'react';
-import { KeenIcon } from '@/components/keenicons';
+import { KeenIcon } from '@/assets/keenicons';
 
 interface IAlertProps {
   /** Specifies the variant style of the alert */

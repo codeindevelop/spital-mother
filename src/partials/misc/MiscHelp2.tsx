@@ -8,8 +8,8 @@ const MiscHelp2 = () => {
   return (
     <div className="grid lg:grid-cols-2 gap-5 lg:gap-7.5">
       <MiscEngage
-        title="Questions ?"
-        description="Visit our Help Center for detailed assistance on billing, payments, and subscriptions."
+        title="نقش کاربران ؟"
+        description="برای  مدیریت نقش های کاربران به مرکز مدیریت نقش کاربران مراجعه کنید."
         image={
           <Fragment>
             <img
@@ -24,12 +24,12 @@ const MiscHelp2 = () => {
             />
           </Fragment>
         }
-        more={{ title: 'Go to Help Center', url: '#' }}
+        more={{ title: 'مدیریت نقش ها', url: '/user/roles' }}
       />
 
       <MiscEngage
-        title="Contact Support"
-        description="Need assistance? Contact our support team for prompt, personalized help your queries & concerns."
+        title="مدیریت دسترسی ها"
+        description="برای  مدیریت دسترسی ها به مرکز مدیریت دسترسی ها مراجعه کنید."
         image={
           <Fragment>
             <img
@@ -44,7 +44,7 @@ const MiscHelp2 = () => {
             />
           </Fragment>
         }
-        more={{ title: 'Contact Support', url: 'https://devs.keenthemes.com/unresolved' }}
+        more={{ title: 'مدیریت دسترسی ها', url: '/user/permissions' }}
       />
     </div>
   );

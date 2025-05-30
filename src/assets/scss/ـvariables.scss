@@ -1,0 +1,35 @@
+ .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px !important;
+  height: 50px !important;
+  font-size: 0.9rem !important;
+}
+
+ .peer:focus ~ .peer-focus\:after\:border-t-2::after {
+   content: var(--tw-content) !important;
+   border-top-width: 0.5px !important;
+ }
+
+
+ .peer:focus ~ .peer-focus\:after\:border-r-2::after {
+   content: var(--tw-content) !important;
+   border-right-width: 0 !important;
+ }
+
+ .peer:focus ~ .peer-focus\:after\:border-t-2::after {
+   content: var(--tw-content) !important;
+   border-top-width: 0 !important;
+ }
+
+ .peer:focus ~ .peer-focus\:before\:\!border-blue-500::before {
+   content: var(--tw-content) !important;
+   --tw-border-opacity: 1 !important;
+   border-color: rgb(59 130 246 / var(--tw-border-opacity)) !important;
+ }
+ .peer:focus ~ .peer-focus\:before\:border-t-2::before {
+   content: var(--tw-content) !important;
+   border-top-width: 0 !important;
+ }
+ .peer:focus ~ .peer-focus\:before\:border-l-2::before {
+   content: var(--tw-content) !important;
+   border-left-width: 0 !important;
+ }

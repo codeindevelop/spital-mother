@@ -8,7 +8,7 @@ import {
   MenuTitle,
   MenuToggle
 } from '@/components/menu';
-import { KeenIcon } from '@/components/keenicons';
+import { KeenIcon } from '@/assets/keenicons';
 import { useLanguage } from '@/i18n';
 import { ModalShareProfile } from '../modals/share-profile';
 import { ModalGiveAward } from '../modals/give-award';

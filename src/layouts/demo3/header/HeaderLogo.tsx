@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { KeenIcon } from '@/components/keenicons';
+import { KeenIcon } from '@/assets/keenicons';
 import { toAbsoluteUrl } from '@/utils';
 import {
   Menu,

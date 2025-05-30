@@ -50,7 +50,7 @@ const Sidebar = () => {
           close={false}
         >
           <SheetHeader className="sr-only">
-            <SheetTitle>Mobile Menu</SheetTitle>
+            <SheetTitle>منو</SheetTitle>
             <SheetDescription></SheetDescription>
           </SheetHeader>
           {renderContent()}

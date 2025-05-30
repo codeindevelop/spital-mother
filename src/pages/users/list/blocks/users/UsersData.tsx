@@ -1,4 +1,16 @@
 import { IAvatarsProps } from '@/partials/common';
+import axios from 'axios';
+import { UsersModel } from './_models';
+
+
+
+// const getAllUsers = async () => {
+//   return await axios.get<UsersModel>(authUrls.profileUrl, {
+//     headers: {
+//       Authorization: `Bearer ${auth?.accessToken}`
+//     }
+//   });
+// };
 
 interface ITeamData {
   team: {
@@ -13,7 +25,7 @@ interface ITeamData {
   members: IAvatarsProps; // Use IAvatarsProps for the members property
 }
 
-const TeamsData: ITeamData[] = [
+const UsersData: ITeamData[] = [
   {
     team: {
       name: 'Product Management',
@@ -491,4 +503,4 @@ const TeamsData: ITeamData[] = [
   }
 ];
 
-export { TeamsData, type ITeamData };
+export { UsersData, type ITeamData };

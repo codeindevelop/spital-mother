@@ -14,14 +14,14 @@ import {
 import { toast } from 'sonner';
 import { Input } from '@/components/ui/input';
 import { CommonAvatars, CommonRating } from '@/partials/common';
-import { TeamsData, ITeamData } from '.';
+import { UsersData, ITeamData } from '.';
 
 interface IColumnFilterProps<TData, TValue> {
   column: Column<TData, TValue>;
 }
 
-const Teams = () => {
-  const storageFilterId = 'teams-filter';
+const Users = () => {
+  const storageFilterId = 'users-filter';
   const ColumnInputFilter = <TData, TValue>({ column }: IColumnFilterProps<TData, TValue>) => {
     return (
       <Input
@@ -50,7 +50,7 @@ const Teams = () => {
         id: 'team',
         header: ({ column }) => (
           <DataGridColumnHeader
-            title="Team"
+            title="کاربران"
             filter={<ColumnInputFilter column={column} />}
             column={column}
           />
@@ -167,7 +167,7 @@ const Teams = () => {
   );
 
   // Memoize the team data
-  const data: ITeamData[] = useMemo(() => TeamsData, []);
+  const data: ITeamData[] = useMemo(() => UsersData, []);
 
   // Initialize search term from localStorage if available
   const [searchTerm, setSearchTerm] = useState(() => {
@@ -209,7 +209,7 @@ const Teams = () => {
 
     return (
       <div className="card-header flex-wrap px-5 py-5 border-b-0">
-        <h3 className="card-title">Teams</h3>
+        <h3 className="card-title">لیست تمام کاربران</h3>
 
         <div className="flex flex-wrap items-center gap-2.5">
           <div className="flex gap-6">
@@ -220,7 +220,7 @@ const Teams = () => {
               />
               <input
                 type="text"
-                placeholder="Search Teams"
+                placeholder="جستجوی کاربران"
                 className="input input-sm ps-8"
                 value={(table.getColumn('team')?.getFilterValue() as string) ?? ''}
                 onChange={(event) => table.getColumn('team')?.setFilterValue(event.target.value)}
@@ -230,7 +230,7 @@ const Teams = () => {
           <DataGridColumnVisibility table={table} />
           <label className="switch switch-sm">
             <input name="check" type="checkbox" value="1" className="order-2" readOnly />
-            <span className="switch-label order-1">Only Active Groups</span>
+            <span className="switch-label order-1">فقط کاربران فعال را نمایش بده </span>
           </label>
         </div>
       </div>
@@ -251,4 +251,4 @@ const Teams = () => {
   );
 };
 
-export { Teams };
+export { Users };

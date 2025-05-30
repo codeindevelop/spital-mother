@@ -1,11 +1,11 @@
 import { MiscFaq, MiscHelp2 } from '@/partials/misc';
 
-import { Teams } from './blocks';
+import { Users } from './blocks';
 
-const AccountTeamsContent = () => {
+const UsersListContent = () => {
   return (
     <div className="grid gap-5 lg:gap-7.5">
-      <Teams />
+      <Users />
 
       <MiscFaq />
 
@@ -14,4 +14,4 @@ const AccountTeamsContent = () => {
   );
 };
 
-export { AccountTeamsContent };
+export { UsersListContent };

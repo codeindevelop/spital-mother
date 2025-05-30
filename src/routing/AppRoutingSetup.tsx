@@ -84,6 +84,7 @@ import {
 import { Demo4Layout } from '@/layouts/demo4';
 
 import { UserDefaultPage } from '@/pages/users/default';
+import { UsersListPage } from '@/pages/users/list';
 
 const AppRoutingSetup = (): ReactElement => {
   return (
@@ -93,6 +94,7 @@ const AppRoutingSetup = (): ReactElement => {
           <Route path="/" element={<DefaultPage />} />
           <Route path="/dark-sidebar" element={<Demo1DarkSidebarPage />} />
           <Route path="/user/default" element={<UserDefaultPage />} />
+          <Route path="/user/list" element={<UsersListPage />} />
           <Route path="/public-profile/profiles/default" element={<UserDefaultPage />} />
           <Route path="/public-profile/profiles/creator" element={<ProfileCreatorPage />} />
           <Route path="/public-profile/profiles/company" element={<ProfileCompanyPage />} />

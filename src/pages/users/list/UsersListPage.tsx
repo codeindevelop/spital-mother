@@ -10,7 +10,7 @@ import {
 } from '@/partials/toolbar';
 import { PageNavbar } from '@/pages/account';
 
-import { AccountTeamsContent } from '.';
+import { UsersListContent } from '.';
 import { useLayout } from '@/providers';
 import { Link } from 'react-router-dom';
 
@@ -31,7 +31,8 @@ const UsersListPage = () => {
               </ToolbarDescription>
             </ToolbarHeading>
             <ToolbarActions>
-              <Link to="/user/create" className="btn btn-sm btn-light">
+              <Link to="/user/create" className="btn btn-sm btn-primary">
+                <i className="ki-outline ki-plus text-lg me-1"></i>
                 ایجاد کاربر جدید
               </Link>
             </ToolbarActions>
@@ -40,7 +41,7 @@ const UsersListPage = () => {
       )}
 
       <Container>
-        <AccountTeamsContent />
+        <UsersListContent />
       </Container>
     </Fragment>
   );

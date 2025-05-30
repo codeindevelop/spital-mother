@@ -61,8 +61,7 @@ const SidebarMenuUsers = () => {
       children: [
         {
           title: 'گزارش کلی',
-          path: '/user/default',
-          active: true
+          path: '/user/default'
         },
         {
           title: 'ایجاد کاربر جدید',

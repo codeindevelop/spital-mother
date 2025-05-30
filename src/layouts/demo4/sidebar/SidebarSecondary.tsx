@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import { SidebarMenuDashboard, SidebarMenuDefault } from '.';
 import { PageMenu } from '@/pages/users';
-import { SidebarMenuUsers } from './SidebarMenuUsers';
+import { SidebarMenuUsers } from '@/modules/user/menu/SidebarMenuUsers';
 
 const SidebarSecondary = () => {
   const { pathname } = useLocation();

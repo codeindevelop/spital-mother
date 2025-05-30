@@ -83,8 +83,7 @@ import {
 } from '@/pages/authentication';
 import { Demo4Layout } from '@/layouts/demo4';
 
-import { UserDefaultPage } from '@/pages/users/default';
-import { UsersListPage } from '@/pages/users/list';
+import { UsersRouting } from '@/modules/user/routers/Routes';
 
 const AppRoutingSetup = (): ReactElement => {
   return (
@@ -92,10 +91,9 @@ const AppRoutingSetup = (): ReactElement => {
       <Route element={<RequireAuth />}>
         <Route element={<Demo4Layout />}>
           <Route path="/" element={<DefaultPage />} />
+          <Route path="user/*" element={<UsersRouting />} />
           <Route path="/dark-sidebar" element={<Demo1DarkSidebarPage />} />
-          <Route path="/user/default" element={<UserDefaultPage />} />
-          <Route path="/user/list" element={<UsersListPage />} />
-          <Route path="/public-profile/profiles/default" element={<UserDefaultPage />} />
+
           <Route path="/public-profile/profiles/creator" element={<ProfileCreatorPage />} />
           <Route path="/public-profile/profiles/company" element={<ProfileCompanyPage />} />
           <Route path="/public-profile/profiles/nft" element={<ProfileNFTPage />} />
@@ -192,6 +190,7 @@ const AppRoutingSetup = (): ReactElement => {
           <Route path="/authentication/get-started" element={<AuthenticationGetStartedPage />} />
         </Route>
       </Route>
+
       <Route path="error/*" element={<ErrorsRouting />} />
       <Route path="auth/*" element={<AuthPage />} />
       <Route path="*" element={<Navigate to="/error/404" />} />

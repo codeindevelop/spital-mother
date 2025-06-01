@@ -1,27 +1,18 @@
-/* eslint-disable prettier/prettier */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
-import { DataGrid, DataGridRowSelectAll } from '@/components';
-import { toast } from 'sonner';
-
-import { getAllUsers } from '@/modules/user/actions/usersList/usersListAction';
-import { UsersModel } from '@/modules/user/models/_models';
+import { DataGrid } from '@/components';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { getAllUsersAction } from '@/modules/user/actions/users/getAllUsersAction';
 
 const Users = () => {
-  const [UsersData, setUsersData] = useState<UsersModel[]>([]);
-  // Define the input filter component for columns
+  const dispatch = useAppDispatch();
+  // Fetch all users data when the component mounts
   useEffect(() => {
-    // Fetch all users data when the component mounts
-    getAllUsers()
-      .then((response) => {
-        // Adjust this according to your API response structure
-        setUsersData(response.data?.data.users || []);
-      })
-      .catch(() => {
-        toast.error('خطا در دریافت کاربران');
-        setUsersData([]);
-      });
-  }, []);
+    dispatch(getAllUsersAction());
+  }, [dispatch]);
+
+  // Select users from Redux state
+  const UsersData: any = useAppSelector((state) => state.users.users.users);
 
   return (
     <>

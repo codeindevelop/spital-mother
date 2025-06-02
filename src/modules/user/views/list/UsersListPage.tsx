@@ -31,7 +31,7 @@ const UsersListPage = () => {
               </ToolbarDescription>
             </ToolbarHeading>
             <ToolbarActions>
-              <Link to="/user/create" className="btn btn-sm btn-primary">
+              <Link to="/user/add" className="btn btn-sm btn-primary">
                 <i className="ki-outline ki-plus text-lg me-1"></i>
                 ایجاد کاربر جدید
               </Link>

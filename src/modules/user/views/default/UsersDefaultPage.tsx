@@ -9,6 +9,7 @@ import { Navbar, NavbarActions, NavbarDropdown } from '@/partials/navbar';
 import { PageMenu } from '@/pages/users';
 
 import { UsersDefaultContent } from '.';
+import { Link } from 'react-router-dom';
 
 const UsersDefaultPage = () => {
   const image = (
@@ -36,12 +37,12 @@ const UsersDefaultPage = () => {
           <PageMenu />
 
           <NavbarActions>
-            <button type="button" className="btn btn-sm btn-light">
+            <Link to="/user/list" type="button" className="btn btn-sm btn-light">
               <KeenIcon icon="users" /> مشاهده کاربران
-            </button>
-            <button type="button" className="btn btn-sm btn-primary">
-              <KeenIcon icon="users" /> ایجاد کاربر جدید
-            </button>
+            </Link>
+            <Link to="/user/add" type="button" className="btn btn-sm btn-primary">
+              <KeenIcon icon="plus-circle" /> ایجاد کاربر جدید
+            </Link>
             {/* <button className="btn btn-sm btn-icon btn-light">
               <KeenIcon icon="messages" />
             </button>

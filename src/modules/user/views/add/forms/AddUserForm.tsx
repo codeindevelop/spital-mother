@@ -110,7 +110,7 @@ const AddUserForm = () => {
           <span>{loading ? 'در حال ارسال...' : 'ذخیره'}</span>
         </button>
         <Link
-          to="/user/list"
+          to="/user/default"
           className="btn btn-light w-full lg:w-auto flex items-center justify-center"
         >
           <span>لغو</span>

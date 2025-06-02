@@ -21,7 +21,7 @@ export const addNewUserSchema = Yup.object().shape({
     .max(20, 'حداکثر ۲۰ کاراکتر')
     .when('email', {
       is: (email: any) => !email,
-      then: (schema) => schema.required('حداقل یکی از شماره موبایل یا ایمیل الزامی است')
+      then: (schema) => schema.required('باید یا شماره موبایل یا آدرس ایمیل برای کاربر وارد شود')
     }),
   email: Yup.string().nullable().email('فرمت ایمیل نامعتبر است').max(255, 'حداکثر ۲۵۵ کاراکتر'),
   // .when('mobile_number', {

@@ -9,12 +9,12 @@ import {
   ToolbarPageTitle
 } from '@/partials/toolbar';
 
-import { UsersListContent } from '.';
 import { useLayout } from '@/providers';
 import { Link } from 'react-router-dom';
 import { UserPagesNavbar } from '../../menu/UserPagesNavbar';
+import { AddUserPageContent } from './AddUserPageContent';
 
-const UsersListPage = () => {
+const AddUserPage = () => {
   const { currentLayout } = useLayout();
 
   return (
@@ -31,7 +31,7 @@ const UsersListPage = () => {
               </ToolbarDescription>
             </ToolbarHeading>
             <ToolbarActions>
-              <Link to="/user/add" className="btn btn-sm btn-primary">
+              <Link to="/user/create" className="btn btn-sm btn-primary">
                 <i className="ki-outline ki-plus text-lg me-1"></i>
                 ایجاد کاربر جدید
               </Link>
@@ -41,10 +41,10 @@ const UsersListPage = () => {
       )}
 
       <Container>
-        <UsersListContent />
+        <AddUserPageContent />
       </Container>
     </Fragment>
   );
 };
 
-export { UsersListPage };
+export { AddUserPage };

@@ -1,7 +1,6 @@
 import { KeenIcon } from '@/components';
 import { CommonHexagonBadge } from '@/partials/common';
 import React from 'react';
-
 import { FormikProps } from 'formik';
 
 interface PasswordBlockProps {
@@ -40,8 +39,9 @@ function PasswordBlock({ formik }: PasswordBlockProps) {
               onChange={(e) => {
                 formik.setFieldValue('create_password', e.target.checked);
                 if (e.target.checked) {
-                  formik.setFieldValue('password', '');
-                  formik.setFieldValue('password_confirmation', '');
+                  // حذف فیلدهای password و password_confirmation
+                  formik.setFieldValue('password', undefined);
+                  formik.setFieldValue('password_confirmation', undefined);
                 }
               }}
             />
@@ -55,7 +55,7 @@ function PasswordBlock({ formik }: PasswordBlockProps) {
               type="password"
               name="password"
               disabled={enableRandomPassword}
-              value={formik.values.password}
+              value={formik.values.password || ''}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
@@ -72,7 +72,7 @@ function PasswordBlock({ formik }: PasswordBlockProps) {
               type="password"
               name="password_confirmation"
               disabled={enableRandomPassword}
-              value={formik.values.password_confirmation}
+              value={formik.values.password_confirmation || ''}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />

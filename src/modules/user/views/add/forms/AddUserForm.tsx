@@ -10,6 +10,7 @@ import ActiveProfileBlock from './blocks/ActiveProfileBlock';
 import { useFormik } from 'formik';
 import addNewUserAction from '@/modules/user/actions/create/addNewUserAction';
 import { addNewUserSchema } from './schema/addNewUserSchema';
+import { toast } from 'sonner';
 
 const initialValues = {
   user_name: '',
@@ -18,8 +19,8 @@ const initialValues = {
   gender: 'male',
   mobile_number: '',
   email: '',
-  password: '',
-  password_confirmation: '',
+  password: undefined, // به جای ''
+  password_confirmation: undefined, // به جای ''
   send_verify_email: false,
   send_welcome_sms: false,
   active: true,
@@ -33,18 +34,43 @@ const AddUserForm = () => {
   const formik = useFormik({
     initialValues,
     validationSchema: addNewUserSchema,
-    onSubmit: async (values, { setStatus, setSubmitting }) => {
+    onSubmit: async (values, { setSubmitting }) => {
       setLoading(true);
       try {
-        // ارسال داده‌ها به اکشن
         await dispatch(addNewUserAction(values)).unwrap();
         setSubmitting(false);
-        setStatus({ type: 'success', message: 'کاربر با موفقیت ایجاد شد.' });
+        toast.success(
+          <>
+            <span className=" text-success ">کاربر با موفقیت ایجاد شد.</span>
+          </>
+        );
+        // Reset form after successful submission
+        formik.resetForm();
       } catch (error: any) {
-        setStatus({
-          type: 'error',
-          message: error.message || 'خطایی در ایجاد کاربر رخ داد.'
-        });
+        toast.error(
+          <>
+            <span className=" text-danger ">
+              {error === 'The user name has already been taken.' && (
+                <>
+                  <KeenIcon icon="shield-cross" className="text-danger text-lg me-2" />
+                  <span className="text-md font-medium">نام کاربری وارد شده تکراری است</span>
+                </>
+              )}
+              {error === 'The email has already been taken.' && (
+                <>
+                  <KeenIcon icon="shield-cross" className="text-danger text-lg me-2" />
+                  <span className="text-md font-medium">ایمیل وارد شده تکراری است</span>
+                </>
+              )}
+              {error === 'The mobile number has already been taken.' && (
+                <>
+                  <KeenIcon icon="shield-cross" className="text-danger text-lg me-2" />
+                  <span className="text-md font-medium">شماره موبایل وارد شده تکراری است</span>
+                </>
+              )}
+            </span>
+          </>
+        );
         setSubmitting(false);
       }
       setLoading(false);

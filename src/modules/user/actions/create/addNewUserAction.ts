@@ -11,8 +11,8 @@ export interface AddNewUserPayload {
   gender: string;
   mobile_number: string;
   email: string;
-  password: string;
-  password_confirmation: string;
+  password: string | undefined; // Allow undefined for optional password
+  password_confirmation: string | undefined; // Allow undefined for optional password confirmation
   send_verify_email: boolean;
   send_welcome_sms: boolean;
   active: boolean;

@@ -90,19 +90,22 @@ const DataGridPagination = () => {
 
   return (
     <div
-      className="flex flex-col md:flex-row justify-between items-center gap-5 md:gap-4"
+      className="flex flex-col md:flex-row justify-between items-center gap-5 md:gap-4 font-estedad"
       data-pagination
     >
       <div className="flex items-center space-x-2 order-2 md:order-1 pb-2 md:pb-0">
-        <div className="text-sm text-muted-foreground">Rows per page</div>
+        <div className="text-sm text-muted-foreground me-2">تعداد ردیف</div>
         <Select
           value={`${table.getState().pagination.pageSize}`}
           onValueChange={(value) => {
             table.setPageSize(Number(value));
           }}
         >
-          <SelectTrigger className="w-[70px]" size="sm">
-            <SelectValue placeholder={table.getState().pagination.pageSize} />
+          <SelectTrigger className="w-[70px] font-estedad" size="sm">
+            <SelectValue
+              className="font-estedad"
+              placeholder={table.getState().pagination.pageSize}
+            />
           </SelectTrigger>
           <SelectContent side="top">
             {props.pagination?.sizes?.map((pageSize) => (
@@ -122,7 +125,7 @@ const DataGridPagination = () => {
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            <span className="sr-only">Go to previous page</span>
+            <span className="sr-only">رفتن به صفحه قبل</span>
             <ChevronLeftIcon className="size-4" />
           </Button>
 
@@ -138,7 +141,7 @@ const DataGridPagination = () => {
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            <span className="sr-only">Go to next page</span>
+            <span className="sr-only">رفتن به صفحه بعد</span>
             <ChevronRightIcon className="size-4" />
           </Button>
         </div>

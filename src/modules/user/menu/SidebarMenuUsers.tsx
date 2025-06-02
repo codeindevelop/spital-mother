@@ -65,7 +65,7 @@ const SidebarMenuUsers = () => {
         },
         {
           title: 'ایجاد کاربر جدید',
-          path: '/user/create'
+          path: '/user/add'
         },
         {
           title: 'لیست کاربران',

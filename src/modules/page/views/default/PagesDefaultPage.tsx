@@ -8,10 +8,10 @@ import { UserProfileHero } from '@/partials/heros';
 import { Navbar, NavbarActions, NavbarDropdown } from '@/partials/navbar';
 import { PageMenu } from '@/pages/users';
 
-import { UsersDefaultContent } from '.';
+import { PagesDefaultContent } from '.';
 import { Link } from 'react-router-dom';
 
-const UsersDefaultPage = () => {
+const PagesDefaultPage = () => {
   const image = (
     <img
       src={toAbsoluteUrl('/media/avatars/blank.png')}
@@ -23,7 +23,7 @@ const UsersDefaultPage = () => {
     <Fragment>
       {/* <PageNavbar /> */}
       <UserProfileHero
-        name="گزارش احراز هویت"
+        name="گزارش صفحات"
         image={image}
         info={[
           { label: 'نام شرکت یا سایت', icon: 'abstract-41' },
@@ -37,25 +37,21 @@ const UsersDefaultPage = () => {
           <PageMenu />
 
           <NavbarActions>
-            <Link to="/user/list" type="button" className="btn btn-sm btn-light">
-              <KeenIcon icon="users" /> مشاهده کاربران
+            <Link to="/page/list" type="button" className="btn btn-sm btn-light">
+              <KeenIcon icon="files" /> مشاهده صفحات
             </Link>
-            <Link to="/user/add" type="button" className="btn btn-sm btn-primary">
-              <KeenIcon icon="plus-circle" /> ایجاد کاربر جدید
+            <Link to="/page/add" type="button" className="btn btn-sm btn-primary">
+              <KeenIcon icon="plus-circle" /> ایجاد صفحه جدید
             </Link>
-            {/* <button className="btn btn-sm btn-icon btn-light">
-              <KeenIcon icon="messages" />
-            </button>
-            <NavbarDropdown /> */}
           </NavbarActions>
         </Navbar>
       </Container>
 
       <Container>
-        <UsersDefaultContent />
+        <PagesDefaultContent />
       </Container>
     </Fragment>
   );
 };
 
-export { UsersDefaultPage };
+export { PagesDefaultPage };

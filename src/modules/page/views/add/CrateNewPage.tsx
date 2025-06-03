@@ -10,36 +10,36 @@ import {
 } from '@/partials/toolbar';
 
 import { Link } from 'react-router-dom';
-import { UserPagesNavbar } from '../../menu/PagesNavbar';
-import { ShowUserPageContent } from './ShowUserPageContent';
+// import { UserPagesNavbar } from '../../menu/PagesNavbar';
+import { AddNewPageContent } from './AddNewPageContent';
 
-const ShowUserPage = () => {
+const CrateNewPage = () => {
   return (
     <Fragment>
-      <UserPagesNavbar />
+      {/* <UserPagesNavbar /> */}
 
       <Container>
         <Toolbar>
           <ToolbarHeading>
             <ToolbarPageTitle />
             <ToolbarDescription>
-              <p className="text-md font-medium  ">نمایش جزئیات کاربر</p>
+              <p className="text-md font-medium  ">ایجاد صفحه جدید</p>
             </ToolbarDescription>
           </ToolbarHeading>
           <ToolbarActions>
             <Link to="/user/list" className="btn btn-sm btn-light">
               <i className="ki-outline ki-menu text-lg me-1"></i>
-              لیست کاربران
+              لیست صفحات
             </Link>
           </ToolbarActions>
         </Toolbar>
       </Container>
 
       <Container>
-        <ShowUserPageContent />
+        <AddNewPageContent />
       </Container>
     </Fragment>
   );
 };
 
-export { ShowUserPage };
+export { CrateNewPage };

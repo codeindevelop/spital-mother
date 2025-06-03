@@ -1,3 +1,3 @@
-export * from './UsersDefaultContent';
-export * from './UsersDefaultPage';
+export * from './PagesDefaultContent';
+export * from './PagesDefaultPage';
 export * from './blocks';

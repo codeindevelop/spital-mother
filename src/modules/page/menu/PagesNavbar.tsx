@@ -3,7 +3,7 @@ import { useLayout, useMenus } from '@/providers';
 import { NavbarMenu } from '@/partials/menu/NavbarMenu';
 import { Navbar } from '@/partials/navbar';
 
-const UserPagesNavbar = () => {
+const PagesNavbar = () => {
   const { getMenuConfig } = useMenus();
   const { currentLayout } = useLayout();
   const menuConfig = getMenuConfig('primary');
@@ -22,4 +22,4 @@ const UserPagesNavbar = () => {
   }
 };
 
-export { UserPagesNavbar };
+export { PagesNavbar };

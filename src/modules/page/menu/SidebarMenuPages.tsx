@@ -24,7 +24,7 @@ interface IMenuItem {
   children?: IMenuItem[];
 }
 
-const SidebarMenuUsers = () => {
+const SidebarMenuPages = () => {
   const dropdownItems: IDropdownItem[] = [
     {
       title: 'Client API',
@@ -57,32 +57,20 @@ const SidebarMenuUsers = () => {
 
   const menuItems: IMenuItem[] = [
     {
-      title: 'کاربران',
+      title: 'صفحات',
       children: [
         {
           title: 'گزارش کلی',
-          path: '/user/default'
+          path: '/page/default'
         },
         {
-          title: 'ایجاد کاربر جدید',
-          path: '/user/add'
+          title: 'ایجاد صفحه جدید',
+          path: '/page/add'
         },
         {
-          title: 'لیست کاربران',
-          path: '/user/list'
+          title: 'لیست صفحات',
+          path: '/page/list'
           // active: true
-        },
-        {
-          title: 'لیست کاربران غیرفعال',
-          path: '/user/inactive'
-        },
-        {
-          title: 'لیست کاربران حذف شده',
-          path: '/user/deleted'
-        },
-        {
-          title: 'لیست کاربران مهمان',
-          path: '/user/guest'
         }
       ]
     },
@@ -192,4 +180,4 @@ const SidebarMenuUsers = () => {
   );
 };
 
-export { SidebarMenuUsers };
+export { SidebarMenuPages };

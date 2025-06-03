@@ -12,7 +12,7 @@ import {
 } from './blocks';
 import { IStatisticsItems, Statistics } from './blocks/Statistics';
 
-const UsersDefaultContent = () => {
+const PagesDefaultContent = () => {
   const items: IStatisticsItems = [
     { number: '624', label: 'تمام کاربران' },
     { number: '27', label: 'کاربران بدون احرازهویت' },
@@ -63,4 +63,4 @@ const UsersDefaultContent = () => {
   );
 };
 
-export { UsersDefaultContent };
+export { PagesDefaultContent };

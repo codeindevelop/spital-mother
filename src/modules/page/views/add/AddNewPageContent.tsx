@@ -1,6 +1,6 @@
 import { AddUserForm } from './forms';
 
-const AddUserPageContent = () => {
+const AddNewPageContent = () => {
   return (
     <>
       <AddUserForm />
@@ -8,4 +8,4 @@ const AddUserPageContent = () => {
   );
 };
 
-export { AddUserPageContent };
+export { AddNewPageContent };

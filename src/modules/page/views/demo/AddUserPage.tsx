@@ -11,7 +11,7 @@ import {
 
 import { useLayout } from '@/providers';
 import { Link } from 'react-router-dom';
-import { UserPagesNavbar } from '../../menu/UserPagesNavbar';
+import { UserPagesNavbar } from '../../menu/PagesNavbar';
 import { AddUserPageContent } from './AddUserPageContent';
 
 const AddUserPage = () => {

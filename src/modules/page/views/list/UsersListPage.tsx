@@ -12,7 +12,7 @@ import {
 import { UsersListContent } from '.';
 import { useLayout } from '@/providers';
 import { Link } from 'react-router-dom';
-import { UserPagesNavbar } from '../../menu/UserPagesNavbar';
+import { UserPagesNavbar } from '../../menu/PagesNavbar';
 
 const UsersListPage = () => {
   const { currentLayout } = useLayout();

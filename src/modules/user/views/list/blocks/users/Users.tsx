@@ -17,6 +17,8 @@ import { Column, ColumnDef, RowSelectionState } from '@tanstack/react-table';
 import { toast } from 'sonner';
 import { Input } from '@/components/ui/input';
 import { toAbsoluteUrl } from '@/utils';
+import { storeUserId } from '@/modules/user/store/Show/showUserReducer';
+import { useNavigate } from 'react-router-dom';
 
 const Users = () => {
   const dispatch = useAppDispatch();
@@ -46,6 +48,13 @@ const Users = () => {
     );
   };
 
+  const navigate = useNavigate();
+  const handleUserShow = (id: any) => {
+    dispatch(storeUserId(id));
+    // Navigate to the user show page
+    // Assuming you have a route set up for showing user details
+    navigate(`/user/show/user?id=${id}`);
+  };
   interface IUsersData {
     personal_info: {
       first_name: string;
@@ -206,7 +215,7 @@ const Users = () => {
           <div>
             <button
               className="btn btn-icon btn-light btn-sm me-2"
-              onClick={() => console.log('Edit user', info.row.original.id)}
+              onClick={() => handleUserShow(info.row.original.id)}
             >
               <KeenIcon
                 icon="notepad-edit"

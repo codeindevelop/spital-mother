@@ -84,6 +84,7 @@ import {
 import { Demo4Layout } from '@/layouts/demo4';
 
 import { UsersRouting } from '@/modules/user/routers/Routes';
+import { PagesRouting } from '@/modules/page/routers/Routes';
 
 const AppRoutingSetup = (): ReactElement => {
   return (
@@ -92,6 +93,7 @@ const AppRoutingSetup = (): ReactElement => {
         <Route element={<Demo4Layout />}>
           <Route path="/" element={<DefaultPage />} />
           <Route path="user/*" element={<UsersRouting />} />
+          <Route path="page/*" element={<PagesRouting />} />
           <Route path="/dark-sidebar" element={<Demo1DarkSidebarPage />} />
 
           <Route path="/public-profile/profiles/creator" element={<ProfileCreatorPage />} />

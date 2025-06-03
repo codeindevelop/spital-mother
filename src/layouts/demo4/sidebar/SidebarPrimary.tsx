@@ -26,8 +26,8 @@ const menuItems: IMenuItem[] = [
   {
     icon: 'mouse-square',
     tooltip: 'صفحات',
-    path: '/public-profile/profiles/default',
-    rootPath: '/public-profile/'
+    path: '/page/default',
+    rootPath: '/page/'
   },
   {
     icon: 'handcart',

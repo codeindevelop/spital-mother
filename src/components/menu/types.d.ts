@@ -156,7 +156,7 @@ export interface IMenuItemConfig {
   title?: string;
   disabled?: boolean;
   heading?: string;
-  icon?: string;
+  icon?: string | null | undefined;
   badge?: string;
   separator?: boolean;
   tooltip?: Partial<TooltipProps>;

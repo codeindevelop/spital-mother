@@ -47,7 +47,8 @@ const SidebarMenuDefault = () => {
                 <span className="flex menu-item-show:hidden">{item.expandTitle}</span>
               </MenuTitle>
             ) : (
-              <MenuTitle className="text-2sm text-gray-800 menu-item-here:text-gray-900 menu-item-show:text-gray-900 menu-link-hover:text-gray-900">
+              <MenuTitle className="text-2sm text-gray-700 font-bold transition-all duration-300 cursor-pointer menu-item-here:text-gray-700 menu-item-show:text-gray-700 menu-link-hover:text-gray-800">
+                <KeenIcon icon={item.icon} className="text-xs me-2  " />
                 {item.title}
               </MenuTitle>
             )}

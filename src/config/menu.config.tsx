@@ -133,49 +133,52 @@ export const MENU_SIDEBAR: TMenuConfig = [
     ]
   },
   {
-    title: 'My Account',
+    title: 'مدیریت صفحات',
     icon: 'setting-2',
     children: [
       {
-        title: 'Account',
+        title: 'صفحه ها',
         children: [
           {
-            title: 'Get  ',
-            path: '/account/home/get-started'
+            title: 'گزارشات صفحات  ',
+            path: '/page/default'
           },
           {
             title: 'User Profile',
             path: '/account/home/user-profile'
-          },
-          {
-            title: 'Company Profile',
-            path: '/account/home/company-profile'
-          },
-          {
-            title: 'Settings - With Sidebar',
-            path: '/account/home/settings-sidebar'
-          },
-          {
-            title: 'Settings - Enterprise',
-            path: '/account/home/settings-enterprise'
-          },
-          {
-            title: 'Settings - Plain',
-            path: '/account/home/settings-plain'
-          },
-          {
-            title: 'Settings - Modal',
-            path: '/account/home/settings-modal'
           }
         ]
       },
       {
-        title: 'Billing',
+        title: 'تنظیمات سئو',
         children: [
           {
-            title: 'Billing - Basic',
-            path: '/account/billing/basic'
+            title: 'تنظیمات عمومی',
+            path: '/general'
           },
+          {
+            title: 'تنظیمات نمایش',
+            children: [
+              {
+                title: 'نمایش صفحات',
+                collapse: false,
+                path: '/page/seo/display-pages'
+              },
+              {
+                title: 'Billing - Enterprise',
+                path: '/account/billing/enterprise'
+              },
+              {
+                title: 'Plans',
+                path: '/account/billing/plans'
+              },
+              {
+                title: 'Billing History',
+                path: '/account/billing/history'
+              }
+            ]
+          },
+
           {
             title: 'Billing - Enterprise',
             path: '/account/billing/enterprise'
@@ -300,6 +303,123 @@ export const MENU_SIDEBAR: TMenuConfig = [
           {
             title: 'Activity',
             path: '/account/activity'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    title: 'مدیریت تنظیمات',
+    icon: 'setting-2',
+    children: [
+      {
+        title: 'گزارشات تنظیمات',
+        path: '/setting/default'
+      },
+      {
+        title: 'تنظیمات عمومی',
+        icon: 'setting-2',
+        children: [
+          {
+            title: 'تنظیمات پایه',
+            path: '/setting/general'
+          }
+        ]
+      },
+      {
+        title: 'تنظیمات سئو',
+        icon: 'setting',
+        children: [
+          {
+            title: 'تنظیمات عمومی',
+            path: '/setting/seo/general'
+          },
+          {
+            title: 'تنظیمات نوع معرفی',
+            path: '/setting/seo/representation'
+          },
+
+          {
+            title: 'نمایش صفحات',
+            path: '/setting/seo/display-pages'
+          },
+          {
+            title: 'نمایش مقالات',
+            path: '/setting/seo/display-articles'
+          },
+          {
+            title: 'نمایش دسته بندی مقالات',
+            path: '/setting/seo/display-articles-categories'
+          },
+          {
+            title: 'نمایش محصولات',
+            path: '/setting/seo/display-products'
+          },
+          {
+            title: 'نمایش دسته بندی محصولات',
+            path: '/setting/seo/display-products-categories'
+          },
+          {
+            title: 'نمایش محصولات',
+            path: '/setting/seo/display-products'
+          },
+          {
+            title: 'نمایش آموزشها',
+            path: '/setting/seo/display-tutorials'
+          },
+          {
+            title: 'نمایش دسته بندی آموزشها',
+            path: '/setting/seo/display-tutorials-categories'
+          },
+          {
+            title: 'نمایش بازخوردها',
+            path: '/setting/seo/display-feedback'
+          },
+          {
+            title: 'تنظیمات خزنده ها',
+            path: '/setting/seo/crawlers'
+          },
+          {
+            title: 'تنظیمات بایگانی ها',
+            path: '/setting/seo/archives'
+          }
+        ]
+      },
+      {
+        title: 'امنیت',
+        icon: 'shield',
+        children: [
+          {
+            title: 'تنظیمات پایه',
+            path: '/setting/security/get-started'
+          },
+          {
+            title: 'بررسی امنیت',
+            path: '/setting/security/overview'
+          },
+          {
+            title: 'آدرس های IP مجاز',
+            path: '/setting/security/allowed-ip-addresses'
+          },
+          {
+            title: 'تنظیمات حریم خصوصی',
+            path: '/setting/security/privacy-settings'
+          },
+          {
+            title: 'مدیریت دستگاه',
+            path: '/setting/security/device-management'
+          },
+          {
+            title: 'پشتیبان گیری و بازیابی',
+            path: '/setting/security/backup-and-recovery'
+          },
+          {
+            title: 'جلسات جاری',
+            path: '/setting/security/current-sessions'
+          },
+          {
+            title: 'گزارش امنیتی',
+            path: '/setting/security/security-log'
           }
         ]
       }

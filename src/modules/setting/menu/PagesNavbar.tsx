@@ -3,17 +3,17 @@ import { useLayout, useMenus } from '@/providers';
 import { NavbarMenu } from '@/partials/menu/NavbarMenu';
 import { Navbar } from '@/partials/navbar';
 
-const PageNavbar = () => {
+const PagesNavbar = () => {
   const { getMenuConfig } = useMenus();
   const { currentLayout } = useLayout();
   const menuConfig = getMenuConfig('primary');
-  const accountMenuConfig = menuConfig?.['4']?.children;
+  const userMenuConfig = menuConfig?.['3']?.children;
 
-  if (accountMenuConfig && currentLayout?.name === 'demo4-layout') {
+  if (userMenuConfig && currentLayout?.name === 'demo4-layout') {
     return (
       <Navbar>
         <Container>
-          <NavbarMenu items={accountMenuConfig} />
+          <NavbarMenu items={userMenuConfig} />
         </Container>
       </Navbar>
     );
@@ -22,4 +22,4 @@ const PageNavbar = () => {
   }
 };
 
-export { PageNavbar };
+export { PagesNavbar };

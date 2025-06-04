@@ -123,8 +123,8 @@ const menuItems: IMenuItem[] = [
   {
     icon: 'setting-2',
     tooltip: 'تنظیمات',
-    path: '/account/home/get-started',
-    rootPath: '/account/'
+    path: '/setting/default',
+    rootPath: '/setting/'
   }
 ];
 

@@ -359,10 +359,7 @@ export const MENU_SIDEBAR: TMenuConfig = [
             title: 'نمایش دسته بندی محصولات',
             path: '/setting/seo/display-products-categories'
           },
-          {
-            title: 'نمایش محصولات',
-            path: '/setting/seo/display-products'
-          },
+
           {
             title: 'نمایش آموزشها',
             path: '/setting/seo/display-tutorials'

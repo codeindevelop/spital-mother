@@ -9,6 +9,8 @@ import seoGeneralSettingAction from '@/modules/setting/actions/seo/seoGeneralSet
 import BasicSettingsBlock from './blocks/BasicSettingsBlock';
 import { Link } from 'react-router-dom';
 import SeparatorSettingsBlock from './blocks/SeparatorSettingsBlock';
+import SiteImageBlock from './blocks/SiteImageBlock';
+import SitepreferencesBlock from './blocks/SitepreferencesBlock';
 
 const initialValues = {
   website_name: '',
@@ -75,7 +77,7 @@ const GeneralSettingsForm = () => {
 
   return (
     <>
-      <form onSubmit={formik.handleSubmit} noValidate>
+      <form className="grid grid-cols-12 gap-5  w-full" onSubmit={formik.handleSubmit} noValidate>
         {formik.status && (
           <div
             className={`text-center text-md font-bold ${
@@ -85,33 +87,34 @@ const GeneralSettingsForm = () => {
             {formik.status.message}
           </div>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
-          <div className="col-span-1 lg:col-span-2 gap-5 grid">
-            <BasicSettingsBlock formik={formik} />
-          </div>
-          <div className="col-span-1 gap-5 grid">
-            <SeparatorSettingsBlock formik={formik} />
-            {/* <MobileBlock formik={formik} />
-            <EmailBlock formik={formik} />
-            <ActiveProfileBlock formik={formik} /> */}
-          </div>
+        <div className="col-span-12 md:col-span-6 gap-5 flex flex-col">
+          <BasicSettingsBlock formik={formik} />
+          <SiteImageBlock formik={formik} />
         </div>
+
+        <div className="col-span-12 md:col-span-6 gap-5 flex flex-col">
+          <SeparatorSettingsBlock formik={formik} />
+          <SitepreferencesBlock formik={formik} />
+        </div>
+
         <hr />
-        <div className="my-5 flex flex-col md:flex-row items-center justify-start gap-2 w-full">
-          <button
-            type="submit"
-            className="btn btn-primary w-full lg:w-1/5 flex items-center justify-center"
-            disabled={loading || formik.isSubmitting}
-          >
-            <KeenIcon icon="save" className="text-white me-2" />
-            <span>{loading ? 'در حال ارسال...' : 'ذخیره'}</span>
-          </button>
-          <Link
-            to="/user/default"
-            className="btn btn-light w-full lg:w-auto flex items-center justify-center"
-          >
-            <span>لغو</span>
-          </Link>
+        <div className="card bg-gray-200 w-full col-span-12 flex flex-col lg:flex-row gap-5 justify-start items-start">
+          <div className=" card-body flex flex-col md:flex-row gap-5 justify-start items-start w-full">
+            <button
+              type="submit"
+              className="btn btn-primary w-full lg:w-1/5 flex items-center justify-center"
+              disabled={loading || formik.isSubmitting}
+            >
+              <KeenIcon icon="files" className="text-white me-2" />
+              <span>{loading ? 'در حال ارسال...' : 'ذخیره'}</span>
+            </button>
+            <Link
+              to="/setting/default"
+              className="btn btn-light  w-full lg:w-fit  flex items-center justify-center"
+            >
+              <span>لغو</span>
+            </Link>
+          </div>
         </div>
       </form>
     </>

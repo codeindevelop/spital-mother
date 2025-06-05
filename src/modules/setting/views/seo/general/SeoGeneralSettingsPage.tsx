@@ -10,7 +10,6 @@ import {
 } from '@/partials/toolbar';
 
 import { useLayout } from '@/providers';
-import { Link } from 'react-router-dom';
 
 import { SeoGeneralSettingsPageContent } from './SeoGeneralSettingsPageContent';
 

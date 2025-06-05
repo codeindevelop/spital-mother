@@ -337,49 +337,49 @@ export const MENU_SIDEBAR: TMenuConfig = [
           {
             title: 'تنظیمات نوع معرفی',
             path: '/setting/seo/representation'
-          },
-
-          {
-            title: 'نمایش صفحات',
-            path: '/setting/seo/display-pages'
-          },
-          {
-            title: 'نمایش مقالات',
-            path: '/setting/seo/display-articles'
-          },
-          {
-            title: 'نمایش دسته بندی مقالات',
-            path: '/setting/seo/display-articles-categories'
-          },
-          {
-            title: 'نمایش محصولات',
-            path: '/setting/seo/display-products'
-          },
-          {
-            title: 'نمایش دسته بندی محصولات',
-            path: '/setting/seo/display-products-categories'
-          },
-
-          {
-            title: 'نمایش آموزشها',
-            path: '/setting/seo/display-tutorials'
-          },
-          {
-            title: 'نمایش دسته بندی آموزشها',
-            path: '/setting/seo/display-tutorials-categories'
-          },
-          {
-            title: 'نمایش بازخوردها',
-            path: '/setting/seo/display-feedback'
-          },
-          {
-            title: 'تنظیمات خزنده ها',
-            path: '/setting/seo/crawlers'
-          },
-          {
-            title: 'تنظیمات بایگانی ها',
-            path: '/setting/seo/archives'
           }
+
+          // {
+          //   title: 'نمایش صفحات',
+          //   path: '/setting/seo/display-pages'
+          // },
+          // {
+          //   title: 'نمایش مقالات',
+          //   path: '/setting/seo/display-articles'
+          // },
+          // {
+          //   title: 'نمایش دسته بندی مقالات',
+          //   path: '/setting/seo/display-articles-categories'
+          // },
+          // {
+          //   title: 'نمایش محصولات',
+          //   path: '/setting/seo/display-products'
+          // },
+          // {
+          //   title: 'نمایش دسته بندی محصولات',
+          //   path: '/setting/seo/display-products-categories'
+          // },
+
+          // {
+          //   title: 'نمایش آموزشها',
+          //   path: '/setting/seo/display-tutorials'
+          // },
+          // {
+          //   title: 'نمایش دسته بندی آموزشها',
+          //   path: '/setting/seo/display-tutorials-categories'
+          // },
+          // {
+          //   title: 'نمایش بازخوردها',
+          //   path: '/setting/seo/display-feedback'
+          // },
+          // {
+          //   title: 'تنظیمات خزنده ها',
+          //   path: '/setting/seo/crawlers'
+          // },
+          // {
+          //   title: 'تنظیمات بایگانی ها',
+          //   path: '/setting/seo/archives'
+          // }
         ]
       },
       {

@@ -23,17 +23,19 @@ const SeoGeneralSettingsPage = () => {
         <Container>
           <Toolbar>
             <ToolbarHeading>
-              <ToolbarPageTitle />
+              <ToolbarPageTitle text="تنظیمات عمومی سئو" />
               <ToolbarDescription>
-                <p className="text-md font-medium  ">لیست تمام کاربران سامانه به تفکیک نقش کاربر</p>
+                <p className="text-md font-medium  ">
+                  تنظیمات عمومی سئو برای خواندن استاندارد های سات
+                </p>
               </ToolbarDescription>
             </ToolbarHeading>
-            <ToolbarActions>
+            {/* <ToolbarActions>
               <Link to="/user/create" className="btn btn-sm btn-primary">
                 <i className="ki-outline ki-plus text-lg me-1"></i>
                 ایجاد کاربر جدید
               </Link>
-            </ToolbarActions>
+            </ToolbarActions> */}
           </Toolbar>
         </Container>
       )}

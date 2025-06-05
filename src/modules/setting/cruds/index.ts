@@ -2,9 +2,9 @@ import { apiConfig } from '@/config';
 
 const API_URL = apiConfig.API_SERVER;
 
-/* ------------------------ Page CRUD URLs ------------------------ */
+/* ------------------------ Settings CRUD URLs ------------------------ */
 export default {
-  pagesListsUrl: `${API_URL}/api/v1/admin/page/all`,
+  seoGeneralSettingUrl: `${API_URL}/api/v1/admin/seo/general`,
   addNewPageUrl: `${API_URL}/api/v1/admin/create`,
   getPageBySlugUrl: `${API_URL}/api/v1/admin/get-by-link`
 };

@@ -5,7 +5,7 @@ import { useFormik } from 'formik';
 import { SeoGenSettingSchema } from './schema/SeoGenSettingSchema';
 import { toast } from 'sonner';
 import { KeenIcon } from '@/components';
-import seoGeneralSettingAction from '@/modules/setting/actions/seo/seoGeneralSettingAction';
+
 import BasicSettingsBlock from './blocks/BasicSettingsBlock';
 import { Link } from 'react-router-dom';
 
@@ -38,7 +38,7 @@ const RepresentationSettingsForm = () => {
     onSubmit: async (values, { setSubmitting }) => {
       setLoading(true);
       try {
-        await dispatch(seoGeneralSettingAction(values)).unwrap();
+        // await dispatch(seoGeneralSettingAction(values)).unwrap();
         setSubmitting(false);
         toast.success(
           <>

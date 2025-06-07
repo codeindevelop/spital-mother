@@ -1,4 +1,4 @@
-import { GeneralSettingsForm } from './forms';
+import GeneralSettingsForm from './forms/GeneralSettingsForm';
 
 const SeoGeneralSettingsPageContent = () => {
   return <GeneralSettingsForm />;

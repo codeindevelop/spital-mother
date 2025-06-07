@@ -39,11 +39,13 @@ export const updateSeoSettings = createAsyncThunk(
       formData.append('site_alternative_name', data.site_alternative_name || '');
       formData.append('site_slogan', data.site_slogan || '');
       formData.append('title_separator', data.title_separator || '-');
+      // فقط وقتی og_image تغییر کرده (فایل جدید یا null) اضافه کن
       if (data.og_image instanceof File) {
         formData.append('og_image', data.og_image);
       } else if (data.og_image === null) {
         formData.append('og_image', ''); // برای حذف تصویر
       }
+      // اگه og_image تعریف‌نشده باشه، چیزی اضافه نکن
 
       console.log('FormData contents:');
       for (const [key, value] of formData.entries()) {

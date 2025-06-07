@@ -32,5 +32,5 @@ export const SeoGenSettingSchema = Yup.object().shape({
       }
       return false;
     }),
-  imageUrl: Yup.string().nullable()
+  ogImageUrl: Yup.string().nullable() // اضافه کردن اعتبارسنجی برای URL
 });

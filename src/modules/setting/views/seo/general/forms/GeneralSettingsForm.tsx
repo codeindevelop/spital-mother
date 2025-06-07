@@ -29,7 +29,7 @@ const GeneralSettingsForm: React.FC = () => {
       site_slogan: settings?.site_slogan || '',
       title_separator: settings?.title_separator || '-',
       og_image: null as File | null,
-      imageUrl: settings?.og_image || null
+      ogImageUrl: settings?.og_image || null // اضافه کردن فیلد برای URL تصویر
     },
     enableReinitialize: true,
     validationSchema: SeoGenSettingSchema,
@@ -40,13 +40,13 @@ const GeneralSettingsForm: React.FC = () => {
           site_alternative_name: values.site_alternative_name,
           site_slogan: values.site_slogan,
           title_separator: values.title_separator,
-          og_image: values.og_image // می‌تونه null باشه برای حذف
+          og_image: values.og_image
         };
         const response = await dispatch(updateSeoSettings(payload)).unwrap();
         setSubmitting(false);
         toast.success('تنظیمات با موفقیت به‌روزرسانی شد.');
         setPreviewImage(null);
-        formik.setFieldValue('imageUrl', response.og_image);
+        formik.setFieldValue('ogImageUrl', response.og_image); // به‌روزرسانی URL بعد از ذخیره
       } catch (err) {
         toast.error((err as string) || 'خطا در به‌روزرسانی تنظیمات');
         setSubmitting(false);
@@ -58,7 +58,7 @@ const GeneralSettingsForm: React.FC = () => {
     formik.setFieldValue('og_image', file);
     setPreviewImage(file ? URL.createObjectURL(file) : null);
     if (!file) {
-      formik.setFieldValue('imageUrl', null);
+      formik.setFieldValue('ogImageUrl', null); // پاک کردن URL برای حذف تصویر
     }
   };
 

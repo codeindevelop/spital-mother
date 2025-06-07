@@ -17,7 +17,6 @@ function SiteImageBlock({ formik, previewImage, onImageChange }: SiteImageProps)
 
   const handleRemoveImage = () => {
     onImageChange(null); // تنظیم og_image به null
-    formik.setFieldValue('imageUrl', null); // پاک کردن imageUrl
   };
 
   return (
@@ -44,28 +43,29 @@ function SiteImageBlock({ formik, previewImage, onImageChange }: SiteImageProps)
                 این تصویر به عنوان جایگزین برای پست‌ها/صفحاتی که هیچ تصویری برای آنها تنظیم نشده
                 است، استفاده می‌شود.
               </p>
-              <div className="relative shrink-0">
-                {previewImage || formik.values.imageUrl ? (
-                  <div className="flex flex-col items-center">
-                    <img
-                      src={previewImage || formik.values.imageUrl}
-                      alt="OG Preview"
-                      className="img-thumbnail mb-2 mx-auto rounded-lg"
-                      style={{ maxWidth: '150px' }}
-                    />
-                    <button
-                      type="button"
-                      className="btn btn-danger btn-sm mt-2"
-                      onClick={handleRemoveImage}
-                    >
-                      حذف تصویر
-                    </button>
-                  </div>
-                ) : (
-                  <>
-                    <div className="flex justify-center items-center    ">
+              {(previewImage || formik.values.ogImageUrl) && (
+                <div className="flex flex-col items-center">
+                  <img
+                    src={previewImage || formik.values.ogImageUrl}
+                    alt="OG Preview"
+                    className="img-thumbnail mb-2 mx-auto rounded-lg"
+                    style={{ maxWidth: '150px' }}
+                  />
+                  <button
+                    type="button"
+                    className="btn btn-danger btn-sm mt-2"
+                    onClick={handleRemoveImage}
+                  >
+                    حذف تصویر
+                  </button>
+                </div>
+              )}
+              <div className="flex bg-center w-full p-5 lg:p-7 bg-no-repeat bg-[length:550px] border border-gray-300 rounded-xl border-dashed branding-bg">
+                <div className="flex flex-col place-items-center place-content-center text-center rounded-xl w-full">
+                  <div className="flex items-center mb-2.5">
+                    <div className="relative size-11 shrink-0">
                       <svg
-                        className="w-fit h-fit stroke-brand-clarity fill-light"
+                        className="w-full h-full stroke-brand-clarity fill-light"
                         width="44"
                         height="48"
                         viewBox="0 0 44 48"
@@ -86,12 +86,8 @@ function SiteImageBlock({ formik, previewImage, onImageChange }: SiteImageProps)
                         <KeenIcon icon="picture" className="text-xl ps-px text-primary" />
                       </div>
                     </div>
-                  </>
-                )}
-              </div>
-              <div className="flex bg-center w-full p-5 lg:p-7 bg-no-repeat bg-[length:550px] border border-gray-300 rounded-xl border-dashed branding-bg">
-                <div className="flex flex-col place-items-center place-content-center text-center rounded-xl w-full">
-                  <span className="text-gray-900 text-xs font-medium mb-px">
+                  </div>
+                  <span className="text-gray-900 text-xs font-medium hover:text-primary-active mb-px">
                     کلیک یا کشیدن و رها کردن
                   </span>
                   <div className="text-2xs text-gray-700 text-nowrap gap-2.5 flex flex-col py-3">

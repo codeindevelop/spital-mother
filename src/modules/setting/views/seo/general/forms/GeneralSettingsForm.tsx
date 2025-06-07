@@ -40,7 +40,7 @@ const GeneralSettingsForm: React.FC = () => {
           site_alternative_name: values.site_alternative_name,
           site_slogan: values.site_slogan,
           title_separator: values.title_separator,
-          og_image: values.og_image
+          og_image: values.og_image // می‌تونه null باشه برای حذف
         };
         const response = await dispatch(updateSeoSettings(payload)).unwrap();
         setSubmitting(false);

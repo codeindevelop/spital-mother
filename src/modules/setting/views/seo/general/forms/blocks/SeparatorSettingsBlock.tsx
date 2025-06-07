@@ -25,7 +25,7 @@ function SeparatorSettingsBlock({ formik }: SeparatorSettingsBlockProps) {
             <button
               key={separator}
               type="button"
-              className={`btn btn-light flex justify-center items-center ${
+              className={`btn btn-light flex justify-center items-center  ${
                 formik.values.title_separator === separator ? 'border-success border-2' : ''
               }`}
               onClick={() => handleSeparatorClick(separator)}

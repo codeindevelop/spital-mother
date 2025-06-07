@@ -25,10 +25,7 @@ export const fetchSeoSettings = createAsyncThunk(
       return response.data.data.settings;
     } catch (error) {
       console.error('Fetch settings error:', error);
-      if (axios.isAxiosError(error)) {
-        return rejectWithValue(error.response?.data?.error || 'خطا در دریافت تنظیمات');
-      }
-      return rejectWithValue('خطا در دریافت تنظیمات');
+      return rejectWithValue(error.response?.data?.error || 'خطا در دریافت تنظیمات');
     }
   }
 );
@@ -44,6 +41,8 @@ export const updateSeoSettings = createAsyncThunk(
       formData.append('title_separator', data.title_separator || '-');
       if (data.og_image instanceof File) {
         formData.append('og_image', data.og_image);
+      } else if (data.og_image === null) {
+        formData.append('og_image', ''); // برای حذف تصویر
       }
 
       console.log('FormData contents:');
@@ -61,10 +60,7 @@ export const updateSeoSettings = createAsyncThunk(
       return response.data.data.settings;
     } catch (error) {
       console.error('Update settings error:', error);
-      if (axios.isAxiosError(error)) {
-        return rejectWithValue(error.response?.data?.error || 'خطا در به‌روزرسانی تنظیمات');
-      }
-      return rejectWithValue('خطا در به‌روزرسانی تنظیمات');
+      return rejectWithValue(error.response?.data?.error || 'خطا در به‌روزرسانی تنظیمات');
     }
   }
 );

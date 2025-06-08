@@ -29,12 +29,16 @@ const GeneralSettingsForm: React.FC = () => {
       site_slogan: settings?.site_slogan || '',
       title_separator: settings?.title_separator || '-',
       og_image: null as File | null,
-      ogImageUrl: settings?.og_image || null // اضافه کردن فیلد برای URL تصویر
+      ogImageUrl: settings?.og_image || null
     },
     enableReinitialize: true,
     validationSchema: SeoGenSettingSchema,
     onSubmit: async (values, { setSubmitting }) => {
       try {
+        console.log('Submitting form with values:', {
+          ...values,
+          og_image: values.og_image ? 'File' : values.og_image
+        });
         const payload = {
           site_name: values.site_name,
           site_alternative_name: values.site_alternative_name,
@@ -43,11 +47,13 @@ const GeneralSettingsForm: React.FC = () => {
           og_image: values.og_image
         };
         const response = await dispatch(updateSeoSettings(payload)).unwrap();
+        console.log('Update response:', response);
         setSubmitting(false);
         toast.success('تنظیمات با موفقیت به‌روزرسانی شد.');
         setPreviewImage(null);
-        formik.setFieldValue('ogImageUrl', response.og_image); // به‌روزرسانی URL بعد از ذخیره
+        formik.setFieldValue('ogImageUrl', response.og_image);
       } catch (err) {
+        console.error('Submit error:', err);
         toast.error((err as string) || 'خطا در به‌روزرسانی تنظیمات');
         setSubmitting(false);
       }
@@ -55,10 +61,11 @@ const GeneralSettingsForm: React.FC = () => {
   });
 
   const handleImageChange = (file: File | null) => {
+    console.log('Image changed to:', file ? file.name : 'null');
     formik.setFieldValue('og_image', file);
     setPreviewImage(file ? URL.createObjectURL(file) : null);
     if (!file) {
-      formik.setFieldValue('ogImageUrl', null); // پاک کردن URL برای حذف تصویر
+      formik.setFieldValue('ogImageUrl', null);
     }
   };
 

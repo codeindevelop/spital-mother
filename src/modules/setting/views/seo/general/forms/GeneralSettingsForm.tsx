@@ -17,6 +17,7 @@ const GeneralSettingsForm: React.FC = () => {
   const dispatch = useAppDispatch();
   const { settings, loading } = useAppSelector((state) => state.setting.seo.general);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [imageChanged, setImageChanged] = useState<boolean>(false); // ردیابی تغییرات تصویر
 
   useEffect(() => {
     dispatch(fetchSeoSettings());
@@ -35,25 +36,26 @@ const GeneralSettingsForm: React.FC = () => {
     validationSchema: SeoGenSettingSchema,
     onSubmit: async (values, { setSubmitting }) => {
       try {
-        console.log('Submitting form with values:', {
-          ...values,
-          og_image: values.og_image ? 'File' : values.og_image
-        });
-        const payload = {
+        const payload: any = {
           site_name: values.site_name,
           site_alternative_name: values.site_alternative_name,
           site_slogan: values.site_slogan,
-          title_separator: values.title_separator,
-          og_image: values.og_image
+          title_separator: values.title_separator
         };
+        // فقط اگه تصویر تغییر کرده، og_image رو به payload اضافه کن
+        if (imageChanged) {
+          payload.og_image = values.og_image;
+        }
         const response = await dispatch(updateSeoSettings(payload)).unwrap();
-        console.log('Update response:', response);
+
         setSubmitting(false);
         toast.success('تنظیمات با موفقیت به‌روزرسانی شد.');
-        setPreviewImage(null);
-        formik.setFieldValue('ogImageUrl', response.og_image);
+        if (imageChanged) {
+          setPreviewImage(null);
+          formik.setFieldValue('ogImageUrl', response.og_image);
+          setImageChanged(false); // ریست وضعیت تغییر تصویر
+        }
       } catch (err) {
-        console.error('Submit error:', err);
         toast.error((err as string) || 'خطا در به‌روزرسانی تنظیمات');
         setSubmitting(false);
       }
@@ -61,9 +63,9 @@ const GeneralSettingsForm: React.FC = () => {
   });
 
   const handleImageChange = (file: File | null) => {
-    console.log('Image changed to:', file ? file.name : 'null');
     formik.setFieldValue('og_image', file);
     setPreviewImage(file ? URL.createObjectURL(file) : null);
+    setImageChanged(true); // علامت‌گذاری تغییر تصویر
     if (!file) {
       formik.setFieldValue('ogImageUrl', null);
     }

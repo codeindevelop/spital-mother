@@ -21,10 +21,9 @@ export const fetchSeoSettings = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get(cruds.seoGeneralSettingUrl, getConfig());
-      console.log('Fetch settings response:', response.data);
+
       return response.data.data.settings;
     } catch (error) {
-      console.error('Fetch settings error:', error);
       return rejectWithValue(error.response?.data?.error || 'خطا در دریافت تنظیمات');
     }
   }
@@ -42,15 +41,8 @@ export const updateSeoSettings = createAsyncThunk(
       // مدیریت og_image
       if (data.og_image instanceof File) {
         formData.append('og_image', data.og_image);
-        console.log('Appending og_image file:', data.og_image.name);
       } else if (data.og_image === null) {
         formData.append('og_image', 'empty'); // ارسال 'empty' برای حذف
-        console.log('Appending "empty" for og_image deletion');
-      }
-
-      console.log('FormData contents:');
-      for (const [key, value] of formData.entries()) {
-        console.log(`${key}: ${value instanceof File ? value.name : value}`);
       }
 
       const response = await axios.post(cruds.seoGeneralSettingUrl, formData, {
@@ -59,10 +51,9 @@ export const updateSeoSettings = createAsyncThunk(
           'Content-Type': 'multipart/form-data'
         }
       });
-      console.log('Update settings response:', response.data);
+
       return response.data.data.settings;
     } catch (error) {
-      console.error('Update settings error:', error);
       return rejectWithValue(error.response?.data?.error || 'خطا در به‌روزرسانی تنظیمات');
     }
   }

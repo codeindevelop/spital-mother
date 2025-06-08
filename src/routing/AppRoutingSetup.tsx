@@ -85,18 +85,18 @@ import {
 import { UsersRouting } from '@/modules/user/routers/Routes';
 import { PagesRouting } from '@/modules/page/routers/Routes';
 import { SettingsRouting } from '@/modules/setting/routers/Routes';
-import { Demo1Layout } from '@/layouts/demo1';
+import { Layout } from '@/layouts/core';
+import { DashboardPage } from '@/modules/dashboard/views/DashboardPage';
 
 const AppRoutingSetup = (): ReactElement => {
   return (
     <Routes>
       <Route element={<RequireAuth />}>
-        <Route element={<Demo1Layout />}>
-          <Route path="/" element={<DefaultPage />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<DashboardPage />} />
           <Route path="user/*" element={<UsersRouting />} />
           <Route path="/page/*" element={<PagesRouting />} />
           <Route path="/setting/*" element={<SettingsRouting />} />
-          <Route path="/dark-sidebar" element={<Demo1DarkSidebarPage />} />
 
           <Route path="/public-profile/profiles/creator" element={<ProfileCreatorPage />} />
           <Route path="/public-profile/profiles/company" element={<ProfileCompanyPage />} />

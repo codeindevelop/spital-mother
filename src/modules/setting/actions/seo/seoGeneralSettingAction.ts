@@ -24,7 +24,8 @@ export const fetchSeoSettings = createAsyncThunk(
 
       return response.data.data.settings;
     } catch (error) {
-      return rejectWithValue(error.response?.data?.error || 'خطا در دریافت تنظیمات');
+      const err = error as any;
+      return rejectWithValue(err.response?.data?.error || 'خطا در دریافت تنظیمات');
     }
   }
 );
@@ -54,7 +55,8 @@ export const updateSeoSettings = createAsyncThunk(
 
       return response.data.data.settings;
     } catch (error) {
-      return rejectWithValue(error.response?.data?.error || 'خطا در به‌روزرسانی تنظیمات');
+      const err = error as any;
+      return rejectWithValue(err.response?.data?.error || 'خطا در به‌روزرسانی تنظیمات');
     }
   }
 );

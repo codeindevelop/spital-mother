@@ -36,29 +36,19 @@ const menuItems: IMenuItem[] = [
     rootPath: '/public-profile/'
   },
   {
-    icon: 'note-2',
-    tooltip: 'گزارشات',
+    icon: 'teacher',
+    tooltip: 'آموزش',
     path: '/public-profile/profiles/default',
     rootPath: '/public-profile/'
   },
+
   {
     icon: 'users',
     tooltip: 'کاربران',
     path: '/user/default',
     rootPath: '/user/'
   },
-  {
-    icon: 'dollar',
-    tooltip: 'حسابداری و مالی',
-    path: '/public-profile/profiles/default',
-    rootPath: '/public-profile/'
-  },
-  {
-    icon: 'question-2',
-    tooltip: 'پشتیبانی و راهنمایی',
-    path: '/public-profile/profiles/default',
-    rootPath: '/public-profile/'
-  },
+
   {
     icon: 'parcel',
     tooltip: 'سی آر ام',
@@ -71,24 +61,19 @@ const menuItems: IMenuItem[] = [
     path: '/public-profile/profiles/default',
     rootPath: '/public-profile/'
   },
-  {
-    icon: 'status',
-    tooltip: 'بخش ERP',
-    path: '/public-profile/profiles/default',
-    rootPath: '/public-profile/'
-  },
+  // {
+  //   icon: 'status',
+  //   tooltip: 'بخش ERP',
+  //   path: '/public-profile/profiles/default',
+  //   rootPath: '/public-profile/'
+  // },
   {
     icon: 'crown-2',
     tooltip: 'مارکتینگ و تبلیغات',
     path: '/public-profile/profiles/default',
     rootPath: '/public-profile/'
   },
-  {
-    icon: 'teacher',
-    tooltip: 'آموزش',
-    path: '/public-profile/profiles/default',
-    rootPath: '/public-profile/'
-  },
+
   {
     icon: 'some-files',
     tooltip: 'مدیریت فایلها',
@@ -120,6 +105,24 @@ const menuItems: IMenuItem[] = [
   // { icon: 'cheque', tooltip: 'Notifications', path: '/account/notifications', rootPath: '' },
   // { icon: 'code', tooltip: 'ACL', path: '/account/members/roles', rootPath: '' },
   // { icon: 'question', tooltip: 'API Keys', path: '/account/api-keys', rootPath: '' },
+  {
+    icon: 'dollar',
+    tooltip: 'حسابداری و مالی',
+    path: '/public-profile/profiles/default',
+    rootPath: '/public-profile/'
+  },
+  {
+    icon: 'question-2',
+    tooltip: 'پشتیبانی و راهنمایی',
+    path: '/public-profile/profiles/default',
+    rootPath: '/public-profile/'
+  },
+  {
+    icon: 'note-2',
+    tooltip: 'گزارشات',
+    path: '/public-profile/profiles/default',
+    rootPath: '/public-profile/'
+  },
   {
     icon: 'setting-2',
     tooltip: 'تنظیمات',

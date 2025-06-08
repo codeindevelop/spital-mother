@@ -137,172 +137,19 @@ export const MENU_SIDEBAR: TMenuConfig = [
     icon: 'setting-2',
     children: [
       {
-        title: 'صفحه ها',
+        title: 'گزارشات صفحات',
+        path: '/page/default'
+      },
+      {
+        title: 'تنظیمات صفحه',
         children: [
           {
-            title: 'گزارشات صفحات  ',
-            path: '/page/default'
+            title: 'لیست صفحه ها',
+            path: '/page/list'
           },
           {
-            title: 'User Profile',
-            path: '/account/home/user-profile'
-          }
-        ]
-      },
-      {
-        title: 'تنظیمات سئو',
-        children: [
-          {
-            title: 'تنظیمات عمومی',
-            path: '/general'
-          },
-          {
-            title: 'تنظیمات نمایش',
-            children: [
-              {
-                title: 'نمایش صفحات',
-                collapse: false,
-                path: '/page/seo/display-pages'
-              },
-              {
-                title: 'Billing - Enterprise',
-                path: '/account/billing/enterprise'
-              },
-              {
-                title: 'Plans',
-                path: '/account/billing/plans'
-              },
-              {
-                title: 'Billing History',
-                path: '/account/billing/history'
-              }
-            ]
-          },
-
-          {
-            title: 'Billing - Enterprise',
-            path: '/account/billing/enterprise'
-          },
-          {
-            title: 'Plans',
-            path: '/account/billing/plans'
-          },
-          {
-            title: 'Billing History',
-            path: '/account/billing/history'
-          }
-        ]
-      },
-      {
-        title: 'Security',
-        children: [
-          {
-            title: 'Get Started',
-            path: '/account/security/get-started'
-          },
-          {
-            title: 'Security Overview',
-            path: '/account/security/overview'
-          },
-          {
-            title: 'Allowed IP Addresses',
-            path: '/account/security/allowed-ip-addresses'
-          },
-          {
-            title: 'Privacy Settings',
-            path: '/account/security/privacy-settings'
-          },
-          {
-            title: 'Device Management',
-            path: '/account/security/device-management'
-          },
-          {
-            title: 'Backup & Recovery',
-            path: '/account/security/backup-and-recovery'
-          },
-          {
-            title: 'Current Sessions',
-            path: '/account/security/current-sessions'
-          },
-          {
-            title: 'Security Log',
-            path: '/account/security/security-log'
-          }
-        ]
-      },
-      {
-        title: 'Members & Roles',
-        children: [
-          {
-            title: 'Teams Starter',
-            path: '/account/members/team-starter'
-          },
-          {
-            title: 'Teams',
-            path: '/account/members/teams'
-          },
-          {
-            title: 'Team Info',
-            path: '/account/members/team-info'
-          },
-          {
-            title: 'Members Starter',
-            path: '/account/members/members-starter'
-          },
-          {
-            title: 'Team Members',
-            path: '/account/members/team-members'
-          },
-          {
-            title: 'Import Members',
-            path: '/account/members/import-members'
-          },
-          {
-            title: 'Roles',
-            path: '/account/members/roles'
-          },
-          {
-            title: 'Permissions - Toggler',
-            path: '/account/members/permissions-toggle'
-          },
-          {
-            title: 'Permissions - Check',
-            path: '/account/members/permissions-check'
-          }
-        ]
-      },
-      {
-        title: 'Integrations',
-        path: '/account/integrations'
-      },
-      {
-        title: 'Notifications',
-        path: '/account/notifications'
-      },
-      {
-        title: 'API Keys',
-        path: '/account/api-keys'
-      },
-      {
-        title: 'More',
-        collapse: true,
-        collapseTitle: 'Show less',
-        expandTitle: 'Show 3 more',
-        dropdownProps: {
-          placement: 'right-start'
-        },
-        children: [
-          {
-            title: 'Appearance',
-            path: '/account/appearance'
-          },
-          {
-            title: 'Invite a Friend',
-            path: '/account/invite-a-friend'
-          },
-          {
-            title: 'Activity',
-            path: '/account/activity'
+            title: 'ایجاد صفحه جدید',
+            path: '/page/add'
           }
         ]
       }

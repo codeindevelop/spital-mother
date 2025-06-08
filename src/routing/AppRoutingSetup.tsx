@@ -81,17 +81,17 @@ import {
   AuthenticationAccountDeactivatedPage,
   AuthenticationGetStartedPage
 } from '@/pages/authentication';
-import { Demo4Layout } from '@/layouts/demo4';
 
 import { UsersRouting } from '@/modules/user/routers/Routes';
 import { PagesRouting } from '@/modules/page/routers/Routes';
 import { SettingsRouting } from '@/modules/setting/routers/Routes';
+import { Demo1Layout } from '@/layouts/demo1';
 
 const AppRoutingSetup = (): ReactElement => {
   return (
     <Routes>
       <Route element={<RequireAuth />}>
-        <Route element={<Demo4Layout />}>
+        <Route element={<Demo1Layout />}>
           <Route path="/" element={<DefaultPage />} />
           <Route path="user/*" element={<UsersRouting />} />
           <Route path="/page/*" element={<PagesRouting />} />

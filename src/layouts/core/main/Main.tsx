@@ -45,9 +45,9 @@ const Main = () => {
 
   return (
     <Fragment>
-      <Helmet>
+      {/* <Helmet>
         <title>{menuItem?.title}</title>
-      </Helmet>
+      </Helmet> */}
 
       <Sidebar />
 

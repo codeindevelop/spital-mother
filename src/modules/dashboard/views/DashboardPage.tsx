@@ -9,6 +9,7 @@ import { addDays, format } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { KeenIcon } from '@/assets/keenicons';
 import { DashboardPageContent } from './DashboardPageContent';
+import PageTitle from '@/components/page-title/PageTitle';
 
 const DashboardPage = () => {
   const [date, setDate] = useState<DateRange | undefined>({
@@ -18,6 +19,7 @@ const DashboardPage = () => {
 
   return (
     <Fragment>
+      <PageTitle name="پیشخان مدیریت" />
       <Container>
         <Toolbar>
           <ToolbarHeading title="Dashboard" description="Central Hub for Personal Customization" />

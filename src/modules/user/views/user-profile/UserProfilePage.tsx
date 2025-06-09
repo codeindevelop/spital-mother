@@ -11,12 +11,14 @@ import { PageNavbar } from '@/pages/account';
 
 import { UserProfileContent } from '.';
 import { useLayout } from '@/providers';
+import PageTitle from '@/components/page-title/PageTitle';
 
 const UserProfilePage = () => {
   const { currentLayout } = useLayout();
 
   return (
     <Fragment>
+      <PageTitle name="پروفایل کاربری" />
       <PageNavbar />
 
       {currentLayout?.name === 'demo1-layout' && (

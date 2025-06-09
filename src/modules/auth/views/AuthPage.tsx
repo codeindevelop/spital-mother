@@ -7,11 +7,11 @@ import {
   ResetPasswordCheckEmail,
   ResetPasswordEnterEmail,
   Signup,
+  CheckEmail,
   TwoFactorAuth
-} from './pages';
+} from '.';
 import { AuthBrandedLayout } from '@/layouts/auth-branded';
 import { AuthLayout } from '@/layouts/auth';
-import { CheckEmail } from '@/auth/pages';
 
 const AuthPage = () => (
   <Routes>

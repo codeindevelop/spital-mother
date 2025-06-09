@@ -1,8 +1,9 @@
 import { ReactElement, useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
-import { useAuthContext } from '@/auth';
+
 import { useLoaders } from '@/providers';
 import { AppRoutingSetup } from '.';
+import { useAuthContext } from '@/modules/auth/providers/useAuthContext';
 
 const AppRouting = (): ReactElement => {
   const { setProgressBarLoader } = useLoaders();

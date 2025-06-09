@@ -1,12 +1,13 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Alert, KeenIcon } from '@/components';
-import { useAuthContext } from '@/auth';
+ 
 import { useState } from 'react';
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { useLayout } from '@/providers';
 import { AxiosError } from 'axios';
+import { useAuthContext } from '../../providers/useAuthContext';
 
 const passwordSchema = Yup.object().shape({
   newPassword: Yup.string()

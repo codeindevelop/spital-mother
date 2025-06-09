@@ -5,11 +5,12 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { KeenIcon } from '@/components';
 import { toAbsoluteUrl } from '@/utils';
-import { useAuthContext } from '@/auth';
+
 import { useLayout } from '@/providers';
 import { Alert } from '@/components';
 import { FormattedMessage } from 'react-intl';
 import { useTranslate } from '@/hooks/useTranslate';
+import { useAuthContext } from '../providers/useAuthContext';
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()

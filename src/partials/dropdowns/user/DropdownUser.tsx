@@ -1,7 +1,7 @@
 import { ChangeEvent, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import { useAuthContext } from '@/auth';
+
 import { useLanguage } from '@/i18n';
 import { toAbsoluteUrl } from '@/utils';
 import { DropdownUserLanguages } from './DropdownUserLanguages';
@@ -16,6 +16,7 @@ import {
   MenuArrow,
   MenuIcon
 } from '@/components/menu';
+import { useAuthContext } from '@/modules/auth/providers/useAuthContext';
 
 interface IDropdownUserProps {
   menuItemRef: any;
@@ -63,6 +64,11 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
             {currentUser?.data?.user?.roles[0]?.name == 'super-admin' && (
               <>
                 <span>مدیر کل</span>
+              </>
+            )}
+            {currentUser?.data?.user?.roles[0]?.name == 'admin' && (
+              <>
+                <span>مدیر </span>
               </>
             )}
           </span>

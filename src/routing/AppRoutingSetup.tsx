@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import { Navigate, Route, Routes } from 'react-router';
-import { DefaultPage, Demo1DarkSidebarPage } from '@/pages/dashboards';
+
 import {
   ProfileActivityPage,
   ProfileBloggerPage,
@@ -11,7 +11,6 @@ import {
   ProfileCompanyPage,
   ProfileCreatorPage,
   ProfileCRMPage,
-  ProfileDefaultPage,
   ProfileEmptyPage,
   ProfileFeedsPage,
   ProfileGamerPage,
@@ -73,8 +72,7 @@ import {
   NetworkVisitorsPage
 } from '@/pages/network';
 
-import { AuthPage } from '@/auth';
-import { RequireAuth } from '@/auth/RequireAuth';
+import { RequireAuth } from '@/modules/auth/views/RequireAuth';
 import { ErrorsRouting } from '@/pages/errors';
 import {
   AuthenticationWelcomeMessagePage,
@@ -87,6 +85,7 @@ import { PagesRouting } from '@/modules/page/routers/Routes';
 import { SettingsRouting } from '@/modules/setting/routers/Routes';
 import { Layout } from '@/layouts/core';
 import { DashboardPage } from '@/modules/dashboard/views/DashboardPage';
+import { AuthPage } from '@/modules/auth/views/AuthPage';
 
 const AppRoutingSetup = (): ReactElement => {
   return (

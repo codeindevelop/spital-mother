@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 
-import { useAuthContext } from '@/auth/useAuthContext';
+import { useAuthContext } from '@/modules/auth/providers/useAuthContext';
 import { Alert, KeenIcon } from '@/components';
 import { useLayout } from '@/providers';
 import { AxiosError } from 'axios';

@@ -1,7 +1,6 @@
 import { PropsWithChildren } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { AuthProvider } from '@/auth/providers/AuthContext';
 import {
   LayoutProvider,
   LoadersProvider,
@@ -13,6 +12,7 @@ import {
 import { HelmetProvider } from 'react-helmet-async';
 import { Provider } from 'react-redux';
 import store from '@/store/store';
+import { AuthProvider } from '@/modules/auth/providers/AuthContext';
 
 const queryClient = new QueryClient();
 

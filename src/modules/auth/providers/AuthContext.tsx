@@ -9,8 +9,8 @@ import {
   useState
 } from 'react';
 
-import * as authHelper from '../_helpers';
-import { type AuthModel, type UserModel } from '@/auth';
+import * as authHelper from './_helpers';
+import { type AuthModel, type UserModel } from './_models';
 import { apiConfig } from '@/config/api.config';
 import { authUrls } from '@/cruds/auth';
 

@@ -4,10 +4,10 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
-import { useAuthContext } from '../useAuthContext';
 import { toAbsoluteUrl } from '@/utils';
 import { Alert, KeenIcon } from '@/components';
 import { useLayout } from '@/providers';
+import { useAuthContext } from '../providers/useAuthContext';
 
 const initialValues = {
   email: '',

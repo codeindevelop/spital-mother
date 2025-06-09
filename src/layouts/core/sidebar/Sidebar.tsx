@@ -59,7 +59,7 @@ export const Sidebar = () => {
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter}
         className={clsx(
-          'sidebar bg-light lg:border-e lg:border-e-gray-200 dark:border-e-coal-100 lg:fixed lg:top-0 lg:bottom-0 lg:z-20 lg:flex flex-col items-stretch shrink-0',
+          'sidebar bg-light lg:border-e lg:border-e-gray-200  dark:border-e-coal-100 lg:fixed lg:top-0 lg:bottom-0 lg:z-20 lg:flex flex-col items-stretch shrink-0',
           themeClass
         )}
       >
@@ -84,11 +84,11 @@ export const Sidebar = () => {
         <SheetContent
           className="border-0 p-0 w-[--tw-sidebar-width] scrollable-y-auto"
           forceMount={true}
-          side="left"
+          side="right"
           close={false}
         >
           <SheetHeader className="sr-only">
-            <SheetTitle>Mobile Menu</SheetTitle>
+            <SheetTitle> منوی موبایل</SheetTitle>
             <SheetDescription></SheetDescription>
           </SheetHeader>
           {renderContent()}

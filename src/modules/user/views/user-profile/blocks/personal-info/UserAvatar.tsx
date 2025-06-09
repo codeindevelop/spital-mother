@@ -11,7 +11,7 @@ const UserAvatar = ({ user }: any) => {
 
   return (
     <ImageInput
-      value={user?.user.personal_info.profile_image}
+      value={user?.user?.personal_info?.profile_image}
       onChange={(selectedAvatar) => setAvatar(selectedAvatar)}
     >
       {({ onImageUpload }) => (
@@ -32,7 +32,7 @@ const UserAvatar = ({ user }: any) => {
           <div
             className="image-input-placeholder rounded-full border-2 border-success image-input-empty:border-gray-300"
             style={{
-              backgroundImage: `url(${toAbsoluteUrl(`${user?.user.personal_info.profile_image === null ? '/media/avatars/blank.png' : user?.user.personal_info.profile_image}`)})`
+              backgroundImage: `url(${toAbsoluteUrl(`${user?.user?.personal_info?.profile_image === null ? '/media/avatars/blank.png' : user?.user?.personal_info?.profile_image}`)})`
             }}
           >
             <div className="flex items-center justify-center cursor-pointer h-5 left-0 right-0 bottom-0 bg-dark-clarity absolute">

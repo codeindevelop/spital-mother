@@ -36,11 +36,11 @@ const SidebarHeader = forwardRef<HTMLDivElement, any>((props, ref) => {
     <Link to="/">
       <img
         src={toAbsoluteUrl('/media/logo/logo-dark.svg')}
-        className="default-logo min-h-[22px] max-w-none"
+        className="default-logo min-h-[33px] max-w-none"
       />
       <img
         src={toAbsoluteUrl('/media/logo/logo.svg')}
-        className="small-logo min-h-[22px] max-w-none"
+        className="small-logo  h-[28px] max-w-none"
       />
     </Link>
   );

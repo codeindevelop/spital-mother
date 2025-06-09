@@ -1,5 +1,5 @@
 import { KeenIcon } from '@/components';
- 
+
 import { UserAvatar } from './UserAvatar';
 
 const PersonalInfo = ({ user }: any) => {
@@ -26,16 +26,16 @@ const PersonalInfo = ({ user }: any) => {
               <td className="py-2 text-gray-600 font-normal">نام</td>
               <td className="py-2 text-gray-800 font-normal text-sm">
                 <span className="font-medium me-1 tracking-normal">
-                  {user?.user.personal_info?.first_name}
+                  {user?.user?.personal_info?.first_name}
                 </span>
                 <span className="font-medium me-1 tracking-normal">
-                  {user?.user.personal_info?.last_name}
+                  {user?.user?.personal_info?.last_name}
                 </span>
               </td>
               <td className="py-2 text-center">
-                <a href="#" className="btn btn-sm btn-icon btn-clear btn-primary">
+                <button className="btn btn-sm btn-icon btn-clear btn-primary">
                   <KeenIcon icon="notepad-edit" />
-                </a>
+                </button>
               </td>
             </tr>
             <tr>
@@ -53,30 +53,30 @@ const PersonalInfo = ({ user }: any) => {
                 )}
               </td>
               <td className="py-3 text-center">
-                <a href="#" className="btn btn-sm btn-icon btn-clear btn-primary">
+                <button className="btn btn-sm btn-icon btn-clear btn-primary">
                   <KeenIcon icon="notepad-edit" />
-                </a>
+                </button>
               </td>
             </tr>
             <tr>
               <td className="py-3 text-gray-600 font-normal">تاریخ تولد</td>
               <td className="py-3 text-gray-700 text-sm font-normal font-estedad tracking-normal">
-                {user?.user.personal_info?.date_of_birth}
+                {user?.user?.personal_info?.date_of_birth}
               </td>
               <td className="py-3 text-center">
-                <a href="#" className="btn btn-sm btn-icon btn-clear btn-primary">
+                <button className="btn btn-sm btn-icon btn-clear btn-primary">
                   <KeenIcon icon="notepad-edit" />
-                </a>
+                </button>
               </td>
             </tr>
             <tr>
               <td className="py-3 text-gray-600 font-normal">جنسیت</td>
               <td className="py-3 text-gray-700 text-sm font-normal">
-                {user?.user.personal_info?.gender == 'male' ? (
+                {user?.user?.personal_info?.gender == 'male' ? (
                   <>
                     <span>آقا</span>
                   </>
-                ) : user?.user.personal_info?.gender == 'female' ? (
+                ) : user?.user?.personal_info?.gender == 'female' ? (
                   <>
                     <span>خانم</span>
                   </>
@@ -87,17 +87,17 @@ const PersonalInfo = ({ user }: any) => {
                 )}
               </td>
               <td className="py-3 text-center">
-                <a href="#" className="btn btn-sm btn-icon btn-clear btn-primary">
+                <button className="btn btn-sm btn-icon btn-clear btn-primary">
                   <KeenIcon icon="notepad-edit" />
-                </a>
+                </button>
               </td>
             </tr>
             <tr className="   ">
               <td className="">آدرس</td>
-              {user?.user.personal_info.home_address !== null ? (
+              {user?.user?.personal_info.home_address !== null ? (
                 <>
                   <td className="">
-                    <span className="  ">{user?.user.personal_info.home_address}</span>
+                    <span className="  ">{user?.user?.personal_info.home_address}</span>
                   </td>
                 </>
               ) : (
@@ -107,7 +107,7 @@ const PersonalInfo = ({ user }: any) => {
                 </>
               )}
               <td className="py-3  ">
-                {user?.user.personal_info.home_address !== null ? (
+                {user?.user?.personal_info.home_address !== null ? (
                   <>
                     <button className="btn btn-link btn-sm">ویرایش</button>
                   </>

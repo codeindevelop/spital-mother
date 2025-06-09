@@ -8,6 +8,7 @@ import {
   StartNow,
   Work
 } from './blocks';
+
 import { useAppSelector } from '@/store/hooks';
 
 const UserProfileContent = () => {
@@ -20,9 +21,9 @@ const UserProfileContent = () => {
 
           <BasicSettings user={userData} />
 
-          <Work />
+          <Work user={userData} />
 
-          <CommunityBadges />
+          {/* <CommunityBadges /> */}
         </div>
       </div>
 
@@ -30,11 +31,11 @@ const UserProfileContent = () => {
         <div className="grid gap-5 lg:gap-7.5">
           <StartNow />
 
-          <CalendarAccounts />
+          {/* <CalendarAccounts /> */}
 
-          <Connections url="#" />
+          {/* <Connections url="#" /> */}
 
-          <RecentUploads title="My Files" />
+          {/* <RecentUploads title="My Files" /> */}
         </div>
       </div>
     </div>

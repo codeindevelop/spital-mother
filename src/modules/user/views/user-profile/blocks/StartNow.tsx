@@ -17,24 +17,24 @@ const StartNow = () => {
         `}
       </style>
 
-      <div className="card flex-col gap-5 justify-between bg-[center_top_1.3rem] bg-no-repeat pt-5 lg:pt-10 px-5 start-now-bg bg-[length:700px]">
+      <div className="card flex-col gap-5 justify-between bg-[center_top_1.3rem] bg-no-repeat p-5 lg:p-[80px] px-5 start-now-bg bg-[length:700px]">
         <div className="text-center">
-          <h3 className="text-gray-900 text-lg font-semibold leading-6 mb-1.5">
-            Individually Tailored
+          <h3 className="text-gray-900 text-md font-semibold leading-8 mb-1.5">
+            تنظیمات و گزارش های سامانه را
             <br />
-            Deals for Personal Satisfaction
+            بازبینی کنید تا در جریان کارکرد سیستم باشید
           </h3>
 
           <span className="text-gray-700 text-sm block mb-5">
-            Discover promotions crafted to match your preferences.
+            گزارشات سیستم به صورت خودکار توسط سامانه گردآوری می شود
           </span>
 
-          <Link to="/network/user-table/visitors" className="btn btn-dark btn-sm">
-            Start Now
+          <Link to="/setting/default" className="btn btn-light btn-sm">
+            گزارش تنظیمات
           </Link>
         </div>
 
-        <div className="text-center">
+        {/* <div className="text-center">
           <img
             src={toAbsoluteUrl('/media/images/2600x1200/3.png')}
             className="dark:hidden max-h-[300px]"
@@ -45,7 +45,7 @@ const StartNow = () => {
             className="light:hidden max-h-[300px]"
             alt=""
           />
-        </div>
+        </div> */}
       </div>
     </Fragment>
   );

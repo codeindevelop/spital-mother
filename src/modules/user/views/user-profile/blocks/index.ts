@@ -4,4 +4,4 @@ export * from './CommunityBadges';
 export * from './Connections';
 export * from './personal-info/PersonalInfo';
 export * from './StartNow';
-export * from './Work';
+export * from './work/Work';

@@ -13,6 +13,8 @@ import * as authHelper from './_helpers';
 import { type AuthModel, type UserModel } from './_models';
 import { apiConfig } from '@/config/api.config';
 import { authUrls } from '@/cruds/auth';
+import { useAppDispatch } from '@/store/hooks';
+import getUserAction from '@/modules/auth/actions/profile/getUserAction';
 
 const API_URL = apiConfig.API_SERVER;
 export const LOGIN_URL = `${API_URL}/login`;
@@ -51,6 +53,7 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
   const [loading, setLoading] = useState(true);
   const [auth, setAuth] = useState<AuthModel | undefined>(authHelper.getAuth());
   const [currentUser, setCurrentUser] = useState<UserModel | undefined>();
+  const dispatch = useAppDispatch();
 
   const verify = async () => {
     if (auth) {
@@ -81,6 +84,7 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
       });
       saveAuth(auth);
       const { data: user } = await getUser();
+      dispatch(getUserAction());
       setCurrentUser(user);
     } catch (error) {
       saveAuth(undefined);
@@ -97,6 +101,7 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
       });
       saveAuth(auth);
       const { data: user } = await getUser();
+      dispatch(getUserAction());
       setCurrentUser(user);
     } catch (error) {
       saveAuth(undefined);
@@ -125,6 +130,7 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
   };
 
   const getUser = async () => {
+    dispatch(getUserAction());
     return await axios.get<UserModel>(authUrls.profileUrl, {
       headers: {
         Authorization: `Bearer ${auth?.accessToken}`

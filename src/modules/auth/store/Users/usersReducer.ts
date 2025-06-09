@@ -1,37 +1,39 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAllUsersAction } from '../../actions/users/getAllUsersAction';
+import getUserAction from '../../actions/profile/getUserAction';
 
-const initialState = {
-  users: [],
-  loadingTable: true,
-  loadUsersErrMsg: ''
+interface AuthState {
+  data: [] | null;
+  loading: boolean;
+  error: string | null;
+}
+
+const initialState: AuthState = {
+  data: [],
+  loading: false,
+  error: null
 };
 
-export const usersReducer = createSlice({
-  name: 'allUsers',
+const userReducer = createSlice({
+  name: 'user',
   initialState,
   reducers: {},
-  extraReducers: (builder) => {
-    // Profile
+  extraReducers: (
+    builder: any // Adjust the type as per your project's setup
+  ) => {
     builder
-      .addCase(getAllUsersAction.pending, (state) => {
-        state.loadUsersErrMsg = '';
+      .addCase(getUserAction.pending, (state: AuthState) => {
+        state.loading = true;
+        state.error = null;
       })
-      .addCase(getAllUsersAction.fulfilled, (state, action) => {
-        state.loadingTable = false;
-        state.users = action.payload.data.users;
+      .addCase(getUserAction.fulfilled, (state: AuthState, action: any) => {
+        state.loading = false;
+        state.data = action.payload.data; // Assuming payload is the user data
       })
-      .addCase(getAllUsersAction.rejected, (state, action) => {
-        if (action.payload) {
-          state.loadUsersErrMsg =
-            (action.payload as { message: string })?.message || 'users Load failed';
-        } else {
-          state.loadUsersErrMsg = action.error.message || 'users Load failed';
-        }
+      .addCase(getUserAction.rejected, (state: AuthState, action: any) => {
+        state.loading = false;
+        state.error = action.error.message; // Assuming error message is in action.error.message
       });
   }
 });
 
-// export const { enableAuthAction } = usersReducer.actions;
-
-export default usersReducer.reducer;
+export default userReducer.reducer;

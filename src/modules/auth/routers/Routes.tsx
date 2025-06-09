@@ -1,19 +1,11 @@
 import React, { ReactElement } from 'react';
 import { Route, Routes } from 'react-router';
 
-import { CrateNewPage } from '../views/add/CrateNewPage';
-import { PagesDefaultPage } from '../views/default';
+// import { CrateNewPage } from '../views/add/CrateNewPage';
+// import { PagesDefaultPage } from '../views/default';
 
 const PagesRouting = (): ReactElement => {
-  return (
-    <Routes>
-      <Route path="/default" element={<PagesDefaultPage />} />
-
-      {/* <Route path="/list" element={<UsersListPage />} /> */}
-      <Route path="/add" element={<CrateNewPage />} />
-      {/* <Route path="/show/*" element={<ShowUserPage />} /> */}
-    </Routes>
-  );
+  return <Routes>{/* <Route path="/default" element={<PagesDefaultPage />} /> */}</Routes>;
 };
 
 export { PagesRouting };

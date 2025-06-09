@@ -9,7 +9,7 @@ const LayoutConfig: ILayoutConfig = {
   options: {
     // Sidebar configuration
     sidebar: {
-      theme: 'dark', // Sidebar theme set to light
+      theme: 'light', // Sidebar theme set to light
       fixed: true, // Sidebar is fixed in position
       collapse: false // Sidebar is not collapsed by default
     },

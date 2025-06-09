@@ -28,7 +28,7 @@ const DashboardPageContent = () => {
         </div>
 
         <div className="lg:col-span-2">
-          <EarningsChart />
+          {/* <EarningsChart /> */}
         </div>
       </div>
 
@@ -38,7 +38,7 @@ const DashboardPageContent = () => {
         </div>
 
         <div className="lg:col-span-2">
-          <Teams />
+          {/* <Teams /> */}
         </div>
       </div>
     </div>

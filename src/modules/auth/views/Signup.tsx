@@ -82,14 +82,14 @@ const Signup = () => {
         onSubmit={formik.handleSubmit}
       >
         <div className="text-center mb-2.5">
-          <h3 className="text-lg font-semibold text-gray-900 leading-none mb-2.5">Sign up</h3>
+          <h3 className="text-lg font-semibold text-gray-900 leading-none mb-2.5">ثبت نام</h3>
           <div className="flex items-center justify-center font-medium">
-            <span className="text-2sm text-gray-600 me-1.5">Already have an Account ?</span>
+            <span className="text-2sm text-gray-600 me-1.5">قبلاً حساب کاربری دارید؟</span>
             <Link
               to={currentLayout?.name === 'auth-branded' ? '/auth/login' : '/auth/classic/login'}
               className="text-2sm link"
             >
-              Sign In
+              ورود
             </Link>
           </div>
         </div>
@@ -100,7 +100,7 @@ const Signup = () => {
               src={toAbsoluteUrl('/media/brand-logos/google.svg')}
               className="size-3.5 shrink-0"
             />
-            Use Google
+           ثبت نام با گوگل
           </a>
 
           <a href="#" className="btn btn-light btn-sm justify-center">
@@ -112,20 +112,20 @@ const Signup = () => {
               src={toAbsoluteUrl('/media/brand-logos/apple-white.svg')}
               className="size-3.5 shrink-0 light:hidden"
             />
-            Use Apple
+            ثبت نام با اپل
           </a>
         </div>
 
         <div className="flex items-center gap-2">
           <span className="border-t border-gray-200 w-full"></span>
-          <span className="text-2xs text-gray-500 font-medium uppercase">Or</span>
+          <span className="text-2xs text-gray-500 font-medium uppercase">یا</span>
           <span className="border-t border-gray-200 w-full"></span>
         </div>
 
         {formik.status && <Alert variant="danger">{formik.status}</Alert>}
 
         <div className="flex flex-col gap-1">
-          <label className="form-label text-gray-900">Email</label>
+          <label className="form-label text-gray-900">آدرس ایمیل</label>
           <label className="input">
             <input
               placeholder="email@email.com"
@@ -149,11 +149,11 @@ const Signup = () => {
         </div>
 
         <div className="flex flex-col gap-1">
-          <label className="form-label text-gray-900">Password</label>
+          <label className="form-label text-gray-900">رمز عبور</label>
           <label className="input">
             <input
               type={showPassword ? 'text' : 'password'}
-              placeholder="Enter Password"
+              placeholder="رمز عبور را وارد کنید"
               autoComplete="off"
               {...formik.getFieldProps('password')}
               className={clsx(
@@ -182,11 +182,11 @@ const Signup = () => {
         </div>
 
         <div className="flex flex-col gap-1">
-          <label className="form-label text-gray-900">Confirm Password</label>
+          <label className="form-label text-gray-900">تأیید رمز عبور</label>
           <label className="input">
             <input
               type={showConfirmPassword ? 'text' : 'password'}
-              placeholder="Re-enter Password"
+              placeholder="رمز عبور را دوباره وارد کنید"
               autoComplete="off"
               {...formik.getFieldProps('changepassword')}
               className={clsx(
@@ -224,9 +224,9 @@ const Signup = () => {
             {...formik.getFieldProps('acceptTerms')}
           />
           <span className="checkbox-label">
-            I accept{' '}
+            قبول تمام{' '}
             <Link to="#" className="text-2sm link">
-              Terms & Conditions
+              شرایط و ضوابط
             </Link>
           </span>
         </label>
@@ -242,7 +242,7 @@ const Signup = () => {
           className="btn btn-primary flex justify-center grow"
           disabled={loading || formik.isSubmitting}
         >
-          {loading ? 'Please wait...' : 'Sign UP'}
+          {loading ? 'لطفاً صبر کنید...' : 'ثبت نام'}
         </button>
       </form>
     </div>

@@ -71,9 +71,9 @@ const ResetPassword = () => {
         onSubmit={formik.handleSubmit}
       >
         <div className="text-center">
-          <h3 className="text-lg font-semibold text-gray-900">Your Email</h3>
+          <h3 className="text-lg font-semibold text-gray-900">آدرس ایمیل</h3>
           <span className="text-2sm text-gray-600 font-medium">
-            Enter your email to reset password
+            برای بازنشانی رمز عبور خود، آدرس ایمیل خود را وارد کنید
           </span>
         </div>
 
@@ -81,12 +81,12 @@ const ResetPassword = () => {
 
         {hasErrors === false && (
           <Alert variant="success">
-            Password reset link sent. Please check your email to proceed
+            لینک بازنشانی رمز عبور ارسال شد. لطفاً ایمیل خود را بررسی کنید
           </Alert>
         )}
 
         <div className="flex flex-col gap-1">
-          <label className="form-label text-gray-900">Email</label>
+          <label className="form-label text-gray-900">آدرس ایمیل</label>
           <label className="input">
             <input
               type="email"
@@ -115,7 +115,7 @@ const ResetPassword = () => {
             className="btn btn-primary flex justify-center grow"
             disabled={loading || formik.isSubmitting}
           >
-            {loading ? 'Please wait...' : 'Continue'}
+            {loading ? 'لطفاً صبر کنید...' : 'ادامه'}
           </button>
 
           <Link
@@ -123,7 +123,7 @@ const ResetPassword = () => {
             className="flex items-center justify-center text-sm gap-2 text-gray-700 hover:text-primary"
           >
             <KeenIcon icon="black-left" />
-            Back to Login
+            بازگشت به ورود
           </Link>
         </div>
       </form>

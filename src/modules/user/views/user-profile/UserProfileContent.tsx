@@ -8,15 +8,17 @@ import {
   StartNow,
   Work
 } from './blocks';
+import { useAppSelector } from '@/store/hooks';
 
 const UserProfileContent = () => {
+  const userData: any = useAppSelector((state) => state.auth.profile.data);
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 gap-5 lg:gap-7.5">
       <div className="col-span-1">
         <div className="grid gap-5 lg:gap-7.5">
-          <PersonalInfo />
+          <PersonalInfo user={userData} />
 
-          <BasicSettings title="تنظیمات پایه" />
+          <BasicSettings user={userData} />
 
           <Work />
 

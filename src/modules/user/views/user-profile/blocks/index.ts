@@ -1,4 +1,4 @@
-export * from './BasicSettings';
+export * from './basic/BasicSettings';
 export * from './CalendarAccounts';
 export * from './CommunityBadges';
 export * from './Connections';

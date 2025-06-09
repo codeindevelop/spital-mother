@@ -1,10 +1,8 @@
 import { KeenIcon } from '@/components';
-
-import { useAppSelector } from '@/store/hooks';
+ 
 import { UserAvatar } from './UserAvatar';
 
-const PersonalInfo = () => {
-  const user: any = useAppSelector((state) => state.auth.profile.data);
+const PersonalInfo = ({ user }: any) => {
   return (
     <div className="card min-w-full">
       <div className="card-header">

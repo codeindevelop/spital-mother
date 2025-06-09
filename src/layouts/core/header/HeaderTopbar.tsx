@@ -8,6 +8,7 @@ import { DropdownApps } from '@/partials/dropdowns/apps';
 import { DropdownChat } from '@/partials/dropdowns/chat';
 import { ModalSearch } from '@/partials/modals/search/ModalSearch';
 import { useLanguage } from '@/i18n';
+import { useAppSelector } from '@/store/hooks';
 
 const HeaderTopbar = () => {
   const { isRTL } = useLanguage();
@@ -25,6 +26,8 @@ const HeaderTopbar = () => {
   const handleClose = () => {
     setSearchModalOpen(false);
   };
+  const userData = useAppSelector((state: any) => state.auth.profile.data);
+  const profile_image = userData?.user?.personal_info?.profile_image;
 
   return (
     <div className="flex items-center gap-2 lg:gap-3.5">
@@ -131,7 +134,11 @@ const HeaderTopbar = () => {
           <MenuToggle className="btn btn-icon rounded-full">
             <img
               className="size-9 rounded-full border-2 border-success shrink-0"
-              src={toAbsoluteUrl('/media/avatars/300-2.png')}
+              src={
+                profile_image
+                  ? toAbsoluteUrl(profile_image)
+                  : toAbsoluteUrl('/media/avatars/blank.png')
+              }
               alt=""
             />
           </MenuToggle>

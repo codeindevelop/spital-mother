@@ -54,8 +54,7 @@ import {
   AccountTeamInfoPage,
   AccountTeamMembersPage,
   AccountTeamsPage,
-  AccountTeamsStarterPage,
-  AccountUserProfilePage
+  AccountTeamsStarterPage
 } from '@/pages/account';
 import {
   NetworkAppRosterPage,
@@ -116,7 +115,7 @@ const AppRoutingSetup = (): ReactElement => {
           <Route path="/public-profile/campaigns/list" element={<CampaignsListPage />} />
           <Route path="/public-profile/empty" element={<ProfileEmptyPage />} />
           <Route path="/account/home/get-started" element={<AccountGetStartedPage />} />
-          <Route path="/account/home/user-profile" element={<AccountUserProfilePage />} />
+
           <Route path="/account/home/company-profile" element={<AccountCompanyProfilePage />} />
           <Route path="/account/home/settings-sidebar" element={<AccountSettingsSidebarPage />} />
           <Route

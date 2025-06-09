@@ -17,6 +17,7 @@ import {
   MenuIcon
 } from '@/components/menu';
 import { useAuthContext } from '@/modules/auth/providers/useAuthContext';
+import { useAppSelector } from '@/store/hooks';
 
 interface IDropdownUserProps {
   menuItemRef: any;
@@ -24,8 +25,9 @@ interface IDropdownUserProps {
 
 const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
   const { settings, storeSettings } = useSettings();
-  const { logout, currentUser } = useAuthContext();
+  const { logout } = useAuthContext();
   const { isRTL } = useLanguage();
+  const userData = useAppSelector((state: any) => state.auth.profile.data);
 
   const handleThemeMode = (event: ChangeEvent<HTMLInputElement>) => {
     const newThemeMode = event.target.checked ? 'dark' : 'light';
@@ -34,6 +36,7 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
       themeMode: newThemeMode
     });
   };
+  const profile_image = userData?.user?.personal_info?.profile_image;
 
   const buildHeader = () => {
     return (
@@ -42,33 +45,34 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
           <div className="flex items-center gap-2  ">
             <img
               className="size-9 rounded-full border-2 border-success"
-              src={toAbsoluteUrl('/media/avatars/300-2.png')}
+              src={
+                profile_image
+                  ? toAbsoluteUrl(profile_image)
+                  : toAbsoluteUrl('/media/avatars/blank.png')
+              }
               alt=""
             />
             <div className="flex flex-col gap-1.5">
               <Link
-                to="/account/hoteme/get-stard"
-                className="text-sm text-gray-800 hover:text-primary font-semibold leading-none"
+                to="/user/profile"
+                className="text-sm text-gray-800 hover:text-primary font-estedad leading-none tracking-normal select-none"
               >
-                {currentUser?.data?.user?.first_name} {currentUser?.data?.user?.last_name}
+                {userData?.user?.personal_info?.display_name}
               </Link>
-              <a
-                href="mailto:c.fisher@gmail.com"
-                className="text-xs text-gray-600 hover:text-primary font-medium leading-none"
-              >
-                {currentUser?.data?.user?.email}
-              </a>
+              <span className="text-xs text-gray-500 font-medium font-pop leading-none tracking-normal select-none">
+                {userData?.user?.email}
+              </span>
             </div>
           </div>
-          <span className="badge badge-xs badge-primary badge-outline  w-[50px] mr-2 ">
-            {currentUser?.data?.user?.roles[0]?.name == 'super-admin' && (
+          <span className="badge badge-xs badge-primary badge-outline  w-[50px] mr-2 select-none ">
+            {userData?.role == 'super-admin' && (
               <>
-                <span>مدیر کل</span>
+                <span className="text-xs font-medium tracking-normal">مدیر کل</span>
               </>
             )}
-            {currentUser?.data?.user?.roles[0]?.name == 'admin' && (
+            {userData?.role == 'admin' && (
               <>
-                <span>مدیر </span>
+                <span className="text-xs font-medium tracking-normal">مدیر </span>
               </>
             )}
           </span>
@@ -83,17 +87,7 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
         <MenuSeparator />
         <div className="flex flex-col">
           <MenuItem>
-            <MenuLink path="/public-profile/profiles/default">
-              <MenuIcon className="menu-icon">
-                <KeenIcon icon="badge" />
-              </MenuIcon>
-              <MenuTitle>
-                <FormattedMessage id="USER.MENU.PUBLIC_PROFILE" />
-              </MenuTitle>
-            </MenuLink>
-          </MenuItem>
-          <MenuItem>
-            <MenuLink path="/account/home/user-profile">
+            <MenuLink path="/user/profile">
               <MenuIcon>
                 <KeenIcon icon="profile-circle" />
               </MenuIcon>
@@ -102,7 +96,7 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
               </MenuTitle>
             </MenuLink>
           </MenuItem>
-          <MenuItem
+          {/* <MenuItem
             toggle="dropdown"
             trigger="hover"
             dropdownProps={{
@@ -211,8 +205,8 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
                 </MenuLink>
               </MenuItem>
             </MenuSub>
-          </MenuItem>
-          <MenuItem>
+          </MenuItem> */}
+          {/* <MenuItem>
             <MenuLink path="https://devs.keenthemes.com">
               <MenuIcon>
                 <KeenIcon icon="message-programming" />
@@ -221,8 +215,16 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
                 <FormattedMessage id="USER.MENU.DEV_FORUM" />
               </MenuTitle>
             </MenuLink>
-          </MenuItem>
+          </MenuItem> */}
           <DropdownUserLanguages menuItemRef={menuItemRef} />
+          <MenuItem>
+            <MenuLink path="/setting">
+              <MenuIcon>
+                <KeenIcon icon="setting-2" />
+              </MenuIcon>
+              <MenuTitle>تنظیمات</MenuTitle>
+            </MenuLink>
+          </MenuItem>
           <MenuSeparator />
         </div>
       </Fragment>
@@ -234,12 +236,22 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
       <div className="flex flex-col">
         <div className="menu-item mb-0.5">
           <div className="menu-link">
-            <span className="menu-icon">
-              <KeenIcon icon="moon" />
-            </span>
-            <span className="menu-title">
-              <FormattedMessage id="USER.MENU.DARK_MODE" />
-            </span>
+            {settings.themeMode === 'dark' ? (
+              <>
+                <span className="menu-icon">
+                  <KeenIcon icon="moon" />
+                </span>
+                <span className="menu-title">تغییر قالب به روشن</span>
+              </>
+            ) : (
+              <>
+                <span className="menu-icon">
+                  <KeenIcon icon="sun" />
+                </span>
+                <span className="menu-title">تغییر قالب به تیره</span>
+              </>
+            )}
+
             <label className="switch switch-sm">
               <input
                 name="theme"
@@ -254,7 +266,7 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
 
         <div className="menu-item px-4 py-1.5">
           <a onClick={logout} className="btn btn-sm btn-light justify-center">
-            <FormattedMessage id="USER.MENU.LOGOUT" />
+            <span>خروج از حساب کاربری</span>
           </a>
         </div>
       </div>
@@ -262,10 +274,7 @@ const DropdownUser = ({ menuItemRef }: IDropdownUserProps) => {
   };
 
   return (
-    <MenuSub
-      className="menu-default light:border-gray-300 w-[350px] md:w-[280px]"
-      rootClassName="p-0"
-    >
+    <MenuSub className="menu-default light:border-gray-300 w-[350px]  " rootClassName="p-0">
       {buildHeader()}
       {buildMenu()}
       {buildFooter()}

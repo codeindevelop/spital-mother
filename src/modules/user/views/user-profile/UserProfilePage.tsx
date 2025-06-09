@@ -9,10 +9,10 @@ import {
 } from '@/partials/toolbar';
 import { PageNavbar } from '@/pages/account';
 
-import { AccountUserProfileContent } from '.';
+import { UserProfileContent } from '.';
 import { useLayout } from '@/providers';
 
-const AccountUserProfilePage = () => {
+const UserProfilePage = () => {
   const { currentLayout } = useLayout();
 
   return (
@@ -39,10 +39,10 @@ const AccountUserProfilePage = () => {
       )}
 
       <Container>
-        <AccountUserProfileContent />
+        <UserProfileContent />
       </Container>
     </Fragment>
   );
 };
 
-export { AccountUserProfilePage };
+export { UserProfilePage };

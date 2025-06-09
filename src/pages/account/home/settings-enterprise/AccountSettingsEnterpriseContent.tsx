@@ -1,5 +1,5 @@
 import { DataImport } from '../company-profile';
-import { CalendarAccounts } from '../user-profile';
+import { CalendarAccounts } from '../../../../modules/user/views/user-profile';
 import { TrustedDevices } from '../../security/overview/blocks';
 import {
   Account,

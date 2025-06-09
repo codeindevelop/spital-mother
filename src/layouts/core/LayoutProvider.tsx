@@ -7,7 +7,7 @@ import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { useMenus } from '@/providers';
 import { ILayoutConfig, useLayout } from '@/providers';
 import { deepMerge } from '@/utils';
-import { demo1LayoutConfig } from '.';
+import { LayoutConfig } from '.';
 
 // Interface defining the structure for layout provider properties
 export interface ILayoutProviderProps {
@@ -27,7 +27,7 @@ export interface ILayoutProviderProps {
 
 // Initial layout properties with default values
 const initalLayoutProps: ILayoutProviderProps = {
-  layout: demo1LayoutConfig, // Default layout configuration
+  layout: LayoutConfig, // Default layout configuration
   megaMenuEnabled: false, // Mega menu disabled by default
   headerSticky: false, // Header is not sticky by default
   mobileSidebarOpen: false, // Mobile sidebar is closed by default
@@ -73,7 +73,7 @@ const LayoutProvider = ({ children }: PropsWithChildren) => {
 
   // Merges the default layout with the current one
   const getLayoutConfig = () => {
-    return deepMerge(demo1LayoutConfig, getLayout(demo1LayoutConfig.name));
+    return deepMerge(LayoutConfig, getLayout(LayoutConfig.name));
   };
 
   const [layout, setLayout] = useState(getLayoutConfig); // State for layout configuration
@@ -105,7 +105,7 @@ const LayoutProvider = ({ children }: PropsWithChildren) => {
       }
     };
 
-    updateLayout(demo1LayoutConfig.name, updatedLayout); // Updates the layout with the collapsed state
+    updateLayout(LayoutConfig.name, updatedLayout); // Updates the layout with the collapsed state
     setLayout(getLayoutConfig()); // Refreshes the layout configuration
   };
 

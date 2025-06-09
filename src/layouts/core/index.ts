@@ -1,5 +1,5 @@
 export * from './Layout';
-export * from './Demo1LayoutConfig';
+export * from './LayoutConfig';
 export * from './LayoutProvider';
 export * from './breadcrumbs';
 export * from './content';

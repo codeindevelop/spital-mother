@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { KeenIcon } from '@/assets/keenicons';
 import { toAbsoluteUrl } from '@/utils';
 import { Menu, MenuItem, MenuToggle } from '@/components';
-import { DropdownUser } from '@/partials/dropdowns/user';
+import { DropdownUser } from '@/layouts/core/userMenu';
 import { DropdownNotifications } from '@/partials/dropdowns/notifications';
 import { DropdownApps } from '@/partials/dropdowns/apps';
 import { DropdownChat } from '@/partials/dropdowns/chat';

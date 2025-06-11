@@ -1,4 +1,4 @@
-import { AddNewPageForm } from './forms';
+import AddNewPageForm from './forms/AddNewPageForm';
 
 const AddNewPageContent = () => {
   return (

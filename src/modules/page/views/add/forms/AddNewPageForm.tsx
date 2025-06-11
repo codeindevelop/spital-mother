@@ -1,5 +1,5 @@
 // src/modules/page/forms/AddNewPageForm.tsx
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAppDispatch } from '@/store/hooks';
 import { KeenIcon } from '@/components';
 import { Link } from 'react-router-dom';
@@ -10,6 +10,8 @@ import { toast } from 'sonner';
 import BasicInfoBlock from './blocks/basicInfo/BasicInfoBlock';
 import PageLinkBlock from './blocks/link/PageLinkBlock';
 import PublishPageModeBlock from './blocks/publish/PublishPageModeBlock';
+
+import SchemaSettings from './blocks/schema/SchemaSettings';
 import SeoSettings from './blocks/Seo/SeoSettings';
 
 const initialValues = {
@@ -48,7 +50,7 @@ const initialValues = {
     og_image_width: null,
     og_image_height: null,
     og_image_type: '',
-    twitter_title: '',
+    twitter_card: '',
     twitter_description: '',
     twitter_site: '',
     twitter_creator: '',
@@ -61,9 +63,11 @@ const initialValues = {
     twitter_image_height: null
   },
   schema: {
+    type: '',
     title: '',
     slug: '',
-    schema_json: '{"@type":"WebPage","name":""}'
+    content: '',
+    data: {}
   },
   published_at: '',
   is_active: true,
@@ -80,8 +84,19 @@ const AddNewPageForm = () => {
     validationSchema: addNewPageSchema,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       setLoading(true);
+
+      // تنظیم پیش‌فرض برای schema.title و schema.slug
+      const updatedValues = {
+        ...values,
+        schema: {
+          ...values.schema,
+          title: values.schema.title || values.title,
+          slug: values.schema.slug || values.slug || values.title.toLowerCase().replace(/\s+/g, '-')
+        }
+      };
+
       try {
-        await dispatch(addNewPageAction(values)).unwrap();
+        await dispatch(addNewPageAction(updatedValues)).unwrap();
         setSubmitting(false);
         toast.success(<span className="text-success">صفحه با موفقیت ایجاد شد.</span>);
         resetForm();
@@ -89,20 +104,13 @@ const AddNewPageForm = () => {
         toast.error(
           <span className="text-danger">
             <KeenIcon icon="shield-cross" className="text-danger text-lg me-2" />
-
-            {error === 'The title has already been taken.' ? (
-              <>
-                {' '}
-                <span>عنوان صفحه تکراری است</span>{' '}
-              </>
-            ) : (
-              error
-            )}
+            {error.message || 'خطایی در ایجاد صفحه رخ داد'}
           </span>
         );
         setSubmitting(false);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     }
   });
 
@@ -110,9 +118,7 @@ const AddNewPageForm = () => {
     <form onSubmit={formik.handleSubmit} noValidate>
       {formik.status && (
         <div
-          className={`text-center text-md font-bold ${
-            formik.status.type === 'error' ? 'text-danger' : 'text-success'
-          }`}
+          className={`text-center text-md font-bold ${formik.status.type === 'error' ? 'text-danger' : 'text-success'}`}
         >
           {formik.status.message}
         </div>
@@ -122,6 +128,7 @@ const AddNewPageForm = () => {
           <BasicInfoBlock formik={formik} />
           <PageLinkBlock formik={formik} />
           <SeoSettings formik={formik} />
+          <SchemaSettings formik={formik} />
         </div>
         <div className="col-span-1 gap-5 flex flex-col">
           <PublishPageModeBlock formik={formik} />
@@ -131,8 +138,8 @@ const AddNewPageForm = () => {
       <div className="my-5 flex flex-col rounded-lg shadow-sm border md:flex-row items-center justify-start gap-2 w-full bg-gray-100 p-5">
         <button
           type="submit"
-          className="btn btn-primary w-full lg:w-1/5 transition-all duration-300 flex items-center justify-center"
-          disabled={loading || formik.isSubmitting}
+          className="btn btn-primary w-full lg:w-auto flex items-center justify-center transition-all duration-300"
+          disabled={loading || formik.isSubmitting || !formik.isValid}
         >
           <KeenIcon icon="save" className="text-white me-2" />
           <span>{loading ? 'در حال ارسال...' : 'ذخیره'}</span>
@@ -148,4 +155,4 @@ const AddNewPageForm = () => {
   );
 };
 
-export { AddNewPageForm };
+export default AddNewPageForm;

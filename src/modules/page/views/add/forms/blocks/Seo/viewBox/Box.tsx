@@ -1,19 +1,26 @@
+// src/modules/page/forms/blocks/seo/boxes/Box.tsx
 import React from 'react';
 
-type Props = {};
+interface Props {
+  title: string;
+  description: string;
+  isMobile: boolean;
+}
 
-function Box() {
+function Box({ title, description, isMobile }: Props) {
   return (
-    <>
-      <div className="  flex items-start flex-col justify-start gap-3.5 max-w-[500px] w-full   border border-1 border-primary rounded-lg p-5">
-        <h2 className="text-sm">
-          عنوان : <span className="font-bold text-primary">متن</span>
-        </h2>
-        <p className="text-sm">
-          توضیحات : <span className="font-bold text-primary">توضیحات متا</span>
-        </p>
-      </div>
-    </>
+    <div
+      className={`flex flex-col items-start justify-between border border-primary rounded-lg p-5 ${
+        isMobile ? 'max-w-lg' : 'max-w-[400px]'
+      } w-full`}
+    >
+      <h2 className="text-sm">
+        عنوان: <span className="font-bold text-primary">{title}</span>
+      </h2>
+      <p className="text-sm">
+        توضیحات: <span className="text-sm">{description}</span>
+      </p>
+    </div>
   );
 }
 

@@ -1,6 +1,7 @@
+// src/modules/page/forms/blocks/link/PageLinkBlock.tsx
+import { useState, useEffect } from 'react';
 import { KeenIcon } from '@/components';
 import { CommonHexagonBadge } from '@/partials/common';
-
 import { FormikProps } from 'formik';
 import {
   Select,
@@ -9,13 +10,50 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select';
+import axios from 'axios';
+import cruds from '../../../../../cruds';
+import { toast } from 'sonner';
 
 interface PageLinkBlockProps {
   formik: FormikProps<any>;
 }
 
+interface Page {
+  id: string;
+  title: string;
+  slug: string;
+}
+
 function PageLinkBlock({ formik }: PageLinkBlockProps) {
-  const enableRandomPassword = formik.values.create_password;
+  const [pages, setPages] = useState<Page[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [hasParent, setHasParent] = useState(false);
+
+  useEffect(() => {
+    if (hasParent) {
+      setLoading(true);
+      const token = localStorage.getItem('accessToken');
+      axios
+        .get(cruds.pagesListsUrl, {
+          headers: { Authorization: `Bearer ${token}` }
+        })
+        .then((response) => {
+          const fetchedPages = response.data.data.pages.data || [];
+
+          setPages(fetchedPages);
+        })
+        .catch(() => {
+          toast.error('خطا در بارگذاری صفحات والد');
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } else {
+      setPages([]); // وقتی hasParent false باشه، صفحات رو خالی کن
+    }
+  }, [hasParent]);
+
+  console.log('Current pages state:', pages); // دیباگ: وضعیت state
 
   return (
     <div className="card">
@@ -29,61 +67,72 @@ function PageLinkBlock({ formik }: PageLinkBlockProps) {
               stroke="stroke-gray-300"
               fill="fill-gray-100"
               size="size-[50px]"
-              badge={<KeenIcon icon="password-check" className="text-xl text-gray-500" />}
+              badge={<KeenIcon icon="link" className="text-xl text-gray-500" />}
             />
             <div className="flex flex-col gap-1">
               <h4 className="text-sm font-medium text-gray-900 mb-px">صفحه فرزند</h4>
               <span className="text-2sm text-gray-700">
-                آیا این صفحه دارای لینک والد می باشد و باید زیر مجموعه یک لینک دیگر شود ؟
+                آیا این صفحه دارای لینک والد می‌باشد و باید زیرمجموعه یک لینک دیگر شود؟
               </span>
             </div>
           </div>
           <label className="switch switch-sm">
             <input
               type="checkbox"
-              name="create_password"
-              checked={enableRandomPassword}
+              checked={hasParent}
               onChange={(e) => {
-                formik.setFieldValue('create_password', e.target.checked);
-                if (e.target.checked) {
-                  // حذف فیلدهای password و password_confirmation
-                  formik.setFieldValue('password', undefined);
-                  formik.setFieldValue('password_confirmation', undefined);
-                }
+                setHasParent(e.target.checked);
+                formik.setFieldValue('parent_id', null);
               }}
             />
           </label>
         </div>
-        <div className="flex items-center flex-wrap gap-2.5">
-          <label className="form-label max-w-56">آدرس لینک پدر</label>
-
-          <div className="grow">
-            <Select defaultValue="1">
-              <SelectTrigger>
-                <SelectValue placeholder="Select" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="1">Public</SelectItem>
-                <SelectItem value="2">Option 2</SelectItem>
-                <SelectItem value="3">Option 2</SelectItem>
-              </SelectContent>
-            </Select>
+        {hasParent && (
+          <div className="flex items-center flex-wrap gap-2.5">
+            <label className="form-label max-w-56">آدرس لینک پدر</label>
+            <div className="grow">
+              <Select
+                onValueChange={(value) => {
+                  console.log('Selected parent_id:', value); // دیباگ: انتخاب گزینه
+                  formik.setFieldValue('parent_id', value);
+                }}
+                disabled={loading}
+                value={formik.values.parent_id || ''} // اطمینان از مقدار پیش‌فرض
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder={loading ? 'در حال بارگذاری...' : 'انتخاب کنید'} />
+                </SelectTrigger>
+                <SelectContent>
+                  {pages.length === 0 && !loading ? (
+                    <div className="text-center text-sm text-gray-500">هیچ صفحه‌ای یافت نشد</div>
+                  ) : (
+                    pages.map((page) => (
+                      <SelectItem key={page.id} value={page.id}>
+                        {page.title} ({page.slug})
+                      </SelectItem>
+                    ))
+                  )}
+                </SelectContent>
+              </Select>
+              {formik.touched.parent_id && formik.errors.parent_id && (
+                <div className="text-danger text-sm">{formik.errors.parent_id}</div>
+              )}
+            </div>
           </div>
-        </div>
+        )}
         <div className="flex items-baseline flex-wrap lg:flex-nowrap gap-2.5">
           <label className="form-label max-w-56">آدرس لینک</label>
           <div className="w-full">
             <input
               className="input"
-              type="password"
-              name="password"
-              disabled={enableRandomPassword}
-              value={formik.values.password || ''}
+              type="text"
+              name="slug"
+              value={formik.values.slug}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.password && typeof formik.errors.password === 'string' && (
-              <div className="text-danger text-sm">{formik.errors.password}</div>
+            {formik.touched.slug && formik.errors.slug && (
+              <div className="text-danger text-sm">{formik.errors.slug}</div>
             )}
           </div>
         </div>

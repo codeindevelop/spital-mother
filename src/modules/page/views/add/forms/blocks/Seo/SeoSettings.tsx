@@ -1,14 +1,16 @@
+// src/modules/page/forms/blocks/seo/SeoSettings.tsx
 import { FormikProps } from 'formik';
 import ViewMode from './viewBox/ViewMode';
 import SeoTitle from './SeoTitle';
-
 import { Accordion, AccordionItem } from '@/components/accordion';
+
 import Keywords from './Keywords';
 import Canonicals from './Canonicals';
 import Robots from './Robots';
 import Og from './og/Og';
 import Twitter from './twitter/Twitter';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 interface ISeoItem {
   title: string;
@@ -22,6 +24,8 @@ interface SeoSettingsProps {
 interface ISeoItems extends Array<ISeoItem> {}
 
 function SeoSettings({ formik }: SeoSettingsProps) {
+  const [useDefaultSeoSettings, setUseDefaultSeoSettings] = useState(false);
+
   const items: ISeoItems = [
     {
       title: 'عنوان و توضیحات',
@@ -36,7 +40,7 @@ function SeoSettings({ formik }: SeoSettingsProps) {
       content: <Canonicals formik={formik} />
     },
     {
-      title: 'ربات ها',
+      title: 'ربات‌ها',
       content: <Robots formik={formik} />
     },
     {
@@ -44,10 +48,11 @@ function SeoSettings({ formik }: SeoSettingsProps) {
       content: <Og formik={formik} />
     },
     {
-      title: 'نمایش در تویتر ( x )',
+      title: 'نمایش در X',
       content: <Twitter formik={formik} />
     }
   ];
+
   const generateItems = () => {
     return (
       <Accordion allowMultiple={false}>
@@ -69,22 +74,27 @@ function SeoSettings({ formik }: SeoSettingsProps) {
             <span className="text-xs text-gray-500">
               <span className="text-gray-700 text-sx font-medium">
                 استفاده از{' '}
-                <Link to="/setting/seo/general" className="text-blue-500 ">
-                  <span className="mx-1">تنظیمات پیش فرض</span>
+                <Link to="/setting/seo/general" className="text-blue-500">
+                  <span className="mx-1">تنظیمات پیش‌فرض</span>
                 </Link>{' '}
                 برای سئو
               </span>
             </span>
             <input
               type="checkbox"
-              name="general_seo"
-              //   checked={enableRandomPassword}
+              checked={useDefaultSeoSettings}
               onChange={(e) => {
-                formik.setFieldValue('general_seo"', e.target.checked);
+                setUseDefaultSeoSettings(e.target.checked);
                 if (e.target.checked) {
-                  // حذف فیلدهای password و password_confirmation
-                  formik.setFieldValue('password', undefined);
-                  formik.setFieldValue('password_confirmation', undefined);
+                  // فرض می‌کنم تنظیمات پیش‌فرض از API لود می‌شن
+                  formik.setValues({
+                    ...formik.values,
+                    seo: {
+                      meta_title: 'Default Title',
+                      meta_description: 'Default Description'
+                      // سایر فیلدها...
+                    }
+                  });
                 }
               }}
             />
@@ -92,14 +102,12 @@ function SeoSettings({ formik }: SeoSettingsProps) {
         </div>
       </div>
       <div className="card-body grid gap-5">
-        <p className="text-sm leading-7 tracking-normal  font-medium">
-          در این بخش تمام اطلاعاتی که نیازدارید از نظر سئو برای این صفحه تنظیم کنید را می توانید
-          انجام دهید تا صفحه شما در موتورهای جستجو و شبکه های اجتماعی با تنظیمات شما نمایش داده شود
-          یا نمایش داده نشود
+        <p className="text-sm leading-7 tracking-normal font-medium">
+          در این بخش تمام اطلاعاتی که نیاز دارید از نظر سئو برای این صفحه تنظیم کنید را می‌توانید
+          انجام دهید.
         </p>
-        <ViewMode formik={formik} />
-
-        {generateItems()}
+        <ViewMode disabled={useDefaultSeoSettings} formik={formik} />
+        {!useDefaultSeoSettings && generateItems()}
       </div>
     </div>
   );

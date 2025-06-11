@@ -1,11 +1,11 @@
+// src/modules/page/forms/blocks/publish/PublishDate.tsx
 import { KeenIcon } from '@/components';
 import { CommonHexagonBadge } from '@/partials/common';
-import { type MouseEvent, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { FormikProps } from 'formik';
-
 import { Calendar } from '@/components/ui/calendar';
-import { format } from 'date-fns-jalali';
+import { format, parse } from 'date-fns-jalali';
 
 import { cn } from '@/lib/utils';
 
@@ -15,13 +15,33 @@ interface PublishDateProps {
 
 function PublishDate({ formik }: PublishDateProps) {
   const [date, setDate] = useState<Date | undefined>();
+  const [useCustomDate, setUseCustomDate] = useState(false);
+
+  // تبدیل تاریخ شمسی به میلادی برای ارسال به سرور
+  const handleDateSelect = (selectedDate: Date | undefined) => {
+    setDate(selectedDate);
+    if (selectedDate) {
+      const gregorianDate = toGregorian(selectedDate);
+      formik.setFieldValue('published_at', gregorianDate.toISOString());
+    } else {
+      formik.setFieldValue('published_at', '');
+    }
+  };
+
+  // تنظیم تاریخ امروز به‌صورت پیش‌فرض
+  useEffect(() => {
+    if (!useCustomDate) {
+      const today = new Date();
+      formik.setFieldValue('published_at', today.toISOString());
+    }
+  }, [useCustomDate, formik]);
 
   return (
     <div className="card">
       <div className="card-header">
-        <h3 className="card-title text-sm">تاریخ انتشار </h3>
+        <h3 className="card-title text-sm">تاریخ انتشار</h3>
       </div>
-      <div className="card-body ">
+      <div className="card-body">
         <div className="flex flex-col gap-4">
           <p className="text-xs leading-6 flex justify-center items-center gap-3 w-full">
             <CommonHexagonBadge
@@ -30,35 +50,26 @@ function PublishDate({ formik }: PublishDateProps) {
               size="size-[50px]"
               badge={<KeenIcon icon="time" className="text-xl text-gray-500" />}
             />
-            با فعال سازی این گزینه ، شما میتوانید یک تاریخ برای نمایش صفحه انتخاب کنید تا در آن
-            تاریخ صفحه منتشر گردد
+            با فعال‌سازی این گزینه، می‌توانید یک تاریخ برای نمایش صفحه انتخاب کنید تا در آن تاریخ
+            صفحه منتشر گردد
           </p>
           <div className="flex items-center justify-between flex-wrap lg:flex-nowrap rounded-lg select-none transition-all duration-300 hover:shadow-lg gap-2.5 px-3.5 py-2.5 border-2">
             <div className="flex items-center flex-wrap lg:flex-nowrap gap-3.5">
               <div className="flex flex-col gap-1">
                 <h4 className="text-sm font-medium text-gray-900 mb-px">زمان انتشار</h4>
                 <span className="text-2sm text-gray-700">
-                  میخواهم همین الان این صفحه منتشر شود .
+                  می‌خواهم همین الان این صفحه منتشر شود.
                 </span>
               </div>
             </div>
             <label className="switch switch-sm">
               <input
                 type="checkbox"
-                name="create_password"
-                // checked={enableRandomPassword}
-                onChange={(e) => {
-                  formik.setFieldValue('create_password', e.target.checked);
-                  if (e.target.checked) {
-                    // حذف فیلدهای password و password_confirmation
-                    formik.setFieldValue('password', undefined);
-                    formik.setFieldValue('password_confirmation', undefined);
-                  }
-                }}
+                checked={useCustomDate}
+                onChange={(e) => setUseCustomDate(e.target.checked)}
               />
             </label>
           </div>
-
           <div className="w-full">
             <div className="flex items-baseline flex-wrap lg:flex-nowrap gap-2.5">
               <label className="form-label flex items-center gap-1 max-w-56">تاریخ انتشار</label>
@@ -66,7 +77,7 @@ function PublishDate({ formik }: PublishDateProps) {
                 <PopoverTrigger asChild>
                   <button
                     id="date"
-                    disabled
+                    disabled={!useCustomDate}
                     className={cn(
                       'input data-[state=open]:border-primary font-estedad text-center rtl',
                       !date && 'text-muted-foreground'
@@ -79,16 +90,18 @@ function PublishDate({ formik }: PublishDateProps) {
                 <PopoverContent className="w-auto p-0" align="start">
                   <Calendar
                     initialFocus
-                    mode="single" // Single date selection
+                    mode="single"
                     defaultMonth={date}
                     selected={date}
-                    onSelect={setDate}
+                    onSelect={handleDateSelect}
                     numberOfMonths={1}
-                    // footer={`Selected: ${dateLib.format(date)}`}
                   />
                 </PopoverContent>
               </Popover>
             </div>
+            {formik.touched.published_at && formik.errors.published_at && (
+              <div className="text-danger text-sm">{formik.errors.published_at}</div>
+            )}
           </div>
         </div>
       </div>

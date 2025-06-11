@@ -36,7 +36,7 @@ export const Sidebar = () => {
   const { mobileSidebarOpen, setSidebarMouseLeave, setMobileSidebarOpen } = useLayoutContext();
   const { layout } = useLayoutContext();
   const themeClass: string =
-    layout.options.sidebar.theme === 'dark' || pathname === '/'
+    layout.options.sidebar.theme === 'dark' || pathname === '/dark-side'
       ? 'dark [&.dark]:bg-coal-600'
       : 'dark:bg-coal-600';
 

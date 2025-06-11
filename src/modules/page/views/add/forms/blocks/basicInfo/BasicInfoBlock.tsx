@@ -1,15 +1,4 @@
-// @ts-nocheck
-import { CrudAvatarUpload } from '@/partials/crud/CrudAvatarUpload';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select';
-
 import { FormikProps } from 'formik';
-import { Textarea } from '@/components/ui/textarea';
 
 interface BasicInfoBlockProps {
   formik: FormikProps<any>;
@@ -28,18 +17,18 @@ function BasicInfoBlock({ formik }: BasicInfoBlockProps) {
             <input
               className="input"
               type="text"
-              name="user_name"
-              value={formik.values.user_name}
+              name="title"
+              value={formik.values.title}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.user_name &&
-              formik.errors.user_name &&
-              typeof formik.errors.user_name === 'string' && (
-                <div className="text-danger text-sm">{formik.errors.user_name}</div>
+            {formik.touched.title &&
+              formik.errors.title &&
+              typeof formik.errors.title === 'string' && (
+                <div className="text-danger text-sm">{formik.errors.title}</div>
               )}
-            {formik.touched.user_name && Array.isArray(formik.errors.user_name) && (
-              <div className="text-danger text-sm">{formik.errors.user_name.join(', ')}</div>
+            {formik.touched.title && Array.isArray(formik.errors.title) && (
+              <div className="text-danger text-sm">{formik.errors.title.join(', ')}</div>
             )}
           </div>
         </div>
@@ -49,14 +38,13 @@ function BasicInfoBlock({ formik }: BasicInfoBlockProps) {
           <div className="w-full">
             <textarea
               className=" input leading-6 p-2 h-[120px]  "
-              type="text"
-              name="first_name"
-              value={formik.values.first_name}
+              name="description"
+              value={formik.values.description}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.first_name && formik.errors.first_name && (
-              <div className="text-danger text-sm">{formik.errors.first_name}</div>
+            {formik.touched.description && formik.errors.description && (
+              <div className="text-danger text-sm">{formik.errors.description}</div>
             )}
           </div>
         </div>

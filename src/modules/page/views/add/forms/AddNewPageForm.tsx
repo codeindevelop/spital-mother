@@ -7,9 +7,9 @@ import { useFormik } from 'formik';
 import addNewUserAction from '@/modules/user/actions/create/addNewUserAction';
 import { addNewUserSchema } from './schema/addNewUserSchema';
 import { toast } from 'sonner';
-import BasicInfoBlock from './blocks/BasicInfoBlock';
-import PageLinkBlock from './blocks/PageLinkBlock';
-import PublishPageModeBlock from './blocks/PublishPageModeBlock';
+import BasicInfoBlock from './blocks/basicInfo/BasicInfoBlock';
+import PageLinkBlock from './blocks/link/PageLinkBlock';
+import PublishPageModeBlock from './blocks/publish/PublishPageModeBlock';
 import SeoSettings from './blocks/Seo/SeoSettings';
 
 const initialValues = {
@@ -88,23 +88,23 @@ const AddNewPageForm = () => {
           {formik.status.message}
         </div>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
-        <div className="col-span-1 lg:col-span-2 gap-5 grid">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5  transition-all duration-300">
+        <div className="col-span-1 lg:col-span-2 gap-5 flex flex-col">
           <BasicInfoBlock formik={formik} />
           <PageLinkBlock formik={formik} />
           <SeoSettings formik={formik} />
         </div>
-        <div className="col-span-1 gap-5 grid">
+        <div className="col-span-1 gap-5 flex flex-col ">
           <PublishPageModeBlock formik={formik} />
 
           {/* <ActiveProfileBlock formik={formik} /> */}
         </div>
       </div>
-      <hr />
-      <div className="my-5 flex flex-col md:flex-row items-center justify-start gap-2 w-full">
+
+      <div className="my-5  flex flex-col rounded-lg shadow-sm border md:flex-row items-center justify-start gap-2 w-full bg-gray-100 p-5">
         <button
           type="submit"
-          className="btn btn-primary w-full lg:w-1/5 flex items-center justify-center"
+          className="btn btn-primary w-full lg:w-1/5  transition-all duration-300 flex items-center justify-center"
           disabled={loading || formik.isSubmitting}
         >
           <KeenIcon icon="save" className="text-white me-2" />
@@ -112,7 +112,7 @@ const AddNewPageForm = () => {
         </button>
         <Link
           to="/user/default"
-          className="btn btn-light w-full lg:w-auto flex items-center justify-center"
+          className="btn btn-light w-full lg:w-auto flex items-center justify-center  transition-all duration-300"
         >
           <span>لغو</span>
         </Link>

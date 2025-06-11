@@ -1,6 +1,6 @@
 import { KeenIcon } from '@/components';
 import { CommonHexagonBadge } from '@/partials/common';
-import React from 'react';
+
 import { FormikProps } from 'formik';
 import {
   Select,

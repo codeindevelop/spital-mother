@@ -39,8 +39,14 @@ const AccordionItemComponent = ({
         isOpen && 'active'
       )}
     >
-      <button type="button" className="accordion-toggle py-4 cursor-pointer" onClick={onClick}>
-        <span className="text-base text-gray-900">{title}</span>
+      <button
+        type="button"
+        className="group accordion-toggle py-4 cursor-pointer"
+        onClick={onClick}
+      >
+        <span className="group-hover:mr-2 transition-all group-hover:text-primary duration-300 text-sm font-medium text-gray-800 font-estedad p-1">
+          {title}
+        </span>
         {buildIndicator()}
       </button>
       <Collapse in={isOpen}>

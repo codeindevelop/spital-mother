@@ -99,9 +99,19 @@ function PublishDate({ formik }: PublishDateProps) {
                 </PopoverContent>
               </Popover>
             </div>
-            {formik.touched.published_at && formik.errors.published_at && (
-              <div className="text-danger text-sm">{formik.errors.published_at}</div>
-            )}
+            {formik.touched.published_at &&
+              formik.errors.published_at &&
+              (typeof formik.errors.published_at === 'string' ? (
+                <div className="text-danger text-sm">{formik.errors.published_at}</div>
+              ) : Array.isArray(formik.errors.published_at) ? (
+                <div className="text-danger text-sm">
+                  {formik.errors.published_at
+                    .filter((e) => typeof e === 'string')
+                    .map((err, idx) => (
+                      <div key={idx}>{err}</div>
+                    ))}
+                </div>
+              ) : null)}
           </div>
         </div>
       </div>

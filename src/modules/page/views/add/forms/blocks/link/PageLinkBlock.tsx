@@ -53,8 +53,6 @@ function PageLinkBlock({ formik }: PageLinkBlockProps) {
     }
   }, [hasParent]);
 
-  console.log('Current pages state:', pages); // دیباگ: وضعیت state
-
   return (
     <div className="card">
       <div className="card-header">

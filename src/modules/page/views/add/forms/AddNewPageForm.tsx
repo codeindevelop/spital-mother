@@ -96,6 +96,8 @@ const AddNewPageForm = () => {
       };
 
       try {
+        // disable check next line
+        // @ts-ignore
         await dispatch(addNewPageAction(updatedValues)).unwrap();
         setSubmitting(false);
         toast.success(<span className="text-success">صفحه با موفقیت ایجاد شد.</span>);

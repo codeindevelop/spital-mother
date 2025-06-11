@@ -3,7 +3,6 @@ import { FormikProps } from 'formik';
 import ViewMode from './viewBox/ViewMode';
 import SeoTitle from './SeoTitle';
 import { Accordion, AccordionItem } from '@/components/accordion';
-
 import Keywords from './Keywords';
 import Canonicals from './Canonicals';
 import Robots from './Robots';
@@ -86,13 +85,16 @@ function SeoSettings({ formik }: SeoSettingsProps) {
               onChange={(e) => {
                 setUseDefaultSeoSettings(e.target.checked);
                 if (e.target.checked) {
-                  // فرض می‌کنم تنظیمات پیش‌فرض از API لود می‌شن
+                  // تنظیمات پیش‌فرض
                   formik.setValues({
                     ...formik.values,
                     seo: {
+                      ...formik.values.seo,
                       meta_title: 'Default Title',
-                      meta_description: 'Default Description'
-                      // سایر فیلدها...
+                      meta_description: 'Default Description',
+                      robots_index: 'index',
+                      robots_follow: 'follow'
+                      // سایر فیلدها می‌تونن از API لود بشن
                     }
                   });
                 }

@@ -9,7 +9,7 @@ const UserPagesNavbar = () => {
   const menuConfig = getMenuConfig('primary');
   const userMenuConfig = menuConfig?.['3']?.children;
 
-  if (userMenuConfig && currentLayout?.name === 'demo4-layout') {
+  if (userMenuConfig && currentLayout?.name === 'demo1-layout') {
     return (
       <Navbar>
         <Container>

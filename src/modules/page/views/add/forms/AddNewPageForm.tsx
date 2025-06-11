@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { useAppDispatch } from '@/store/hooks';
 import { KeenIcon } from '@/components';
 import { Link } from 'react-router-dom';
-import MobileBlock from './blocks/MobileBlock';
-import EmailBlock from './blocks/EmailBlock';
-import PasswordBlock from './blocks/PasswordBlock';
-import UserInfoBlock from './blocks/UserInfoBlock';
-import ActiveProfileBlock from './blocks/ActiveProfileBlock';
+
 import { useFormik } from 'formik';
 import addNewUserAction from '@/modules/user/actions/create/addNewUserAction';
 import { addNewUserSchema } from './schema/addNewUserSchema';
 import { toast } from 'sonner';
+import BasicInfoBlock from './blocks/BasicInfoBlock';
+import PageLinkBlock from './blocks/PageLinkBlock';
+import PublishPageModeBlock from './blocks/PublishPageModeBlock';
+import SeoSettings from './blocks/Seo/SeoSettings';
 
 const initialValues = {
   user_name: '',
@@ -27,7 +27,7 @@ const initialValues = {
   create_password: true
 };
 
-const AddUserForm = () => {
+const AddNewPageForm = () => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
 
@@ -90,13 +90,14 @@ const AddUserForm = () => {
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
         <div className="col-span-1 lg:col-span-2 gap-5 grid">
-          <UserInfoBlock formik={formik} />
-          <PasswordBlock formik={formik} />
+          <BasicInfoBlock formik={formik} />
+          <PageLinkBlock formik={formik} />
+          <SeoSettings formik={formik} />
         </div>
         <div className="col-span-1 gap-5 grid">
-          <MobileBlock formik={formik} />
-          <EmailBlock formik={formik} />
-          <ActiveProfileBlock formik={formik} />
+          <PublishPageModeBlock formik={formik} />
+
+          {/* <ActiveProfileBlock formik={formik} /> */}
         </div>
       </div>
       <hr />
@@ -120,4 +121,4 @@ const AddUserForm = () => {
   );
 };
 
-export { AddUserForm };
+export { AddNewPageForm };

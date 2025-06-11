@@ -12,19 +12,22 @@ import {
 import { Link } from 'react-router-dom';
 // import { UserPagesNavbar } from '../../menu/PagesNavbar';
 import { AddNewPageContent } from './AddNewPageContent';
+import PageTitle from '@/components/page-title/PageTitle';
+import { UserPagesNavbar } from '@/modules/user/menu/UserPagesNavbar';
 
 const CrateNewPage = () => {
   return (
     <Fragment>
       {/* <UserPagesNavbar /> */}
 
+      <PageTitle name="ایجاد صفحه جدید" />
       <Container>
         <Toolbar>
           <ToolbarHeading>
             <ToolbarPageTitle />
-            <ToolbarDescription>
+            {/* <ToolbarDescription>
               <p className="text-md font-medium  ">ایجاد صفحه جدید</p>
-            </ToolbarDescription>
+            </ToolbarDescription> */}
           </ToolbarHeading>
           <ToolbarActions>
             <Link to="/user/list" className="btn btn-sm btn-light">

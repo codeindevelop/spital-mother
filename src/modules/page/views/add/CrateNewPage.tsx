@@ -10,10 +10,9 @@ import {
 } from '@/partials/toolbar';
 
 import { Link } from 'react-router-dom';
-// import { UserPagesNavbar } from '../../menu/PagesNavbar';
+
 import { AddNewPageContent } from './AddNewPageContent';
 import PageTitle from '@/components/page-title/PageTitle';
-import { UserPagesNavbar } from '@/modules/user/menu/UserPagesNavbar';
 
 const CrateNewPage = () => {
   return (
@@ -30,7 +29,7 @@ const CrateNewPage = () => {
             </ToolbarDescription> */}
           </ToolbarHeading>
           <ToolbarActions>
-            <Link to="/user/list" className="btn btn-sm btn-light">
+            <Link to="/page/list" className="btn btn-sm btn-light">
               <i className="ki-outline ki-menu text-lg me-1"></i>
               لیست صفحات
             </Link>

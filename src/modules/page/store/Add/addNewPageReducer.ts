@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import addNewUserAction from '../../actions/create/addNewUserAction';
+import addNewPageAction from '../../actions/add/addNewPageAction';
 
 const initialState = {
   user: null,
@@ -7,7 +7,7 @@ const initialState = {
   error: null as string | null
 };
 
-export const addNewUserReducer = createSlice({
+export const addNewPageReducer = createSlice({
   name: 'addNewUser',
   initialState,
   reducers: {
@@ -18,15 +18,15 @@ export const addNewUserReducer = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(addNewUserAction.pending, (state) => {
+      .addCase(addNewPageAction.pending, (state) => {
         state.loading = true;
         state.error = '';
       })
-      .addCase(addNewUserAction.fulfilled, (state, action) => {
+      .addCase(addNewPageAction.fulfilled, (state, action) => {
         state.loading = false;
         state.user = action.payload.data.user;
       })
-      .addCase(addNewUserAction.rejected, (state, action) => {
+      .addCase(addNewPageAction.rejected, (state, action) => {
         state.loading = false;
         state.error =
           typeof action.payload === 'string' ? action.payload : 'خطایی در ایجاد کاربر رخ داد';
@@ -34,6 +34,6 @@ export const addNewUserReducer = createSlice({
   }
 });
 
-export const { resetForm } = addNewUserReducer.actions;
+export const { resetForm } = addNewPageReducer.actions;
 
-export default addNewUserReducer.reducer;
+export default addNewPageReducer.reducer;

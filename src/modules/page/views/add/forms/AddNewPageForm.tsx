@@ -106,7 +106,17 @@ const AddNewPageForm = () => {
         toast.error(
           <span className="text-danger">
             <KeenIcon icon="shield-cross" className="text-danger text-lg me-2" />
-            {error.message || 'خطایی در ایجاد صفحه رخ داد'}
+
+            {error === 'The schema.data.name field is required when schema.type is Website.' && (
+              <>
+                <span>وارد کردن نام وب سایت الزامی است</span>
+              </>
+            )}
+            {error === 'The schema.type field is required when schema is present.' && (
+              <>
+                <span> انتخاب نوع اسکیما برای معرفی هرچه پیج الزامی می باشد</span>
+              </>
+            )}
           </span>
         );
         setSubmitting(false);

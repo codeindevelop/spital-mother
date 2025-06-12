@@ -65,7 +65,7 @@ function PageLinkBlock({ formik }: PageLinkBlockProps) {
               stroke="stroke-gray-300"
               fill="fill-gray-100"
               size="size-[50px]"
-              badge={<KeenIcon icon="link" className="text-xl text-gray-500" />}
+              badge={<KeenIcon icon="data" className="text-xl text-gray-500" />}
             />
             <div className="flex flex-col gap-1">
               <h4 className="text-sm font-medium text-gray-900 mb-px">صفحه فرزند</h4>
@@ -112,9 +112,19 @@ function PageLinkBlock({ formik }: PageLinkBlockProps) {
                   )}
                 </SelectContent>
               </Select>
-              {formik.touched.parent_id && formik.errors.parent_id && (
-                <div className="text-danger text-sm">{formik.errors.parent_id}</div>
-              )}
+              {formik.touched.parent_id &&
+                formik.errors.parent_id &&
+                (typeof formik.errors.parent_id === 'string' ? (
+                  <div className="text-danger text-sm">{formik.errors.parent_id}</div>
+                ) : Array.isArray(formik.errors.parent_id) ? (
+                  formik.errors.parent_id.map((err, idx) =>
+                    typeof err === 'string' ? (
+                      <div className="text-danger text-sm" key={idx}>
+                        {err}
+                      </div>
+                    ) : null
+                  )
+                ) : null)}
             </div>
           </div>
         )}
@@ -129,9 +139,19 @@ function PageLinkBlock({ formik }: PageLinkBlockProps) {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.slug && formik.errors.slug && (
-              <div className="text-danger text-sm">{formik.errors.slug}</div>
-            )}
+            {formik.touched.slug &&
+              formik.errors.slug &&
+              (typeof formik.errors.slug === 'string' ? (
+                <div className="text-danger text-sm">{formik.errors.slug}</div>
+              ) : Array.isArray(formik.errors.slug) ? (
+                formik.errors.slug.map((err, idx) =>
+                  typeof err === 'string' ? (
+                    <div className="text-danger text-sm" key={idx}>
+                      {err}
+                    </div>
+                  ) : null
+                )
+              ) : null)}
           </div>
         </div>
       </div>

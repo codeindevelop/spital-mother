@@ -13,18 +13,18 @@ function Canonicals({ formik }: Props) {
           <input
             className="input"
             type="text"
-            name="canonical_url"
-            value={formik.values.canonical_url}
+            name="seo.canonical_url"
+            placeholder="مثال: https://example.com/page"
+            value={formik.values.seo.canonical_url}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.canonical_url &&
-            formik.errors.canonical_url &&
-            typeof formik.errors.canonical_url === 'string' && (
-              <div className="text-danger text-sm">{formik.errors.canonical_url}</div>
-            )}
-          {formik.touched.canonical_url && Array.isArray(formik.errors.canonical_url) && (
-            <div className="text-danger text-sm">{formik.errors.canonical_url.join(', ')}</div>
+          <p className="text-xs text-gray-600 mt-1">
+            لینک Canonical نسخه اصلی صفحه را برای موتورهای جستجو مشخص می‌کند. اگر خالی باشد، URL
+            فعلی صفحه استفاده می‌شود. برای جلوگیری از محتوای تکراری، URL معتبر وارد کنید.
+          </p>
+          {formik.touched.seo?.canonical_url && formik.errors.seo?.canonical_url && (
+            <div className="text-danger text-sm">{formik.errors.seo.canonical_url}</div>
           )}
         </div>
       </div>

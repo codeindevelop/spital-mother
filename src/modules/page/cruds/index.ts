@@ -6,5 +6,6 @@ const API_URL = apiConfig.API_SERVER;
 export default {
   pagesListsUrl: `${API_URL}/api/v1/admin/page/all`,
   addNewPageUrl: `${API_URL}/api/v1/admin/page/create`,
-  getPageBySlugUrl: `${API_URL}/api/v1/admin/get-by-link`
+  getPageBySlugUrl: `${API_URL}/api/v1/admin/get-by-link`,
+  uploadSeoImageUrl: `${API_URL}/api/v1/admin/file/upload-seo-image`
 };

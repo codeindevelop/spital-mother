@@ -1,22 +1,80 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { KeenIcon } from '@/components';
 import { toAbsoluteUrl } from '@/utils';
 import { FormikProps } from 'formik';
-
+import axios from 'axios';
+import { toast } from 'sonner';
+import cruds from '@/modules/page/cruds';
 interface SiteImageProps {
   formik: FormikProps<any>;
-  previewImage: string | null;
-  onImageChange: (file: File | null) => void;
 }
 
-function OgImageBlock({ formik, previewImage, onImageChange }: SiteImageProps) {
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+function OgImageBlock({ formik }: SiteImageProps) {
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [uploading, setUploading] = useState(false);
+
+  const validateImage = (file: File): Promise<boolean> => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = URL.createObjectURL(file);
+      img.onload = () => {
+        if (img.width > 800 || img.height > 400) {
+          toast.error('ابعاد تصویر باید حداکثر ۸۰۰x۴۰۰ باشد.');
+          resolve(false);
+        } else if (!['image/jpeg', 'image/png'].includes(file.type)) {
+          toast.error('فقط فرمت‌های JPEG و PNG مجاز هستند.');
+          resolve(false);
+        } else {
+          resolve(true);
+        }
+      };
+      img.onerror = () => {
+        toast.error('خطا در بارگذاری تصویر.');
+        resolve(false);
+      };
+    });
+  };
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
-    onImageChange(file);
+    if (!file) return;
+
+    const isValid = await validateImage(file);
+    if (!isValid) return;
+
+    // پیش‌نمایش تصویر
+    const reader = new FileReader();
+    reader.onload = () => setPreviewImage(reader.result as string);
+    reader.readAsDataURL(file);
+
+    // آپلود به سرور
+    setUploading(true);
+    try {
+      const token = localStorage.getItem('accessToken');
+      const formData = new FormData();
+      formData.append('image', file);
+
+      const response = await axios.post(cruds.uploadSeoImageUrl, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+      const imageUrl = response.data.url;
+      formik.setFieldValue('seo.og_image', imageUrl);
+      toast.success('تصویر با موفقیت آپلود شد.');
+    } catch (error) {
+      toast.error('خطا در آپلود تصویر.');
+      console.error(error);
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleRemoveImage = () => {
-    onImageChange(null); // تنظیم og_image به null
+    setPreviewImage(null);
+    formik.setFieldValue('seo.og_image', '');
   };
 
   return (
@@ -33,17 +91,17 @@ function OgImageBlock({ formik, previewImage, onImageChange }: SiteImageProps) {
       </style>
 
       <div className="card-body grid gap-5 justify-center items-center text-center">
-        <h2 className="text-start font-bold text-md">تصویر سوشال </h2>
+        <h2 className="text-start font-bold text-md">تصویر سوشال</h2>
         <div className="flex items-baseline flex-wrap lg:flex-nowrap gap-2.5 w-full">
           <div className="grid grid-cols-1 items-center justify-between text-start gap-2.5">
             <p className="text-sm text-gray-700 mb-2 leading-6">
-              این تصویر زمانی که شما لینک این صفحه را در شبکه های اجتماعی به اشتراک می گذارید ، زیر
-              لینک شما برای کاربرانی که لینک را در شبکه های اجتماعی می بینند نمایش داده میشود
+              این تصویر زمانی که لینک صفحه را در شبکه‌های اجتماعی به اشتراک می‌گذارید، نمایش داده
+              می‌شود.
             </p>
-            {(previewImage || formik.values.og_image) && (
+            {(previewImage || formik.values.seo.og_image) && (
               <div className="flex flex-col items-center">
                 <img
-                  src={previewImage || formik.values.og_image}
+                  src={previewImage || formik.values.seo.og_image}
                   alt="OG Preview"
                   className="img-thumbnail mb-2 mx-auto rounded-lg"
                   style={{ maxWidth: '150px' }}
@@ -52,6 +110,7 @@ function OgImageBlock({ formik, previewImage, onImageChange }: SiteImageProps) {
                   type="button"
                   className="btn btn-danger btn-sm mt-2"
                   onClick={handleRemoveImage}
+                  disabled={uploading}
                 >
                   حذف تصویر
                 </button>
@@ -97,25 +156,23 @@ function OgImageBlock({ formik, previewImage, onImageChange }: SiteImageProps) {
                   accept="image/jpeg,image/png"
                   onChange={handleFileChange}
                   id="og_image"
+                  disabled={uploading}
                 />
                 <label htmlFor="og_image" className="cursor-pointer">
-                  <span className="btn btn-primary btn-sm">انتخاب فایل</span>
+                  <span className="btn btn-primary btn-sm">
+                    {uploading ? 'در حال آپلود...' : 'انتخاب فایل'}
+                  </span>
                 </label>
               </div>
             </div>
-            {formik.touched.og_image &&
-              formik.errors.og_image &&
-              (typeof formik.errors.og_image === 'string' ? (
-                <div className="text-danger text-sm">{formik.errors.og_image}</div>
-              ) : Array.isArray(formik.errors.og_image) ? (
-                <div className="text-danger text-sm">
-                  {formik.errors.og_image
-                    .filter((e) => typeof e === 'string')
-                    .map((err, idx) => (
-                      <div key={idx}>{err}</div>
-                    ))}
-                </div>
-              ) : null)}
+            {typeof formik.touched.seo === 'object' &&
+              !Array.isArray(formik.touched.seo) &&
+              (formik.touched.seo as any)?.og_image &&
+              typeof formik.errors.seo === 'object' &&
+              !Array.isArray(formik.errors.seo) &&
+              (formik.errors.seo as any)?.og_image && (
+                <div className="text-danger text-sm">{(formik.errors.seo as any).og_image}</div>
+              )}
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-// src/modules/page/forms/blocks/seo/ViewMode.tsx
+
 import Box from './Box';
 import { useState } from 'react';
 import { FormikProps } from 'formik';
@@ -22,10 +22,10 @@ function ViewMode({ disabled, formik }: ViewModeProps) {
   const description = truncateText(formik.values.seo.meta_description || 'توضیحات', 200); // 160 + حاشیه برای متغیرها
 
   return (
-    <div className="w-full flex   flex-col p-col g  rounded-lg gap-5   select-none transition-all   border-all duration-300 border-2">
-      <h2 className="font-bold text-sm">نحوه یهمایش صفحه در گوگل</h2>
-      <div className="flex   gap-5 flex-col gap-lg:flex-row gap-lg:flex-row    lg:flex-col   justify-center items-center  ">
-        <div className="  w-full flex-col     lg lg:w-full     items-center flex-wrap flex   lg:flex-nowrap gap-5">
+    <div className="w-full flex h-[300px]   flex-col p-5  rounded-lg gap-5   select-none transition-all   border-all duration-300 border-2">
+      <h2 className="font-bold text-sm">نحوه نمایش صفحه در گوگل</h2>
+      <div className="flex   gap-5 flex-col  lg:flex-row h-full      justify-center items-center  ">
+        <div className="    flex-col         items-center  flex     gap-5">
           <div className="flex items-center w-full">
             <label className="switch   sm-sm w-full flex sm   justify-between">
               <span className="text-xs text-gray-500">

@@ -1,6 +1,12 @@
 import OgImageBlock from './OgImageBlock';
 
-function Og({ formik }) {
+import { FormikProps } from 'formik';
+
+interface OgProps {
+  formik: FormikProps<any>;
+}
+
+function Og({ formik }: OgProps) {
   return (
     <div className="flex flex-col gap-5">
       <p className="font-medium text-sm text-gray-800">
@@ -39,8 +45,13 @@ function Og({ formik }) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.meta_description && formik.errors.meta_description && (
-            <div className="text-danger text-sm">{formik.errors.meta_description}</div>
+          {formik.touched.meta_description &&
+            formik.errors.meta_description &&
+            typeof formik.errors.meta_description === 'string' && (
+              <div className="text-danger text-sm">{formik.errors.meta_description}</div>
+            )}
+          {formik.touched.meta_description && Array.isArray(formik.errors.meta_description) && (
+            <div className="text-danger text-sm">{formik.errors.meta_description.join(', ')}</div>
           )}
         </div>
       </div>

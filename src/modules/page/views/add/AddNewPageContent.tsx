@@ -1,9 +1,9 @@
-import { AddUserForm } from './forms';
+import AddNewPageForm from './forms/AddNewPageForm';
 
 const AddNewPageContent = () => {
   return (
     <>
-      <AddUserForm />
+      <AddNewPageForm />
     </>
   );
 };

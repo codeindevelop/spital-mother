@@ -4,4 +4,4 @@ export * from './settings-enterprise/AccountSettingsEnterprisePage';
 export * from './settings-modal/AccountSettingsModalPage';
 export * from './settings-plain/AccountSettingsPlainPage';
 export * from './settings-sidebar/AccountSettingsSidebarPage';
-export * from './user-profile/AccountUserProfilePage';
+export * from '../../../modules/user/views/user-profile/UserProfilePage';

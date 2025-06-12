@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import { Navigate, Route, Routes } from 'react-router';
-import { DefaultPage, Demo1DarkSidebarPage } from '@/pages/dashboards';
+
 import {
   ProfileActivityPage,
   ProfileBloggerPage,
@@ -11,7 +11,6 @@ import {
   ProfileCompanyPage,
   ProfileCreatorPage,
   ProfileCRMPage,
-  ProfileDefaultPage,
   ProfileEmptyPage,
   ProfileFeedsPage,
   ProfileGamerPage,
@@ -55,8 +54,7 @@ import {
   AccountTeamInfoPage,
   AccountTeamMembersPage,
   AccountTeamsPage,
-  AccountTeamsStarterPage,
-  AccountUserProfilePage
+  AccountTeamsStarterPage
 } from '@/pages/account';
 import {
   NetworkAppRosterPage,
@@ -73,28 +71,30 @@ import {
   NetworkVisitorsPage
 } from '@/pages/network';
 
-import { AuthPage } from '@/auth';
-import { RequireAuth } from '@/auth/RequireAuth';
+import { RequireAuth } from '@/modules/auth/views/RequireAuth';
 import { ErrorsRouting } from '@/pages/errors';
 import {
   AuthenticationWelcomeMessagePage,
   AuthenticationAccountDeactivatedPage,
   AuthenticationGetStartedPage
 } from '@/pages/authentication';
-import { Demo4Layout } from '@/layouts/demo4';
 
 import { UsersRouting } from '@/modules/user/routers/Routes';
 import { PagesRouting } from '@/modules/page/routers/Routes';
+import { SettingsRouting } from '@/modules/setting/routers/Routes';
+import { Layout } from '@/layouts/core';
+import { DashboardPage } from '@/modules/dashboard/views/DashboardPage';
+import { AuthPage } from '@/modules/auth/views/AuthPage';
 
 const AppRoutingSetup = (): ReactElement => {
   return (
     <Routes>
       <Route element={<RequireAuth />}>
-        <Route element={<Demo4Layout />}>
-          <Route path="/" element={<DefaultPage />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<DashboardPage />} />
           <Route path="user/*" element={<UsersRouting />} />
-          <Route path="page/*" element={<PagesRouting />} />
-          <Route path="/dark-sidebar" element={<Demo1DarkSidebarPage />} />
+          <Route path="/page/*" element={<PagesRouting />} />
+          <Route path="/setting/*" element={<SettingsRouting />} />
 
           <Route path="/public-profile/profiles/creator" element={<ProfileCreatorPage />} />
           <Route path="/public-profile/profiles/company" element={<ProfileCompanyPage />} />
@@ -115,7 +115,7 @@ const AppRoutingSetup = (): ReactElement => {
           <Route path="/public-profile/campaigns/list" element={<CampaignsListPage />} />
           <Route path="/public-profile/empty" element={<ProfileEmptyPage />} />
           <Route path="/account/home/get-started" element={<AccountGetStartedPage />} />
-          <Route path="/account/home/user-profile" element={<AccountUserProfilePage />} />
+
           <Route path="/account/home/company-profile" element={<AccountCompanyProfilePage />} />
           <Route path="/account/home/settings-sidebar" element={<AccountSettingsSidebarPage />} />
           <Route

@@ -2,519 +2,376 @@ import { type TMenuConfig } from '@/components/menu';
 
 export const MENU_SIDEBAR: TMenuConfig = [
   {
-    title: 'خانه',
-    icon: 'element-11',
+    title: 'پیشخان',
+    icon: 'home',
+    path: '/'
+  },
+
+  {
+    heading: 'محتوا و صفحات'
+  },
+  {
+    title: 'مقالات',
+    icon: 'book-open',
     children: [
       {
-        title: 'پیشخان',
-        path: '/'
+        title: 'گزارشات صفحات',
+        path: '/page/default'
       },
       {
-        title: 'Dark Sidebar',
-        path: '/dark-sidebar'
+        title: 'لیست صفحه ها',
+        path: '/page/list'
+      },
+      {
+        title: 'ایجاد صفحه جدید',
+        path: '/page/add'
       }
     ]
   },
   {
-    heading: 'Users'
-  },
-  {
-    title: 'Public Profile',
-    icon: 'profile-circle',
-    children: [
-      {
-        title: 'Profiles',
-        children: [
-          {
-            title: 'Default',
-            path: '/public-profile/profiles/default'
-          },
-          {
-            title: 'Creator',
-            path: '/public-profile/profiles/creator'
-          },
-          {
-            title: 'Company',
-            path: '/public-profile/profiles/company'
-          },
-          {
-            title: 'NFT',
-            path: '/public-profile/profiles/nft'
-          },
-          {
-            title: 'Blogger',
-            path: '/public-profile/profiles/blogger'
-          },
-          {
-            title: 'CRM',
-            path: '/public-profile/profiles/crm'
-          },
-          {
-            title: 'More',
-            collapse: true,
-            collapseTitle: 'Show less',
-            expandTitle: 'Show 4 more',
-            dropdownProps: {
-              placement: 'right-start'
-            },
-            children: [
-              {
-                title: 'Gamer',
-                path: '/public-profile/profiles/gamer'
-              },
-              {
-                title: 'Feeds',
-                path: '/public-profile/profiles/feeds'
-              },
-              {
-                title: 'Plain',
-                path: '/public-profile/profiles/plain'
-              },
-              {
-                title: 'Modal',
-                path: '/public-profile/profiles/modal'
-              }
-            ]
-          }
-        ]
-      },
-      {
-        title: 'Projects',
-        children: [
-          {
-            title: '3 Columns',
-            path: '/public-profile/projects/3-columns'
-          },
-          {
-            title: '2 Columns',
-            path: '/public-profile/projects/2-columns'
-          }
-        ]
-      },
-      {
-        title: 'Works',
-        path: '/public-profile/works'
-      },
-      {
-        title: 'Teams',
-        path: '/public-profile/teams'
-      },
-      {
-        title: 'Network',
-        path: '/public-profile/network'
-      },
-      {
-        title: 'Activity',
-        path: '/public-profile/activity'
-      },
-      {
-        title: 'More',
-        collapse: true,
-        collapseTitle: 'Show less',
-        expandTitle: 'Show 3 more',
-        dropdownProps: {
-          placement: 'right-start'
-        },
-        children: [
-          {
-            title: 'Campaigns - Card',
-            path: '/public-profile/campaigns/card'
-          },
-          {
-            title: 'Campaigns - List',
-            path: '/public-profile/campaigns/list'
-          },
-          {
-            title: 'Empty',
-            path: '/public-profile/empty'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    title: 'My Account',
+    title: 'صفحات',
     icon: 'setting-2',
     children: [
       {
-        title: 'Account',
-        children: [
-          {
-            title: 'Get  ',
-            path: '/account/home/get-started'
-          },
-          {
-            title: 'User Profile',
-            path: '/account/home/user-profile'
-          },
-          {
-            title: 'Company Profile',
-            path: '/account/home/company-profile'
-          },
-          {
-            title: 'Settings - With Sidebar',
-            path: '/account/home/settings-sidebar'
-          },
-          {
-            title: 'Settings - Enterprise',
-            path: '/account/home/settings-enterprise'
-          },
-          {
-            title: 'Settings - Plain',
-            path: '/account/home/settings-plain'
-          },
-          {
-            title: 'Settings - Modal',
-            path: '/account/home/settings-modal'
-          }
-        ]
+        title: 'گزارشات صفحات',
+        path: '/page/default'
       },
       {
-        title: 'Billing',
-        children: [
-          {
-            title: 'Billing - Basic',
-            path: '/account/billing/basic'
-          },
-          {
-            title: 'Billing - Enterprise',
-            path: '/account/billing/enterprise'
-          },
-          {
-            title: 'Plans',
-            path: '/account/billing/plans'
-          },
-          {
-            title: 'Billing History',
-            path: '/account/billing/history'
-          }
-        ]
+        title: 'لیست صفحه ها',
+        path: '/page/list'
       },
       {
-        title: 'Security',
-        children: [
-          {
-            title: 'Get Started',
-            path: '/account/security/get-started'
-          },
-          {
-            title: 'Security Overview',
-            path: '/account/security/overview'
-          },
-          {
-            title: 'Allowed IP Addresses',
-            path: '/account/security/allowed-ip-addresses'
-          },
-          {
-            title: 'Privacy Settings',
-            path: '/account/security/privacy-settings'
-          },
-          {
-            title: 'Device Management',
-            path: '/account/security/device-management'
-          },
-          {
-            title: 'Backup & Recovery',
-            path: '/account/security/backup-and-recovery'
-          },
-          {
-            title: 'Current Sessions',
-            path: '/account/security/current-sessions'
-          },
-          {
-            title: 'Security Log',
-            path: '/account/security/security-log'
-          }
-        ]
-      },
-      {
-        title: 'Members & Roles',
-        children: [
-          {
-            title: 'Teams Starter',
-            path: '/account/members/team-starter'
-          },
-          {
-            title: 'Teams',
-            path: '/account/members/teams'
-          },
-          {
-            title: 'Team Info',
-            path: '/account/members/team-info'
-          },
-          {
-            title: 'Members Starter',
-            path: '/account/members/members-starter'
-          },
-          {
-            title: 'Team Members',
-            path: '/account/members/team-members'
-          },
-          {
-            title: 'Import Members',
-            path: '/account/members/import-members'
-          },
-          {
-            title: 'Roles',
-            path: '/account/members/roles'
-          },
-          {
-            title: 'Permissions - Toggler',
-            path: '/account/members/permissions-toggle'
-          },
-          {
-            title: 'Permissions - Check',
-            path: '/account/members/permissions-check'
-          }
-        ]
-      },
-      {
-        title: 'Integrations',
-        path: '/account/integrations'
-      },
-      {
-        title: 'Notifications',
-        path: '/account/notifications'
-      },
-      {
-        title: 'API Keys',
-        path: '/account/api-keys'
-      },
-      {
-        title: 'More',
-        collapse: true,
-        collapseTitle: 'Show less',
-        expandTitle: 'Show 3 more',
-        dropdownProps: {
-          placement: 'right-start'
-        },
-        children: [
-          {
-            title: 'Appearance',
-            path: '/account/appearance'
-          },
-          {
-            title: 'Invite a Friend',
-            path: '/account/invite-a-friend'
-          },
-          {
-            title: 'Activity',
-            path: '/account/activity'
-          }
-        ]
+        title: 'ایجاد صفحه جدید',
+        path: '/page/add'
       }
     ]
   },
   {
-    title: 'Network',
+    title: 'فروشگاه',
+    icon: 'handcart',
+    children: [
+      {
+        title: 'گزارشات صفحات',
+        path: '/page/default'
+      },
+      {
+        title: 'لیست صفحه ها',
+        path: '/page/list'
+      },
+      {
+        title: 'ایجاد صفحه جدید',
+        path: '/page/add'
+      }
+    ]
+  },
+  {
+    title: 'آموزش',
+    icon: 'teacher',
+    children: [
+      {
+        title: 'گزارشات صفحات',
+        path: '/page/default'
+      },
+      {
+        title: 'لیست صفحه ها',
+        path: '/page/list'
+      },
+      {
+        title: 'ایجاد صفحه جدید',
+        path: '/page/add'
+      }
+    ]
+  },
+  {
+    heading: 'امنیت و سازماندهی'
+  },
+  {
+    title: 'کاربران',
     icon: 'users',
     children: [
       {
-        title: 'Get Started',
-        path: '/network/get-started'
+        title: 'گزارشات صفحات',
+        path: '/page/default'
       },
       {
-        title: 'User Cards',
-        children: [
-          {
-            title: 'Mini Cards',
-            path: '/network/user-cards/mini-cards'
-          },
-          {
-            title: 'Team Crew',
-            path: '/network/user-cards/team-crew'
-          },
-          {
-            title: 'Author',
-            path: '/network/user-cards/author'
-          },
-          {
-            title: 'NFT',
-            path: '/network/user-cards/nft'
-          },
-          {
-            title: 'Social',
-            path: '/network/user-cards/social'
-          }
-        ]
+        title: 'لیست صفحه ها',
+        path: '/page/list'
       },
       {
-        title: 'User Table',
-        children: [
-          {
-            title: 'Team Crew',
-            path: '/network/user-table/team-crew'
-          },
-          {
-            title: 'App Roster',
-            path: '/network/user-table/app-roster'
-          },
-          {
-            title: 'Market Authors',
-            path: '/network/user-table/market-authors'
-          },
-          {
-            title: 'SaaS Users',
-            path: '/network/user-table/saas-users'
-          },
-          {
-            title: 'Store Clients',
-            path: '/network/user-table/store-clients'
-          },
-          {
-            title: 'Visitors',
-            path: '/network/user-table/visitors'
-          }
-        ]
-      },
-      {
-        title: 'Cooperations',
-        path: '/network/cooperations',
-        disabled: true
-      },
-      {
-        title: 'Leads',
-        path: '/network/leads',
-        disabled: true
-      },
-      {
-        title: 'Donators',
-        path: '/network/donators',
-        disabled: true
+        title: 'ایجاد صفحه جدید',
+        path: '/page/add'
       }
     ]
   },
   {
-    title: 'Authentication',
-    icon: 'security-user',
+    heading: 'مدیریت و سازماندهی'
+  },
+  {
+    title: 'سی آر ام',
+    icon: 'parcel',
     children: [
       {
-        title: 'Classic',
-        children: [
-          {
-            title: 'Sign In',
-            path: '/auth/classic/login'
-          },
-          {
-            title: 'Sign Up',
-            path: '/auth/classic/signup'
-          },
-          {
-            title: '2FA',
-            path: '/auth/classic/2fa'
-          },
-          {
-            title: 'Check Email',
-            path: '/auth/classic/check-email'
-          },
-          {
-            title: 'Reset Password',
-            children: [
-              {
-                title: 'Enter Email',
-                path: '/auth/classic/reset-password/enter-email'
-              },
-              {
-                title: 'Check Email',
-                path: '/auth/classic/reset-password/check-email'
-              },
-              {
-                title: 'Change Password',
-                path: '/auth/classic/reset-password/change'
-              },
-              {
-                title: 'Password Changed',
-                path: '/auth/classic/reset-password/changed'
-              }
-            ]
-          }
-        ]
+        title: 'گزارشات صفحات',
+        path: '/page/default'
       },
       {
-        title: 'Branded',
-        children: [
-          {
-            title: 'Sign In',
-            path: '/auth/login'
-          },
-          {
-            title: 'Sign Up',
-            path: '/auth/signup'
-          },
-          {
-            title: '2FA',
-            path: '/auth/2fa'
-          },
-          {
-            title: 'Check Email',
-            path: '/auth/check-email'
-          },
-          {
-            title: 'Reset Password',
-            children: [
-              {
-                title: 'Enter Email',
-                path: '/auth/reset-password/enter-email'
-              },
-              {
-                title: 'Check Email',
-                path: '/auth/reset-password/check-email'
-              },
-              {
-                title: 'Change Password',
-                path: '/auth/reset-password/change'
-              },
-              {
-                title: 'Password Changed',
-                path: '/auth/reset-password/changed'
-              }
-            ]
-          }
-        ]
+        title: 'لیست صفحه ها',
+        path: '/page/list'
       },
       {
-        title: 'Welcome Message',
-        path: '/auth/welcome-message'
-      },
-      {
-        title: 'Account Deactivated',
-        path: '/auth/account-deactivated'
-      },
-      {
-        title: 'Error 404',
-        path: '/error/404'
-      },
-      {
-        title: 'Error 500',
-        path: '/error/500'
+        title: 'ایجاد صفحه جدید',
+        path: '/page/add'
       }
     ]
   },
-  { heading: 'Apps' },
   {
-    title: 'User Management',
-    icon: 'users',
-    disabled: true
+    title: ' مالی',
+    icon: 'dollar',
+    children: [
+      {
+        title: 'گزارشات صفحات',
+        path: '/page/default'
+      },
+      {
+        title: 'لیست صفحه ها',
+        path: '/page/list'
+      },
+      {
+        title: 'ایجاد صفحه جدید',
+        path: '/page/add'
+      }
+    ]
+  },
+
+  {
+    title: 'تبلیغات',
+    icon: 'crown-2',
+    children: [
+      {
+        title: 'گزارشات صفحات',
+        path: '/page/default'
+      },
+      {
+        title: 'لیست صفحه ها',
+        path: '/page/list'
+      },
+      {
+        title: 'ایجاد صفحه جدید',
+        path: '/page/add'
+      }
+    ]
   },
   {
-    title: 'Projects',
+    title: 'وظایف',
+    icon: 'check-squared',
+    children: [
+      {
+        title: 'گزارشات صفحات',
+        path: '/page/default'
+      },
+      {
+        title: 'لیست صفحه ها',
+        path: '/page/list'
+      },
+      {
+        title: 'ایجاد صفحه جدید',
+        path: '/page/add'
+      }
+    ]
+  },
+  {
+    title: 'فایلها',
+    icon: 'some-files',
+    children: [
+      {
+        title: 'گزارشات صفحات',
+        path: '/page/default'
+      },
+      {
+        title: 'لیست صفحه ها',
+        path: '/page/list'
+      },
+      {
+        title: 'ایجاد صفحه جدید',
+        path: '/page/add'
+      }
+    ]
+  },
+  {
+    heading: 'پشتیبانی و گزارشات'
+  },
+
+  {
+    title: 'پشتیبانی ',
+    icon: 'question-2',
+    children: [
+      {
+        title: 'گزارشات صفحات',
+        path: '/page/default'
+      },
+      {
+        title: 'لیست صفحه ها',
+        path: '/page/list'
+      },
+      {
+        title: 'ایجاد صفحه جدید',
+        path: '/page/add'
+      }
+    ]
+  },
+  {
+    title: 'گزارشات',
+    icon: 'note-2',
+    children: [
+      {
+        title: 'گزارشات صفحات',
+        path: '/page/default'
+      },
+      {
+        title: 'لیست صفحه ها',
+        path: '/page/list'
+      },
+      {
+        title: 'ایجاد صفحه جدید',
+        path: '/page/add'
+      }
+    ]
+  },
+  {
+    heading: 'تنظیمات و پیکربندی'
+  },
+  {
+    title: 'تنظیمات',
+    icon: 'setting-2',
+    children: [
+      {
+        title: 'گزارشات تنظیمات',
+        path: '/setting/default'
+      },
+      {
+        title: 'تنظیمات عمومی',
+        icon: 'setting-2',
+        children: [
+          {
+            title: 'تنظیمات پایه',
+            path: '/setting/general'
+          }
+        ]
+      },
+      {
+        title: 'تنظیمات سئو',
+        icon: 'setting',
+        children: [
+          {
+            title: 'تنظیمات عمومی',
+            path: '/setting/seo/general'
+          },
+          {
+            title: 'تنظیمات نوع معرفی',
+            path: '/setting/seo/representation'
+          }
+
+          // {
+          //   title: 'نمایش صفحات',
+          //   path: '/setting/seo/display-pages'
+          // },
+          // {
+          //   title: 'نمایش مقالات',
+          //   path: '/setting/seo/display-articles'
+          // },
+          // {
+          //   title: 'نمایش دسته بندی مقالات',
+          //   path: '/setting/seo/display-articles-categories'
+          // },
+          // {
+          //   title: 'نمایش محصولات',
+          //   path: '/setting/seo/display-products'
+          // },
+          // {
+          //   title: 'نمایش دسته بندی محصولات',
+          //   path: '/setting/seo/display-products-categories'
+          // },
+
+          // {
+          //   title: 'نمایش آموزشها',
+          //   path: '/setting/seo/display-tutorials'
+          // },
+          // {
+          //   title: 'نمایش دسته بندی آموزشها',
+          //   path: '/setting/seo/display-tutorials-categories'
+          // },
+          // {
+          //   title: 'نمایش بازخوردها',
+          //   path: '/setting/seo/display-feedback'
+          // },
+          // {
+          //   title: 'تنظیمات خزنده ها',
+          //   path: '/setting/seo/crawlers'
+          // },
+          // {
+          //   title: 'تنظیمات بایگانی ها',
+          //   path: '/setting/seo/archives'
+          // }
+        ]
+      },
+      {
+        title: 'امنیت',
+        icon: 'shield',
+        children: [
+          {
+            title: 'تنظیمات پایه',
+            path: '/setting/security/get-started'
+          },
+          {
+            title: 'بررسی امنیت',
+            path: '/setting/security/overview'
+          },
+          {
+            title: 'آدرس های IP مجاز',
+            path: '/setting/security/allowed-ip-addresses'
+          },
+          {
+            title: 'تنظیمات حریم خصوصی',
+            path: '/setting/security/privacy-settings'
+          },
+          {
+            title: 'مدیریت دستگاه',
+            path: '/setting/security/device-management'
+          },
+          {
+            title: 'پشتیبان گیری و بازیابی',
+            path: '/setting/security/backup-and-recovery'
+          },
+          {
+            title: 'جلسات جاری',
+            path: '/setting/security/current-sessions'
+          },
+          {
+            title: 'گزارش امنیتی',
+            path: '/setting/security/security-log'
+          }
+        ]
+      }
+    ]
+  },
+
+  { heading: 'درحال توسعه' },
+
+  {
+    title: 'پروژه ها',
     icon: 'questionnaire-tablet',
     disabled: true
   },
+
   {
-    title: 'eCommerce',
-    icon: 'handcart',
-    disabled: true
-  },
-  { heading: 'Miscellaneous' },
-  {
-    title: 'Modals',
+    title: 'طراحی ویژوال',
     icon: 'some-files',
     disabled: true
   },
   {
-    title: 'Wizards',
-    icon: 'note-2',
+    title: 'چت و گفتگو',
+    icon: 'message-text',
+
     disabled: true
   }
 ];

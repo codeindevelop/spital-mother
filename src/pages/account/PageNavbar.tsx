@@ -7,7 +7,7 @@ const PageNavbar = () => {
   const { getMenuConfig } = useMenus();
   const { currentLayout } = useLayout();
   const menuConfig = getMenuConfig('primary');
-  const accountMenuConfig = menuConfig?.['3']?.children;
+  const accountMenuConfig = menuConfig?.['4']?.children;
 
   if (accountMenuConfig && currentLayout?.name === 'demo4-layout') {
     return (

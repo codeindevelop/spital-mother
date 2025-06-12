@@ -18,7 +18,7 @@ export const getUserAction = createAsyncThunk('showUser', async (userId, { rejec
       user_id: userId
     };
 
-    const response = await axios.post(`${cruds.getUserUrl}`, body, config);
+    const response = await axios.get(`${cruds.getUserUrl}`, body, config);
     return response.data; // فقط user رو برمی‌گردونیم
   } catch (error) {
     if (error instanceof AxiosError && error.response) {
